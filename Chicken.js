@@ -13,7 +13,8 @@ const chickenSchema = mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['alive', 'dead', 'unknown']
+        enum: ['alive', 'dead', 'unknown'],
+        default: 'unknown'
     },
     id: {
         type: Number,
