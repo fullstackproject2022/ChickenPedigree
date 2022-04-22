@@ -38,6 +38,10 @@ const chickenSchema = mongoose.Schema({
         maxLength: 6,
         default: 0
     },
+    children: {
+        type: [Number],
+        default: []
+    },
     comment: {
         type: String,
         default: ''
