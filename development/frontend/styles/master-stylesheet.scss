@@ -1,0 +1,76 @@
+// COLORS
+$color-button: rgb(113, 126, 149);
+$color-gridline-table: rgb(44, 49, 58);
+$color-border-table-item: rgb(44, 49, 60);
+
+// BACKGROUND-COLORS
+    // -- tooltip
+$background-color-tooltip: rgba(33, 37, 43, 180);
+
+    // -- general
+$background-color-dark: rgb(33, 37, 43);
+$background-color-mediumdark: rgb(40, 44, 52);
+
+    // -- button
+$background-color-button: rgb(37, 41, 48);
+
+    // -- navPanels
+$background-color-topNav: rgb(33, 37, 43);
+$background-color-rightNav: rgb(44, 49, 57);
+$background-color-bottomNav: $color-gridline-table;
+$background-color-bottomNavLabel: $color-button;
+
+    // -- themes
+$background-color-theme: rgb(189, 147, 249);
+
+    // -- table
+$background-color-table: transparent;
+$background-color-table-header: $background-color-dark;
+$background-color-table-header-2: $background-color-topNav;
+
+    // -- line edit
+$background-color-lineEdit: $background-color-topNav;
+
+    // -- scrollbar
+$background-color-scrollbar: rgb(52, 59, 72);
+$background-color-scrollbar2: rgb(55, 63, 77);
+$background-color-scrollbar-handle: $background-color-theme;
+
+    // -- checkbox
+$background-color-checkbox: $color-border-table-item;
+$background-color-checkbox-checked: rgb(52, 59, 72); // not changing this rgb to variable as it may be subject to change
+
+// WIDTHS   /   HEIGHTS
+$width-scrollbar-verticle: 8px;
+$height-scrollbar-horizontal: $width-scrollbar-verticle;
+
+// BORDERS
+$border: 3px solid $color-gridline-table;
+$border-checkbox: 3px solid $background-color-checkbox-checked;
+$border-table-header: rgb(44, 49, 58);
+$border-style-table-header: none;
+$border-color-table-header: rgb(44, 49, 60);
+$border-side-table-header: 1px solid $border-color-table-header; // bottom | left | right
+    // -- border radii
+$border-radius-checkbox: 10px;
+$border-radius-table: 5px;
+$border-radius-button: 5px;
+$border-radius-scrollbar-handle: 4px;
+
+
+// ACTIONS
+// --hover
+$hover-background-color: $background-color-topNav;
+$hover-topNav-button-background-color: rgb(44, 49, 57); // same as rightNav, but kept independant incase of changes
+$hover-button-background-color: $background-color-mediumdark;
+$hover-border-radius-button: $border-radius-button - 1px;
+$hover-border-lineEdit: 2px solid rgb(64, 71, 88);
+
+// -- pressed
+$pressed-background-color: rgb(189, 147, 249);
+$pressed-table-item: $pressed-background-color;
+$pressed-color: rgb(255, 255, 255);
+$pressed-topNav-button-background-color: rgb(23, 26, 30);
+
+// -- focus
+$focus-border-LineEdit: 2px solid rgb(91, 101, 124);
