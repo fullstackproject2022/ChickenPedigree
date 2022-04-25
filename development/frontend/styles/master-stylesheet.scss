@@ -2,6 +2,7 @@
 $color-button: rgb(113, 126, 149);
 $color-gridline-table: rgb(44, 49, 58);
 $color-border-table-item: rgb(44, 49, 60);
+$color-select-itemView: rgb(255, 121, 198);  
 
 // BACKGROUND-COLORS
     // -- tooltip
@@ -39,24 +40,56 @@ $background-color-scrollbar-handle: $background-color-theme;
     // -- checkbox
 $background-color-checkbox: $color-border-table-item;
 $background-color-checkbox-checked: rgb(52, 59, 72); // not changing this rgb to variable as it may be subject to change
+$background-color-checkbox-indicator: rgb(44, 49, 60);
+
+    // -- radio
+$background-color-radio-indicator: $background-color-checkbox-indicator;
+$background-radio-indicator-checked: 3px solid rgb(94, 106, 130);
+
+    // -- select "comboBox"
+$background-color-select: rgb(27, 29, 35);
+$background-color-select-itemView: rgb(33, 37, 43);
+
+
 
 // WIDTHS   /   HEIGHTS
 $width-scrollbar-verticle: 8px;
 $height-scrollbar-horizontal: $width-scrollbar-verticle;
+$width-height-radio-indicator: 15px;
 
 // BORDERS
+    // -- general
 $border: 3px solid $color-gridline-table;
+    // -- checkbox
 $border-checkbox: 3px solid $background-color-checkbox-checked;
+$border-checkbox-indicator-hover: 3px solid rgb(58, 66, 81);
+$border-checkbox-indicator-checked: $border-checkbox-indicator-hover; // ... then add tick img background?
+
+    // -- radio button
+$border-radio-indicator: 3px solid rgb(52, 59, 72);
+$border-radio-indicator-hover: $border-checkbox-indicator-hover;
+$border-radio-indicator-checked: $border-radio-indicator;
+
+
+
+// -- table
 $border-table-header: rgb(44, 49, 58);
 $border-style-table-header: none;
 $border-color-table-header: rgb(44, 49, 60);
 $border-side-table-header: 1px solid $border-color-table-header; // bottom | left | right
-    // -- border radii
+
+// -- select combobox
+$border-select: 2px solid rgb(33, 37, 43);
+$border-select-hover: 2px solid rgb(64, 71, 88);
+
+
+// -- border radii
 $border-radius-checkbox: 10px;
+$border-radius-radio-indicator: 10px;
 $border-radius-table: 5px;
 $border-radius-button: 5px;
 $border-radius-scrollbar-handle: 4px;
-
+$border-radius-select: 5px;
 
 // ACTIONS
 // --hover
