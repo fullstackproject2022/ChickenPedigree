@@ -6,7 +6,6 @@ const fetchPedigree = async (collection) => {
         .then(response => response.json())
         .then(res => data.push(res))
         .catch(error => console.log(error.message))
-
     return data[0]
 }
 
