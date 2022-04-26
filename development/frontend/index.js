@@ -29,7 +29,7 @@ const App = () => {
         {/* This is code for Admin panel */}
         {/* <AdminPanel /> */}
     </StrictMode>
-}
+} 
 
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
