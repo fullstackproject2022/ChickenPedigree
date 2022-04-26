@@ -149,3 +149,16 @@ th.down {
 .table tbody tr:nth-child(2n) td {
     background: #fff;
 }
+
+.login-wrapper {
+    background: rgb(223, 219, 219);
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0 2em 2em 2em;
+    margin: auto;
+    width: fit-content;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

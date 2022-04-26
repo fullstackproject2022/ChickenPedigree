@@ -32,6 +32,7 @@ const Table = ({ data, columns }) => {
 
     return (
         <>
+            <h2>Navigate the tables to view the chicks</h2>
             <table className="table">
                 <caption>
                     Only the 5 most recent registrations are shown
