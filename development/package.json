@@ -17,7 +17,6 @@
     "AJAX",
     "Webpack"
   ],
-  "proxy": "http://localhost:3000",
   "author": "Sam Hurenkamp, Sandra Kaljula, Mark Harvey, Ramin Darudi",
   "license": "ISC",
   "devDependencies": {
