@@ -12,7 +12,7 @@ const Button = ({ text, onClick }) => {
   }
 
   return (
-    <button className="btn" onClick={buttonPress()}>{text}</button>
+    <button className="btn" onClick={buttonPress}>{text}</button>
   )
 }
 
