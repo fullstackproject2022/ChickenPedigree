@@ -11,17 +11,6 @@ body {
     background-color: rgb(40, 44, 52);
 }
 
-h1 {
-    font-family: $font-fam;
-    font-size: 62px;
-
-}
-
-h2 {
-    font-family: $font-fam;
-    margin-bottom: 130px;
-}
-
 h1,
 h2 {
     display: flex;
@@ -32,31 +21,15 @@ h2 {
 }
 
 thead {
-    background-color: chocolate;
     width: max($cellWidth);
     height: $cellHeight;
 }
 
 tbody {
-    background-color: aquamarine;
     width: $cellWidth;
     height: $cellHeight;
 }
 
-td,
-th {
-    padding: 10px;
-}
-
-caption {
-    font-size: 42px;
-}
-
-// premade css
-
-* {
-    box-sizing: border-box;
-}
 
 body {
     color: #383f4d;
@@ -72,6 +45,7 @@ body {
   =====================
   */
 
+  // Doesn't do anything but left in incase was neeeded.
 .table_container {
     max-width: 1250px;
     /* max-height: 500px; */

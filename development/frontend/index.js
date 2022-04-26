@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 const App = () => {
     return <StrictMode>
-
+        {/* This is code for top and left panel */}
         <Router>
             <LeftPanel />
 
@@ -20,9 +20,14 @@ const App = () => {
             </Routes>
         </Router>
 
-        {/* <div>
-            <LeftPanel />
-        </div> */}
+        {/* This is code for main chicken Table */}
+        <div>
+            <ChickenTable />
+        </div>
+
+
+        {/* This is code for Admin panel */}
+        {/* <AdminPanel /> */}
     </StrictMode>
 }
 
