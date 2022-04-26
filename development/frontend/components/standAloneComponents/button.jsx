@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({text, onClick}) => {
+const Button = ({ text, onClick }) => {
 
   const [btnState, setBtnState] = useState(false)
 

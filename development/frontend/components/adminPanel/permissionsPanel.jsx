@@ -1,6 +1,6 @@
 // Builds permissions panel.
 import React, { useState, useEffect } from 'react';
-import Checkbox from "../../standAloneComponents/checkbox.jsx";
+import Checkbox from "./../standAloneComponents/checkbox.jsx";
 //import read from './../../../backend/api/crud/read';
 
 

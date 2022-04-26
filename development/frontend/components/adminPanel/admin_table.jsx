@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
-import Table from './table.jsx';
+import Table from '../table/table.jsx';
 
 
 
@@ -19,7 +19,7 @@ const AdminTable = () => {
             { label: "Username", key: "username", sortable: true },
             { label: "Fullname", key: "fullname", sortable: true },
             { label: "Role", key: "role", sortable: true },
-            { label: "Admin", key: "admin", sortable: true },
+            //{ label: "Admin", key: "admin", sortable: true },
         ];
 
         return < Table data={user_data} columns={tableColumns} />
