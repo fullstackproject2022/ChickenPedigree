@@ -1,7 +1,7 @@
 // Builds checkbox.
 
 import React, { useState } from 'react';
-
+//import PropTypes from 'prop-types';
 
 const Checkbox = ({ label, check }) => {
     // Used to update the checkbox state (checked or not)
@@ -23,10 +23,13 @@ const Checkbox = ({ label, check }) => {
 
     )
 }
-CheckBox.propType = {
-    label: PropType.string,
-    check: PropType.bool
+/*
+CheckBox.propTypes = {
+    label: PropTypes.string,
+    check: PropTypes.bool
 }
+*/
+
 
 export default Checkbox;
 

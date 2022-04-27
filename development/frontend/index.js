@@ -2,9 +2,13 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import ChickenTable from "./components/table/chicken_table.jsx";
 import Login from './components/Login/Login.jsx';
-import './styles/index-stylesheet.scss'
+
 import useToken from './useToken';
 import jwtDecode from 'jwt-decode'
+import AdminPanel from "./components/adminPanel/adminPanel.jsx";
+import LeftPanel from "./components/leftPanel/leftPanel.jsx";
+import './styles/index.stylesheet.scss';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 function App() {
 
@@ -25,10 +29,26 @@ function App() {
     };
 
     return <StrictMode>
-        <div className="table_container">
-            < ChickenTable />
+        {/* This is code for top and left panel */}
+        <Router>
+            <LeftPanel />
+
+            <Routes>
+
+                <Route path="/" />
+
+            </Routes>
+        </Router>
+
+        {/* This is code for main chicken Table */}
+        <div>
+            <ChickenTable />
         </div>
+
+
+        {/* This is code for Admin panel */}
+        {/* <AdminPanel /> */}
     </StrictMode>
-}
+} 
 
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);

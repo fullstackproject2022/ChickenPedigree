@@ -21,10 +21,10 @@ ROUTER.get('/chicken', async (_, res) => {
 })
 
 ROUTER.get('/users', async (_, res) => {
-    let data = await Course.find()
+    let data = await User.find()
     if (!data) {
         return res.status(400).json(
-            { message: `Error: Course not found!` }
+            { message: `Error: User(s) not found!` }
         )
     }
     res.send(data)
@@ -34,7 +34,7 @@ ROUTER.get('/owner', async (_, res) => {
     let data = await Owner.find() // should just return 1 Owner object
     if (!data || data.length > 1) {
         return res.status(400).json(
-            { message: `Error: Registration date not found!` }
+            { message: `Error: Owner(s) not found!` }
         )
     }
     res.send(data)

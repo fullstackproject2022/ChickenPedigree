@@ -23,7 +23,10 @@ module.exports = {
         port: 8080,
         hot: true,
         compress: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        proxy: { 
+            "/api": "http://localhost:3000/"
+        }
     },
     module: {
         rules: [
@@ -50,5 +53,5 @@ module.exports = {
             filename: "index.html"
         })
         // new bundleAnalyzer()
-    ],
+    ], 
 };
