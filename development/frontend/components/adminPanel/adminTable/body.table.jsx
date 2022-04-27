@@ -11,22 +11,20 @@ const TableBody = ({ columns, tableData }) => {
         // delete it on the database
         deletion.deleteUser(id);
         // delete from the table
-
-
-        //tableData.find(data => data._id == id); // find the object
-
+        document.getElementById(id).remove();
         // log which id was deleted
         console.log("delete " + id);
     }
+
 
     function updateUser(_id) {
         console.log("update " + _id);
     }
     return (
-        <tbody>
+        <tbody className='tbody'>
             {tableData.map((data) => {
                 return (
-                    <tr key={data._id}>
+                    <tr key={data._id} id={data._id}>
                         {columns.map(({ key }) => {
                             if (key == "delete") {
                                 return <td key={key}><Button text={"delete"} onClick={deleteUser} id={data._id} /></td>
