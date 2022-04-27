@@ -6,10 +6,18 @@ $cellWidth: 85px;
 $font-fam: 'Grape Nuts',
 'Beau Rivage',
 sans-serif;
+button{
+    cursor: pointer;
+}
+
+html{
+    background-color: rgb(33, 37, 43);
+}
 
 body {
     background-color: rgb(40, 44, 52);
 }
+
 
 h1,
 h2 {
@@ -123,3 +131,22 @@ th.down {
 .table tbody tr:nth-child(2n) td {
     background: #fff;
 } 
+
+
+// panel placement
+
+.entire-page {
+    position: relative;
+}
+
+.left-panel {
+    position: absolute;
+    top: 87px;
+    left: 0;
+}
+
+.top-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
