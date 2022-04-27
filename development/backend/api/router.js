@@ -37,4 +37,18 @@ ROUTER.get('/owner', async (_, res) => {
     res.send(data)
 })
 
+// Delete an user
+ROUTER.delete("/delete/:id", async (req, res) => {
+    try {
+        const user = await User.findOne({ _id: req.params.id });
+        if (!user) {
+            throw new Error("User does not exist");
+        }
+        await User.deleteOne({ _id: req.params.id });
+        res.status(204).send();
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+});
+
 module.exports = ROUTER

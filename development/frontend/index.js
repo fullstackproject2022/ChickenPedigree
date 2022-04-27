@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 const App = () => {
     return <StrictMode>
         {/* This is code for top and left panel */}
-        <Router>
+        {/* <Router>
             <LeftPanel />
 
             <Routes>
@@ -18,18 +18,25 @@ const App = () => {
                 <Route path="/" />
 
             </Routes>
-        </Router>
+            // </Router> */}
 
-        {/* This is code for main chicken Table */}
+        {/* This is code for main chicken Table 
         <div>
             <ChickenTable />
         </div>
+        */}
+
 
 
         {/* This is code for Admin panel */}
-        {/* <AdminPanel /> */}
+
+        {<AdminPanel />}
     </StrictMode>
 }
+/*
+
+*/
+
 //<ChickenTable />
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
