@@ -12,6 +12,6 @@ const App = () => {
         </div>
     </StrictMode>
 }
-
+//<ChickenTable />
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
