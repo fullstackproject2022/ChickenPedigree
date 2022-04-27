@@ -21,11 +21,10 @@ function App() {
     try {
         console.log(token);
         const verified = jwtDecode(token, process.env.TOKEN_SECRET);
-        req.user = verified;
+        console.log(verified);
         next();
     } catch (err) {
         console.log(err);
-        res.status(400).json('Invalid Token');
     };
 
     return <StrictMode>

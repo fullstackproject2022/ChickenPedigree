@@ -6,9 +6,9 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const API = require('./api/router.js');
 
-const cors = require('cors');
+// const cors = require('cors');
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json()); // middleware
 app.use('/', express.static(path.resolve(__dirname, '..', '..', 'production/')));
