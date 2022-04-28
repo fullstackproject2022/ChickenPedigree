@@ -39,11 +39,6 @@ ROUTER.get('/owner', async (_, res) => {
     res.send(data)
 })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 7d3b654 (Initial CRUD fetches and APIs)
 // delete a user
 ROUTER.delete("/delete/:id", async (req, res) => {
     try {
@@ -127,9 +122,4 @@ ROUTER.post('/users/', async (req, res) => {
     }
 });
 
-
-<<<<<<< HEAD
->>>>>>> 7d3b654 (Initial CRUD fetches and APIs)
-=======
->>>>>>> 7d3b654 (Initial CRUD fetches and APIs)
 module.exports = ROUTER
