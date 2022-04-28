@@ -19,7 +19,7 @@ const LeftPanel = () => {
         // code for what the setting button will do 
 
 
-
+ 
 
         toggleButton()
     }

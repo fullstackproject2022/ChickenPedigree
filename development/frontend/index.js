@@ -26,8 +26,8 @@ const App = () => {
             </div>
 
 
-
-
+ 
+ 
             {/* This is code for top and left panel */}
             {/* <Router>
                 <LeftPanel />
