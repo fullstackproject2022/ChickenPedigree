@@ -1,5 +1,6 @@
 // CRUD read
-const fetchPedigree = async (collection) => {
+
+const fetchCollection = async (collection) => {
     var data = []
 
     await fetch(`/api/${collection}`)
@@ -9,6 +10,15 @@ const fetchPedigree = async (collection) => {
     return data[0]
 }
 
+const fetchOne = async (collection, id) => {
+    var data = []
+    await fetch(`/api/${collection}/${id}`)
+        .then(response => response.json())
+        .then(res => data.push(res))
+        .catch(error => console.log(error.message))
+    return data[0]
+}
 
 
-export default { fetchPedigree }
+
+export default { fetchCollection, fetchOne }

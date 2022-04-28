@@ -1,5 +1,5 @@
 // CRUD delete
-// delete user from database
+
 const deleteUser = async (id) => {
     const deleteDetails = {
         id: id,
