@@ -6,21 +6,18 @@ $cellWidth: 85px;
 $font-fam: 'Grape Nuts',
 'Beau Rivage',
 sans-serif;
+button{
+    cursor: pointer;
+}
+
+html{
+    background-color: rgb(33, 37, 43);
+}
 
 body {
-    background-color: bisque;
+    background-color: rgb(40, 44, 52);
 }
-
-h1 {
-    font-family: $font-fam;
-    font-size: 62px;
-
-}
-
-h2 {
-    font-family: $font-fam;
-    margin-bottom: 130px;
-}
+ 
 
 h1,
 h2 {
@@ -32,31 +29,15 @@ h2 {
 }
 
 thead {
-    background-color: chocolate;
     width: max($cellWidth);
     height: $cellHeight;
 }
 
 tbody {
-    background-color: aquamarine;
     width: $cellWidth;
     height: $cellHeight;
 }
 
-td,
-th {
-    padding: 10px;
-}
-
-caption {
-    font-size: 42px;
-}
-
-// premade css
-
-* {
-    box-sizing: border-box;
-}
 
 body {
     color: #383f4d;
@@ -72,6 +53,7 @@ body {
   =====================
   */
 
+  // Doesn't do anything but left in incase was neeeded.
 .table_container {
     max-width: 1250px;
     /* max-height: 500px; */
@@ -109,7 +91,7 @@ caption {
     border-bottom: 1px solid #1a1a1a;
     font-weight: bold;
     text-align: left;
-}
+} 
 
 .table th.up {
     background-image: url($assets + "ascend.png");
@@ -148,4 +130,23 @@ th.down {
 
 .table tbody tr:nth-child(2n) td {
     background: #fff;
+} 
+
+
+// panel placement
+
+.entire-page {
+    position: relative;
+}
+
+.left-panel {
+    position: absolute;
+    top: 87px;
+    left: 0;
+}
+
+.top-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
