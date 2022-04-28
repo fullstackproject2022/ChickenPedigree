@@ -49,31 +49,39 @@ const LeftPanel = () => {
             
         </div>
 
-        <div onClick={settingButton} className='left-panel-settingsButton'>
-            <h5>Settings</h5>
+        <div className='left-panel-items'>
 
-            {/* Text to appear after clicking settings button */}
-            <div className='left-panel-settingText'>
-                
-                <AiIcons.AiFillSetting />
+            <div onClick={settingButton} className='left-panel-settingComp'>
+
+                {/* Text to appear after clicking settings button */}
+                <div className='left-panel-settingsButton'>
+                    
+                    <AiIcons.AiFillSetting />
+                </div>
+
+                <h5>Settings</h5>
+
             </div>
+
+
+
+
+
+            <div onClick={toggleButton} className='left-panel-footer'>
+
+                <div className='account-icon'>
+                    <MdIcons.MdAccountCircle />
+                </div>
+
+                <div className='User-name'>
+                    {/* <h4></h4> this line will have the users name */}
+                </div>
+
+            </div>
+
         </div>
 
 
-
-
-
-        <div onClick={toggleButton} className='left-panel-footer'>
-
-            <div className='account-icon'>
-                <MdIcons.MdAccountCircle />
-            </div>
-
-            <div className='User-name'>
-                {/* <h4></h4> this line will have the users name */}
-            </div>
-
-        </div>
 
         
       

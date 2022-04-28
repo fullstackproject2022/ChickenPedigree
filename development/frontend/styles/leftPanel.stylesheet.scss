@@ -74,7 +74,7 @@ body {
 
 
 //*** All menu items ***// 
-.left-panel .left-panel-settingsButton {
+.left-panel .left-panel-items .left-panel-settingComp {
   
   // text-align: center;
   color: #eee;
@@ -86,7 +86,7 @@ body {
   left: 17px;
 }
 
-.left-panel .left-panel-settingsButton .left-panel-settingText{
+.left-panel .left-panel-items .left-panel-settingsComp .left-panel-settingsButton {
   // display: block;
   display: inline-block;
   font-size: 30px;
