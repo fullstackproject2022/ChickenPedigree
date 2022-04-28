@@ -11,7 +11,7 @@ const ChickenTable = () => {
     }, [])
 
     const getData = () => {
-        read.fetchPedigree("chicken") // returns it in object format
+        read.fetchCollection("chicken") // returns it in object format
             .then(result => setChickenData(result))
     }
     if (chicken_data.length > 0) {
