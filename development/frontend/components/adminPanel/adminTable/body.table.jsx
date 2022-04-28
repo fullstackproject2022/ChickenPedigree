@@ -19,6 +19,7 @@ const TableBody = ({ columns, tableData }) => {
 
     function updateUser(_id) {
         console.log("update " + _id);
+
     }
     return (
         <tbody className='tbody'>

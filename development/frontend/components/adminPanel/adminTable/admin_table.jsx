@@ -10,7 +10,7 @@ const AdminTable = () => {
     }, [])
 
     const getData = async () => {
-        await read.fetchPedigree("users") // returns it in object format
+        await read.fetchCollection("users") // returns it in object format
             .then(result => setUserData(result))
     }
 
