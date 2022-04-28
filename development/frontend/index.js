@@ -21,6 +21,8 @@ const App = () => {
                 <MainPanel />
             </section>
         </div>
+
+
     </StrictMode>
 }
 
