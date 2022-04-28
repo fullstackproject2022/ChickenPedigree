@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 // CRUD delete
+<<<<<<< HEAD
 =======
 // CRUD delete
+=======
+>>>>>>> 7d3b654 (Initial CRUD fetches and APIs)
 
 const deleteUser = async (id) => {
     const deleteDetails = {
