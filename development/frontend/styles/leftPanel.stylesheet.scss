@@ -5,6 +5,9 @@
 // all left panel buttons need to be made dynamic with how the respond to the vertical change of the screen
 
 
+
+
+//*** All the Top of left panel components ***// 
 .left-panel-toggle, .left-panel-settingsButton{
   cursor: pointer;
 }
@@ -33,17 +36,6 @@ body {
   transition: width .35s ease-out;
 }
 
-.left-panel-settingsButton {
-  display: inline-block;
-  color: #eee;
-  position: absolute;
-  font-size: 35px;
-  bottom: -700px; // this needs to be dynamic 
-  // border: 2px solid;
-  right: 0;
-  left: 0;
-}
-
 .left-panel.inactive {
   width: 250px;
 }
@@ -52,17 +44,6 @@ body {
 
   // the line bellow allows items to be moved around freely
   position: relative;
-}
-
-.left-panel .topOf-left-panel .logo {
-  width: 40px;
-  height: 40px;
-  overflow: hidden;
-}
-
-.left-panel .topOf-left-panel .logo-img {
-  max-width: 100%;
-  max-height: 100%;
 }
 
 .left-panel .topOf-left-panel .left-panel-toggle {
@@ -90,20 +71,40 @@ body {
   right: 14px;
 }
 
-.menu-button {
+
+
+//*** All menu items ***// 
+.left-panel .left-panel-settingsButton {
+  
+  // text-align: center;
+  color: #eee;
   position: absolute;
-  width: 40px;
-  height: 40px;
+  font-size: 40px;
+  top: 70%; // this needs to be dynamic 
+  border: 2px solid;
+  right: 0;
+  left: 17px;
 }
 
-.account-icon{
+.left-panel .left-panel-settingsButton .left-panel-settingText{
+  // display: block;
+  display: inline-block;
+  font-size: 30px;
+  // top: 70%;
+
+
+}
+
+
+.left-panel-footer{
   position: absolute;
+  text-align: center;
   width: 40px;
   height: 40px;
-  bottom: 110px;
+  top: 80%;
   color: #eee;
   right: 0;
-  left: 20px;
+  left: 17px;
   font-size: 40px;
   // border: 2px solid;
   cursor: pointer;

@@ -42,20 +42,25 @@ const LeftPanel = () => {
 
             <div className="divider"></div>
 
-            <div onClick={settingButton} className='left-panel-settingsButton'>
-                <AiIcons.AiFillSetting />
-            </div>
-
-
-            {/* Text to appear after clicking settings button */}
-            {/* <div className='left-panel-settingText'>
-                <h5>Settings</h5>
-            </div> */}
+            
 
 
 
             
         </div>
+
+        <div onClick={settingButton} className='left-panel-settingsButton'>
+            <h5>Settings</h5>
+
+            {/* Text to appear after clicking settings button */}
+            <div className='left-panel-settingText'>
+                
+                <AiIcons.AiFillSetting />
+            </div>
+        </div>
+
+
+
 
 
         <div onClick={toggleButton} className='left-panel-footer'>
