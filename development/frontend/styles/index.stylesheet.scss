@@ -141,13 +141,18 @@ th.down {
 }
 
 .left-panel {
-    position: absolute;
+    // position: absolute;
     top: 87px;
     left: 0;
 }
 
 .top-panel {
-    position: absolute;
+    // position: absolute;
     top: 0;
     left: 0;
+}
+
+.body-wrapper {
+    display: flex;
+    margin-left: -15px;
 }

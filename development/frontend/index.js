@@ -14,24 +14,13 @@ import MainPanel from "./components/mainPanel/main.panel.jsx";
 
 const App = () => {
     return <StrictMode>
-
-        <div className="entire-page">
-
-
-            <div className="top-panel">
-                <TopPanel />
-            </div>
-
-            <div className="left-panel">
+        <div className="container">
+            <TopPanel />
+            <section className="body-wrapper">
                 <LeftPanel />
-            </div>
-
-            <div className="main-panel">
                 <MainPanel />
-            </div>
-
+            </section>
         </div>
-
     </StrictMode>
 }
 
