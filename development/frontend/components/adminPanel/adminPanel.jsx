@@ -9,13 +9,13 @@ const AdminPanel = () => {
 
     return (
         <>
-            <AdminTable />
+
             <UpdatePanel />
         </>
 
     )
 }
 
-
+//<AdminTable />
 
 export default AdminPanel;
