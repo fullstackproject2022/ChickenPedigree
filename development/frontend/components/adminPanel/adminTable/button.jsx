@@ -2,13 +2,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, id }) => {
 
   const [btnState, setBtnState] = useState(false)
 
   const buttonPress = () => {
     setBtnState(!btnState)
-    onClick()
+    onClick(id)
   }
 
   return (
@@ -16,8 +16,10 @@ const Button = ({ text, onClick }) => {
   )
 }
 
+// if it breaks it could be the id
 Button.defaultProps = {
-  text: "not Specified"
+  text: "not Specified",
+  id: null
 }
 
 Button.propTypes = {

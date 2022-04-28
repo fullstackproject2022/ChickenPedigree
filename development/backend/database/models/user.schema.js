@@ -30,22 +30,21 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    contact: {
-        phone: {
-            type: Number,
-            required: true
-        },
-        phone2: {
-            type: Number
-        },
-        email: {
-            type: String,
-            required: true
-        },
-        email2: {
-            type: String
-        },
-    }
+    phone: {
+        type: Number,
+        required: true
+    },
+    phone2: {
+        type: Number
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    email2: {
+        type: String
+    },
+
 }, { collection: 'user' });
 
 module.exports = mongoose.model('User', userSchema);

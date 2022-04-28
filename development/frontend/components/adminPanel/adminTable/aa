@@ -1,0 +1,21 @@
+       /*
+username: user.username,
+firstname: user.firstname,
+lastname: user.lastname,
+fullname: user.fullname,
+password: user.password,
+role: user.role,
+admin: user.admin,
+ 
+phone: user.contact.phone,
+phone2: user.contact.phone2,
+email: user.contact.email,
+email2: user.contact.email2,
+ 
+['Researcher',
+'Postdoc',
+'PhD Student',
+'Assistant',
+'MSc Student', 
+'BSc Student']
+*/

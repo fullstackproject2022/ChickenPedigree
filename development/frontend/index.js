@@ -7,8 +7,11 @@ import useToken from './useToken';
 import jwtDecode from 'jwt-decode'
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
+import TopPanel from "./components/topPanel/TopPanel.jsx";
+
+// import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './styles/index.stylesheet.scss';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
 
@@ -28,26 +31,50 @@ function App() {
     };
 
     return <StrictMode>
-        {/* This is code for top and left panel */}
-        <Router>
-            <LeftPanel />
 
-            <Routes>
+        <div className="entire-page">
 
-                <Route path="/" />
 
-            </Routes>
-        </Router>
+            <div className="top-panel">
+                <TopPanel />
+            </div>
 
-        {/* This is code for main chicken Table */}
-        <div>
-            <ChickenTable />
+            <div className="left-panel">
+                <LeftPanel />
+            </div>
+
+
+
+
+            {/* This is code for top and left panel */}
+            {/* <Router>
+                <LeftPanel />
+
+                <Routes>
+
+                    <Route path="/" />
+
+                </Routes>
+            </Router> */}
+
+            {/* This is code for main chicken Table */}
+            {/* <div>
+                <ChickenTable />
+            </div> */}
+
+
+            {/* This is code for Admin panel */}
+            {/* <AdminPanel /> */}
+
         </div>
 
 
-        {/* This is code for Admin panel */}
-        {/* <AdminPanel /> */}
-    </StrictMode>
-} 
 
+    </StrictMode>
+}
+
+
+//<ChickenTable />
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
+
+

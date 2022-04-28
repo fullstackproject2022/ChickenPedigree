@@ -24,7 +24,7 @@ module.exports = {
         hot: true,
         compress: true,
         historyApiFallback: true,
-        proxy: { 
+        proxy: {
             "/api": "http://localhost:3000/"
         }
     },
@@ -44,6 +44,19 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: "file-loader"
+                    }
+                ]
+                
+            },
+            {
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
             }
         ]
     },
@@ -53,5 +66,5 @@ module.exports = {
             filename: "index.html"
         })
         // new bundleAnalyzer()
-    ], 
+    ],
 };
