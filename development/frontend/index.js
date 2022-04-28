@@ -7,6 +7,7 @@ import ChickenTable from "./components/table/chicken.table.jsx";
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
+import MainPanel from "./components/mainPanel/main.panel.jsx";
 
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
@@ -25,28 +26,9 @@ const App = () => {
                 <LeftPanel />
             </div>
 
-
-
-
-            {/* This is code for top and left panel */}
-            {/* <Router>
-                <LeftPanel />
-
-                <Routes>
-
-                    <Route path="/" />
-
-                </Routes>
-            </Router> */}
-
-            {/* This is code for main chicken Table */}
-            {/* <div>
-                <ChickenTable />
-            </div> */}
-
-
-            {/* This is code for Admin panel */}
-            {/* <AdminPanel /> */}
+            <div className="main-panel">
+                <MainPanel />
+            </div>
 
         </div>
 
