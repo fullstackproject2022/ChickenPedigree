@@ -24,7 +24,7 @@ module.exports = {
         hot: true,
         compress: true,
         historyApiFallback: true,
-        proxy: { 
+        proxy: {
             "/api": "http://localhost:3000/"
         }
     },
@@ -66,5 +66,5 @@ module.exports = {
             filename: "index.html"
         })
         // new bundleAnalyzer()
-    ], 
+    ],
 };

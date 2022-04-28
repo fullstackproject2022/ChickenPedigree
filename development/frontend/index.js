@@ -9,6 +9,8 @@ import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import './styles/index.stylesheet.scss';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 
 const App = () => {
@@ -50,9 +52,16 @@ const App = () => {
 
         </div>
 
+
+
     </StrictMode>
 }
 
+/*
+
+*/
+
+//<ChickenTable />
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
 
