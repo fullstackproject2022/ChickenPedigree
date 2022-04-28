@@ -9,12 +9,10 @@ const createUser = async (collection) => {
         password: user.password,
         role: user.role,
         admin: user.admin,
-        contact: {
-            phone: user.contact.phone,
-            phone2: user.contact.phone2,
-            email: user.contact.email,
-            email2: user.contact.email2,
-        }
+        phone: user.phone,
+        phone2: user.phone2,
+        email: user.email,
+        email2: user.email2,
     };
     fetch(`/api/users/`, {
         method: 'POST',

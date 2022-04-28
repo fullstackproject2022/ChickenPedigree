@@ -80,14 +80,13 @@ ROUTER.put("/users/:id", async (req, res) => {
             user.password = req.body.password,
             user.role = req.body.role,
             user.admin = req.body.admin,
-            user.contact = {
-                phone: req.body.contact.phone,
-                phone2: req.body.contact.phone2,
-                email: req.body.contact.email,
-                email2: req.body.contact.email2,
-            }
+            user.phone = req.body.phone,
+            user.phone2 = req.body.phone2,
+            user.email = req.body.email,
+            user.email2 = req.body.email2,
 
-        await user.save();
+
+            await user.save();
         res.send(user);
     } catch (err) {
         res.status(404).json({ message: err.message });
@@ -105,12 +104,11 @@ ROUTER.post('/users/', async (req, res) => {
             password: req.body.password,
             role: req.body.role,
             admin: req.body.admin,
-            contact: {
-                phone: req.body.contact.phone,
-                phone2: req.body.contact.phone2,
-                email: req.body.contact.email,
-                email2: req.body.contact.email2,
-            }
+            phone: req.body.phone,
+            phone2: req.body.phone2,
+            email: req.body.email,
+            email2: req.body.email2,
+
         });
 
         const foundUser = await User.findOne({ id: req.body.id });

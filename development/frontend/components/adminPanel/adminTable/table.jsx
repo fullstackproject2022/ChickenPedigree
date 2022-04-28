@@ -5,10 +5,6 @@ import TableHead from './head.table.jsx';
 const Table = ({ data, columns }) => {
     const [dbTableData, setTableData] = useState(data); // setTableData is the updater function
 
-    // console.log(`columns ${columns}`)
-    // console.log(`dbTableData ${dbTableData}`)
-    // console.log(`setTableData ${setTableData}`)
-
     const doSort = (field, order) => {
         if (field) {
             const sortedData = [...dbTableData]
