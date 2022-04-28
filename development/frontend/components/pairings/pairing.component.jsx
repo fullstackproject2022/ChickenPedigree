@@ -60,7 +60,7 @@ const PairingWindow = () => {
     }
 
     useEffect(() => {
-        read.fetchPedigree("chicken")  // returns it in object format
+        read.fetchCollection("chicken")  // returns it in object format
             .then(result => {
                 var temp = []
                 result.filter(chicken => {
