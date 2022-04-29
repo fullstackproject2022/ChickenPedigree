@@ -14,10 +14,22 @@ html{
     background-color: rgb(33, 37, 43);
 }
 
+button {
+    cursor: pointer;
+}
+
+html {
+    background-color: rgb(33, 37, 43);
+}
+
 body {
     background-color: rgb(40, 44, 52);
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> origin/dev-sam
 
 h1,
 h2 {
@@ -53,7 +65,11 @@ body {
   =====================
   */
 
+<<<<<<< HEAD
   // Doesn't do anything but left in incase was neeeded.
+=======
+// Doesn't do anything but left in incase was neeeded.
+>>>>>>> origin/dev-sam
 .table_container {
     max-width: 1250px;
     /* max-height: 500px; */
@@ -130,7 +146,11 @@ th.down {
 
 .table tbody tr:nth-child(2n) td {
     background: #fff;
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> origin/dev-sam
 
 
 // panel placement
@@ -140,13 +160,28 @@ th.down {
 }
 
 .left-panel {
+<<<<<<< HEAD
     position: absolute;
+=======
+    // position: absolute;
+>>>>>>> origin/dev-sam
     top: 87px;
     left: 0;
 }
 
 .top-panel {
+<<<<<<< HEAD
     position: absolute;
     top: 0;
     left: 0;
+=======
+    // position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.body-wrapper {
+    display: flex;
+    margin-left: -15px;
+>>>>>>> origin/dev-sam
 }

@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 // CRUD delete
 
 
+=======
+>>>>>>> origin/dev-sam
 const deleteUser = async (id) => {
     const deleteDetails = {
         id: id,
@@ -19,5 +22,9 @@ const deleteUser = async (id) => {
             }
         });
 }
+<<<<<<< HEAD
 export default { deleteUser }
 
+=======
+export default { deleteUser }
+>>>>>>> origin/dev-sam
