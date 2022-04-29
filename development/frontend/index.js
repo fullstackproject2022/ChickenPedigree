@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import ChickenTable from "./components/table/chicken_table.jsx";
+import ChickenTable from "./components/table/chicken.table.jsx";
 import Login from './components/Login/Login.jsx';
 
 import useToken from './useToken';
@@ -18,7 +18,7 @@ function App() {
     const { token, setToken } = useToken();
 
     if (!token) {
-        return <Login setToken={setToken} />
+        return <Login setToken={setToken} /> 
     }
 
     try {
@@ -47,7 +47,7 @@ function App() {
 
 
             {/* This is code for top and left panel */}
-            {/* <Router>
+            <Router>
                 <LeftPanel />
 
                 <Routes>
@@ -55,16 +55,16 @@ function App() {
                     <Route path="/" />
 
                 </Routes>
-            </Router> */}
+            </Router>
 
             {/* This is code for main chicken Table */}
-            {/* <div>
+            <div>
                 <ChickenTable />
-            </div> */}
+            </div>
 
 
             {/* This is code for Admin panel */}
-            {/* <AdminPanel /> */}
+            <AdminPanel />
 
         </div>
 
