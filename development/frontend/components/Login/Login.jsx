@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { loginUser } from '../../../backend/api/crud/create';
+import logo from "../../styles/assets/logo3.png";
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
@@ -17,16 +18,19 @@ export default function Login({ setToken }) {
 
   return (
     <div className="login-wrapper">
+      <div className='logo'>
+          <img src={logo} alt="logo" className='logo-img'/>
+      </div>
       <h1> Peck It </h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        <div>
           <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
+          <input type="text" placeholder="Username" id="username" onChange={e => setUserName(e.target.value)} />
+        </div>
+        <div>
           <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
+          <input type="password" placeholder="Password" id="password" onChange={e => setsetPassword(e.target.value)} />
+        </div>
         <div className="submit" >
           <button type="submit">Submit</button>
         </div>
