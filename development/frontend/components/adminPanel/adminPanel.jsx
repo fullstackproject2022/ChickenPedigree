@@ -10,7 +10,7 @@ const AdminPanel = () => {
 
     return (
         <>
-            <CreatePanel />
+            <UpdatePanel />
 
         </>
 

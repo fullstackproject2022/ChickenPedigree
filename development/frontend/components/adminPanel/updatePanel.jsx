@@ -2,7 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import update from '../../../backend/api/crud/update';
-import './../../styles/updatePanel.stylesheet.scss'
+import './../../styles/updatePanel.stylesheet.scss';
+import validateForm from './validateForm';
+
+
 // Change password as well? Change id to parameter! Create user page?
 const UpdatePanel = (id) => { // Change id where --------------------->
     const [user_data, setUserData] = useState([])
@@ -41,8 +44,12 @@ const UpdatePanel = (id) => { // Change id where --------------------->
             email: email != undefined ? email : user_data.email,
             email2: email2 != undefined ? email2 : user_data.email2,
         };
-        update.updateUser(updateDetails, "626a7a71006d0701adef3159")//<---------------------here
+        let err = validateForm.validate(updateDetails);
+        if (err == 0) {
+            update.updateUser(updateDetails, "626a7a71006d0701adef3159")//<---------------------here
+        }
     }
+
     return (
         <>
             <span>Sidenote: On the left you see the current info and you can change the ones you would like on the right panel and leave the ones you do not want to change empty.</span>

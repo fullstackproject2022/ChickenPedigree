@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import create from '../../../backend/api/crud/create';
-import './../../styles/updatePanel.stylesheet.scss'
+import './../../styles/updatePanel.stylesheet.scss';
+import validateForm from './validateForm';
 
 const CreatePanel = () => {
     const [username, setUsername] = useState();
@@ -32,7 +33,11 @@ const CreatePanel = () => {
             email: email,
             email2: email2,
         };
-        create.createUser(createDetails)
+        let err = validateForm.validate(createDetails);
+        if (err == 0) {
+            create.createUser(createDetails);
+        }
+
     }
     return (
         <>
