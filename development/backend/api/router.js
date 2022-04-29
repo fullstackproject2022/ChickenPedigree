@@ -125,5 +125,4 @@ ROUTER.post('/users/', async (req, res) => {
     }
 });
 
-
 module.exports = ROUTER

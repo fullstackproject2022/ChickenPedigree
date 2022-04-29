@@ -1,4 +1,6 @@
+
 // CRUD delete
+
 
 const deleteUser = async (id) => {
     const deleteDetails = {
@@ -18,3 +20,4 @@ const deleteUser = async (id) => {
         });
 }
 export default { deleteUser }
+
