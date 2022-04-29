@@ -1,6 +1,7 @@
 const express = require('express');
 const ROUTER = express.Router();
 const dbPath = '../database/models/'
+const bcrypt = require('bcryptjs');
 const Chicken = require(`${dbPath}/chicken.schema.js`);
 const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
@@ -96,12 +97,16 @@ ROUTER.put("/users/:id", async (req, res) => {
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
     try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
+
         const user = new User({
             username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             fullname: req.body.fullname,
-            password: req.body.password,
+            password: hashPssword,
             role: req.body.role,
             admin: req.body.admin,
             phone: req.body.phone,
