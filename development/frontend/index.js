@@ -3,16 +3,25 @@ import ReactDOM from "react-dom/client";
 
 import './styles/index.stylesheet.scss';
 
+<<<<<<< HEAD
 import ChickenTable from "./components/table/chicken_table.jsx";
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
+=======
+import ChickenTable from "./components/table/chicken.table.jsx";
+import AdminPanel from "./components/adminPanel/adminPanel.jsx";
+import LeftPanel from "./components/leftPanel/leftPanel.jsx";
+import TopPanel from "./components/topPanel/TopPanel.jsx";
+import MainPanel from "./components/mainPanel/main.panel.jsx";
+>>>>>>> dev-sam
 
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 
 const App = () => {
     return <StrictMode>
+<<<<<<< HEAD
 
         <div className="entire-page">
 
@@ -50,6 +59,17 @@ const App = () => {
 
         </div>
 
+=======
+        <div className="container">
+            <TopPanel />
+            <section className="body-wrapper">
+                <LeftPanel />
+                <MainPanel />
+            </section>
+        </div>
+
+
+>>>>>>> dev-sam
     </StrictMode>
 } 
 

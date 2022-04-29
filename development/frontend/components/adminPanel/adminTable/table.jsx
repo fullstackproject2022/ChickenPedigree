@@ -29,6 +29,9 @@ const Table = ({ data, columns }) => {
     return (
         <>
             <table className="table">
+                <caption>
+                    Only the 5 most recent registrations are shown
+                </caption>
                 <TableHead columns={columns} doSort={doSort} />
                 <TableBody columns={columns} tableData={dbTableData} />
             </table>

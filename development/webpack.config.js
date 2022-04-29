@@ -24,7 +24,11 @@ module.exports = {
         hot: true,
         compress: true,
         historyApiFallback: true,
+<<<<<<< HEAD
         proxy: { 
+=======
+        proxy: {
+>>>>>>> dev-sam
             "/api": "http://localhost:3000/"
         }
     },
@@ -52,7 +56,11 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
+<<<<<<< HEAD
                 
+=======
+
+>>>>>>> dev-sam
             },
             {
                 test: /\.svg$/,

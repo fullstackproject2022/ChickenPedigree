@@ -1,19 +1,30 @@
+<<<<<<< HEAD
 import React, {useState} from 'react'
 // import { Link } from 'react-router-dom'
 // import * as FaIcons from "react-icons/fa";
+=======
+import React, { useState } from 'react'
+>>>>>>> dev-sam
 import * as AiIcons from "react-icons/ai";
 import * as MdIcons from "react-icons/md"
 import LeftPanelContent from "./LeftPanel.content.jsx"
 import '../../styles/leftPanel.stylesheet.scss'
+<<<<<<< HEAD
 // import { IconContext } from 'react-icons';
 import Button from '../standAloneComponents/button.jsx';
 
 const LeftPanel = () => {
     // Inactive is the state of the left panel, when false it is closed and vice versa
+=======
+import Button from '../standAloneComponents/button.jsx';
+
+const LeftPanel = () => {
+>>>>>>> dev-sam
     const [inactive, setInactive] = useState(false)
     const toggleButton = () => {
         setInactive(!inactive)
     }
+<<<<<<< HEAD
 
     const settingButton = () => {
         // code for what the setting button will do 
@@ -132,3 +143,34 @@ export default LeftPanel
 // }
 
 // export default LeftPanel
+=======
+    const settingButton = () => { toggleButton() }
+
+    return (
+        <div className={`left-panel ${inactive ? "inactive" : ""}`}>
+            <div className='topOf-left-panel'>
+                <div onClick={toggleButton} className='left-panel-toggle'>
+                    {inactive ? <AiIcons.AiOutlineMenuFold /> : <AiIcons.AiOutlineMenuUnfold />}
+                </div>
+                <div className="divider"></div>
+            </div>
+            <div className='left-panel-items'>
+                <div onClick={settingButton} className='left-panel-settingComp'>
+                    <div className='left-panel-settings'>
+                        <AiIcons.AiFillSetting /><span>Settings</span>
+                    </div>
+                </div>
+                <div onClick={toggleButton} className='left-panel-footer'>
+                    <div>
+                        <MdIcons.MdAccountCircle />
+                    </div>
+                    <div className='User-name'></div>
+                </div>
+
+            </div>
+        </div>
+    )
+}
+
+export default LeftPanel
+>>>>>>> dev-sam

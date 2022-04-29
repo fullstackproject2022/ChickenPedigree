@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // @use "./master.stylesheet.scss" as master;
 // @use "react-icons/ai" as icons;
 
@@ -63,10 +64,51 @@ body {
   position: absolute;
   // margin: 0 auto; use margin to center divider
   // width: 80%;
+=======
+.left-panel-toggle,
+.left-panel-settings {
+  cursor: pointer;
+}
+
+body {
+  background-color: #eee;
+  overflow-y: hidden;
+}
+
+.left-panel {
+  position: relative;
+  background: rgb(40, 44, 52);
+  width: 75px;
+  height: 89.35vh;
+  box-sizing: border-box;
+  padding: 15px 0 20px 20px;
+  transition: width .35s ease-out;
+  overflow: hidden;
+}
+
+.inactive,
+.inactive>.left-panel-settings {
+  overflow-y: auto;
+  width: 250px;
+}
+
+.topOf-left-panel {
+  position: relative;
+}
+
+.left-panel-toggle {
+  font-size: 40px;
+  overflow: hidden;
+  color: #eee;
+}
+
+.divider {
+>>>>>>> dev-sam
   height: 2px;
   border-radius: 1px;
   background-color: rgb(255, 121, 198);
   bottom: -60px;
+<<<<<<< HEAD
   left: 0px;
   right: 14px;
 }
@@ -218,3 +260,55 @@ body {
 //   span {
 //     margin-left: 16px;
 //   }
+=======
+  margin-right: 14px;
+}
+
+
+
+//*** All menu items ***// 
+.left-panel-settingComp {
+  // display: inline-block;
+  position: relative;
+  color: #eee;
+  font-size: 40px;
+  margin-top: 75px;
+  width: 200px;
+}
+
+.left-panel-settingComp * {
+  margin: 6px 3px;
+}
+
+
+.left-panel-settings {
+  position: relative;
+  display: block;
+  font-size: 32px;
+  margin: 0 auto;
+  right: 1px;
+}
+
+.left-panel-settings span {
+  position: relative;
+  top: -2.4px;
+  left: 12px;
+  display: inline;
+  vertical-align: top;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+
+.left-panel-footer div * {
+  $size: 35px;
+  position: relative;
+  text-align: center;
+  width: $size;
+  height: $size;
+  color: #eee;
+  font-size: 40px;
+  bottom: 0;
+  cursor: pointer;
+}
+>>>>>>> dev-sam
