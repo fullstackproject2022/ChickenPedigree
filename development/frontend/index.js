@@ -1,7 +1,11 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import ChickenTable from "./components/table/chicken.table.jsx";
 import Login from './components/Login/Login.jsx';
+
+
+import ChickenTable from "./components/table/chicken.table.jsx";
+import TopPanel from "./components/topPanel/TopPanel.jsx";
+import MainPanel from "./components/mainPanel/main.panel.jsx";
 
 import useToken from './useToken';
 import jwtDecode from 'jwt-decode'
@@ -31,43 +35,13 @@ function App() {
     };
 
     return <StrictMode>
-
-        <div className="entire-page">
-
-
-            <div className="top-panel">
-                <TopPanel />
-            </div>
-
-            <div className="left-panel">
+        <div className="container">
+            <TopPanel />
+            <section className="body-wrapper">
                 <LeftPanel />
-            </div>
-
-
-
-
-            {/* This is code for top and left panel */}
-            <Router>
-                <LeftPanel />
-
-                <Routes>
-
-                    <Route path="/" />
-
-                </Routes>
-            </Router>
-
-            {/* This is code for main chicken Table */}
-            <div>
-                <ChickenTable />
-            </div>
-
-
-            {/* This is code for Admin panel */}
-            <AdminPanel />
-
+                <MainPanel />
+            </section>
         </div>
-
 
 
     </StrictMode>

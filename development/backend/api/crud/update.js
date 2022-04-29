@@ -9,7 +9,6 @@ const updateUser = async (collection, user) => {
         password: user.password,
         role: user.role,
         admin: user.admin,
-
         phone: user.phone,
         phone2: user.phone2,
         email: user.email,
