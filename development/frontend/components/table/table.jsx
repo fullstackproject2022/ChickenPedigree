@@ -28,7 +28,6 @@ const Table = ({ data, columns }) => {
 
     return (
         <>
-            <h2>Navigate the tables to view the chicks</h2>
             <table className="table">
                 <TableHead columns={columns} doSort={doSort} />
                 <TableBody columns={columns} tableData={dbTableData} />

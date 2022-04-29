@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-async function loginUser(credentials) {
-  return fetch('/api/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(res => res.json())
-}
+import { loginUser } from '../../../backend/api/crud/create';
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
