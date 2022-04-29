@@ -2,7 +2,6 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import Login from './components/Login/Login.jsx';
 
-
 import ChickenTable from "./components/table/chicken.table.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
@@ -11,7 +10,6 @@ import useToken from './useToken';
 import jwtDecode from 'jwt-decode'
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
-import TopPanel from "./components/topPanel/TopPanel.jsx";
 
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './styles/index.stylesheet.scss';
