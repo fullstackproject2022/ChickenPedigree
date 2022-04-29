@@ -52,11 +52,6 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> origin/dev-sam
             },
             {
                 test: /\.svg$/,

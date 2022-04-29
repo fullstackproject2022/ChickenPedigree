@@ -1,25 +1,6 @@
 $img-size: 50px;
 
 .top-panel {
-<<<<<<< HEAD
-    position: fixed;
-    background: rgb(40, 44, 52);
-    width: 100%;
-    max-height: 80px;
-    min-height: 80px;
-    box-sizing: border-box;
-    padding: 12px 0 10px 10px;
-  }
-
-.logo-img {
-    max-width: $img-size;
-    max-height: $img-size;
-    min-width: $img-size;
-    min-height: $img-size;
-  }
-
- 
-=======
   position: fixed;
   background: rgb(40, 44, 52);
   width: 100%;
@@ -32,4 +13,3 @@ $img-size: 50px;
   width: $img-size;
   height: $img-size;
 }
->>>>>>> origin/dev-sam
