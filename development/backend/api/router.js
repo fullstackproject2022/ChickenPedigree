@@ -1,6 +1,7 @@
 const express = require('express');
 const ROUTER = express.Router();
 const dbPath = '../database/models/'
+const bcrypt = require('bcryptjs');
 const Chicken = require(`${dbPath}/chicken.schema.js`);
 const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
@@ -83,7 +84,7 @@ ROUTER.delete("/delete/:id", async (req, res) => {
 // get one user
 ROUTER.get("/users/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }
@@ -96,7 +97,7 @@ ROUTER.get("/users/:id", async (req, res) => {
 // update a user
 ROUTER.put("/users/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }
@@ -104,7 +105,7 @@ ROUTER.put("/users/:id", async (req, res) => {
             user.firstname = req.body.firstname,
             user.lastname = req.body.lastname,
             user.fullname = req.body.fullname,
-            user.password = req.body.password,
+            //user.password = req.body.password,
             user.role = req.body.role,
             user.admin = req.body.admin,
             user.phone = req.body.phone,
@@ -123,12 +124,16 @@ ROUTER.put("/users/:id", async (req, res) => {
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
     try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
+
         const user = new User({
             username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             fullname: req.body.fullname,
-            password: req.body.password,
+            password: hashPssword,
             role: req.body.role,
             admin: req.body.admin,
             phone: req.body.phone,
@@ -138,7 +143,7 @@ ROUTER.post('/users/', async (req, res) => {
 
         });
 
-        const foundUser = await User.findOne({ id: req.body.id });
+        const foundUser = await User.findOne({ _id: req.body.id });
         if (foundUser) throw new Error("User already exists");
         const newUser = await user.save();
         res.status(201).json({ newUser });
