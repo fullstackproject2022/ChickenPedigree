@@ -1,5 +1,6 @@
 // Builds forgot password panel.
 import React, { useState, useEffect, useRef } from 'react';
+import read from '../../../backend/api/crud/read';
 import emailjs from '@emailjs/browser';
 // https://dashboard.emailjs.com/admin/account
 // emailjs logins
@@ -10,6 +11,16 @@ const ForgotPwPanel = () => {
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
+        //sandrakaljula9@gmail.com
+        let email = form.current.to_email.value;
+        let token = form.current.token.value;
+
+        const exists = read.userExists(email);
+        if (!exists) {
+            alert("No user with given email address exists in our system.")
+            return;
+        }
+        console.log("YEYY");
 
         emailjs.sendForm('service_g519zjy', 'template_9dzxoxf', form.current, 'o56xON4hLUJsVdf_J')
             .then(function () {
@@ -18,6 +29,7 @@ const ForgotPwPanel = () => {
                 console.log('FAILED...', error);
             });
         alert("A login token has successfully been sent to your email.");
+
     }
 
 

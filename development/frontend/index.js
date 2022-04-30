@@ -4,8 +4,6 @@ import Login from './components/Login/Login.jsx';
 
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
-import TopPanel from "./components/topPanel/TopPanel.jsx";
-import MainPanel from "./components/mainPanel/main.panel.jsx";
 import ForgotPwPanel from "./components/login/forgotPwPanel.jsx";
 import ChickenTable from "./components/table/chicken.table.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
@@ -21,13 +19,13 @@ import './styles/index.stylesheet.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
-
+    /*
     const { token, setToken } = useToken();
 
     if (!token) {
         return <Login setToken={setToken} />
     }
-
+    
     try {
         console.log(token);
         const verified = jwtDecode(token, process.env.TOKEN_SECRET);
@@ -36,7 +34,7 @@ function App() {
     } catch (err) {
         console.log(err);
     };
-
+*/
     return <StrictMode>
         <ForgotPwPanel />
 

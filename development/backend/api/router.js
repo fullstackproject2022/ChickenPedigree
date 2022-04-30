@@ -6,8 +6,6 @@ const Chicken = require(`${dbPath}/chicken.schema.js`);
 const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
-
-const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
 
 // GET
@@ -52,17 +50,17 @@ ROUTER.post('/login', async (req, res) => {
     const user = await User.findOne({ username: req.body.username });
 
     if (!user) {
-        return res.status(400).json({ error: 'Username not found!'});
+        return res.status(400).json({ error: 'Username not found!' });
     };
 
     const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if(!validPassword) {
-        return res.status(400).json({ error: 'Invalid password!'})
+    if (!validPassword) {
+        return res.status(400).json({ error: 'Invalid password!' })
     };
 
 
     const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    res.header('token', token).json({token});
+    res.header('token', token).json({ token });
 
     console.log('Login Complete!');
 });
@@ -151,5 +149,20 @@ ROUTER.post('/users/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+// check if user with email exists
+ROUTER.get("/user/:email", async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.params.email });
+        console.log(user.email);
+        if (!user) {
+            throw new Error("User does not exist");
+        }
+        res.send(user);
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+});
+
 
 module.exports = ROUTER;
