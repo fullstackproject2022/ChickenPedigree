@@ -64,7 +64,7 @@ const CreatePanel = () => {
                     </div>
                     <div><label>Password</label>
                         <input className="floater"
-                            type="text"
+                            type="password"
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>

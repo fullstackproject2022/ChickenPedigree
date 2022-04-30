@@ -39,6 +39,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^7.1.0",
     "dotenv": "^16.0.0",
