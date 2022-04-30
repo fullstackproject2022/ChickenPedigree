@@ -17,6 +17,7 @@ body {
   padding: 15px 0 20px 20px;
   transition: width .35s ease-out;
   overflow: hidden;
+  min-width: 75px;
 }
 
 .inactive,
@@ -38,55 +39,38 @@ body {
 .divider {
   height: 2px;
   border-radius: 1px;
-  background-color: rgb(255, 121, 198);
+  background-color: #ff79c6;
   bottom: -60px;
   margin-right: 14px;
+  margin-bottom: 75px;
 }
 
-
-
 //*** All menu items ***// 
-.left-panel-settingComp {
-  // display: inline-block;
+.left-panel-items {
+  cursor: pointer;
   position: relative;
   color: #eee;
   font-size: 40px;
   margin-top: 75px;
   width: 200px;
+  * {
+    margin: 6px 3px;
+  }
 }
 
-.left-panel-settingComp * {
-  margin: 6px 3px;
-}
-
-
-.left-panel-settings {
+.left-panel-div {
   position: relative;
   display: block;
   font-size: 32px;
   margin: 0 auto;
   right: 1px;
-}
-
-.left-panel-settings span {
-  position: relative;
-  top: -2.4px;
-  left: 12px;
-  display: inline;
-  vertical-align: top;
-  text-overflow: clip;
-  overflow: hidden;
-}
-
-
-.left-panel-footer div * {
-  $size: 35px;
-  position: relative;
-  text-align: center;
-  width: $size;
-  height: $size;
-  color: #eee;
-  font-size: 40px;
-  bottom: 0;
-  cursor: pointer;
+  span {
+    position: relative;
+    top: -2.4px;
+    left: 12px;
+    display: inline;
+    vertical-align: top;
+    text-overflow: clip;
+    overflow: hidden;
+  }
 }

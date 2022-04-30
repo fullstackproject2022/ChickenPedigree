@@ -1,0 +1,26 @@
+username = researchErik
+password = chickenlover17
+hashed   = $2a$10$wB0HOaI39nQK2d3YLVxR7epV/a7sWYLvfq4/be15pPC9SKPE0SDIK
+
+username = postDocKelly
+password = chickenslife2
+hashed   = $2a$10$Qvx0Gz81haSxooDcDCS4ouzJl0VVIUfbfjwI6b.UfpJKkLuCZ4OTS
+
+
+username = tyra789
+password = chickentime9
+hashed   = $2a$10$mO5ngSm1hr3ugc8jXgjKdOpL49C.8UYO9JOjzLW4tD99451fypXqe
+
+username = Sanderst3in
+password = eggifulty
+hashed   = $2a$10$XWOSaCFevsY9zmikY41P..nPQPjzbtkyOI98sKD9xAdWOlDR2xmC2
+
+username = MarcuMate
+password = beautifulchicken
+hashed   = $2a$10$Veq/6sNObjbiBDpqGBuVvOBDC2KZ5zjER89avSA7Wnlb9vXEXwcoG
+
+
+username = chrisyy
+password = christpw
+hashed   = $2a$10$7pTXGz0JyuNlx1v8l.ifMOzb.h.wL2CPrL9k7N8XYs9TcaeoDS6yq
+

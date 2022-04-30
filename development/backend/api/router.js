@@ -7,6 +7,11 @@ const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
 
+const bcrypt = require('bcryptjs'); 
+const jwt = require('jsonwebtoken');
+
+// GET
+
 // get all chickens
 ROUTER.get('/chicken', async (_, res) => {
     let data = await Chicken.find()
@@ -39,6 +44,28 @@ ROUTER.get('/owner', async (_, res) => {
     }
     res.send(data)
 })
+
+// login validator
+ROUTER.post('/login', async (req, res) => {
+    console.log('Logging in...');
+
+    const user = await User.findOne({ username: req.body.username });
+
+    if (!user) {
+        return res.status(400).json({ error: 'Username not found!'});
+    };
+
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if(!validPassword) {
+        return res.status(400).json({ error: 'Invalid password!'})
+    };
+
+
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    res.header('token', token).json({token});
+
+    console.log('Login Complete!');
+});
 
 // delete a user
 ROUTER.delete("/delete/:id", async (req, res) => {
@@ -125,4 +152,4 @@ ROUTER.post('/users/', async (req, res) => {
     }
 });
 
-module.exports = ROUTER
+module.exports = ROUTER;

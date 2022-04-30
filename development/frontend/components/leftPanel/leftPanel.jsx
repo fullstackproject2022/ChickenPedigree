@@ -21,14 +21,14 @@ const LeftPanel = () => {
                 <div className="divider"></div>
             </div>
             <div className='left-panel-items'>
-                <div onClick={settingButton} className='left-panel-settingComp'>
-                    <div className='left-panel-settings'>
+                <div onClick={settingButton}>
+                    <div className='left-panel-div'>
                         <AiIcons.AiFillSetting /><span>Settings</span>
                     </div>
                 </div>
-                <div onClick={toggleButton} className='left-panel-footer'>
-                    <div>
-                        <MdIcons.MdAccountCircle />
+                <div onClick={toggleButton}>
+                    <div className='left-panel-div'>
+                        <MdIcons.MdAccountCircle /><span>Account</span>
                     </div>
                     <div className='User-name'></div>
                 </div>
