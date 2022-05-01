@@ -10,7 +10,10 @@ const LeftPanel = () => {
     const toggleButton = () => {
         setInactive(!inactive)
     }
-    const settingButton = () => { toggleButton() }
+    const panelBtnPressed = (btn) => { 
+        console.log(btn);
+        toggleButton() 
+    }
 
     return (
         <div className={`left-panel ${inactive ? "inactive" : ""}`}>
@@ -21,12 +24,12 @@ const LeftPanel = () => {
                 <div className="divider"></div>
             </div>
             <div className='left-panel-items'>
-                <div onClick={settingButton}>
+                <div onClick={panelBtnPressed('settings')}>
                     <div className='left-panel-div'>
                         <AiIcons.AiFillSetting /><span>Settings</span>
                     </div>
                 </div>
-                <div onClick={toggleButton}>
+                <div onClick={panelBtnPressed('account')}>
                     <div className='left-panel-div'>
                         <MdIcons.MdAccountCircle /><span>Account</span>
                     </div>

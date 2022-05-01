@@ -4,22 +4,17 @@ import Login from './components/Login/Login.jsx';
 
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
-import ForgotPwPanel from "./components/login/forgotPwPanel.jsx";
-import ChickenTable from "./components/table/chicken.table.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 
 import useToken from './useToken';
 import jwtDecode from 'jwt-decode'
 
-
-
-// import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './styles/index.stylesheet.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
-    /*
+
     const { token, setToken } = useToken();
 
     if (!token) {
@@ -34,15 +29,9 @@ function App() {
     } catch (err) {
         console.log(err);
     };
-*/
+
     return <StrictMode>
-        <ForgotPwPanel />
-
-
-    </StrictMode>
-}
-/*
-<div className="container">
+        <div className="container">
             <TopPanel />
             <section className="body-wrapper">
                 <LeftPanel />
@@ -50,7 +39,11 @@ function App() {
             </section>
         </div>
         <AdminPanel />
-*/
-ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
+     </StrictMode>
+}
+
+
+
+ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 

@@ -6,7 +6,10 @@ import emailjs from '@emailjs/browser';
 // emailjs logins
 //chickenpedigree@gmail.com
 //chickenchicken
-const ForgotPwPanel = () => {
+
+
+
+export default function ForgotPwPanel() {
 
     const form = useRef();
     const sendEmail = (e) => {
@@ -34,19 +37,14 @@ const ForgotPwPanel = () => {
 
 
     return (
-        <>
-            <div className="forgotPassword">
-                <h1> Send a recovery token to your email </h1>
-                <form ref={form} onSubmit={sendEmail}>
-                    <input type="hidden" name="token" value={Math.floor(Math.random() * 100000)} />
-                    <label>Email</label>
-                    <input type="email" name="to_email" />
-                    <input type="submit" value="Forgot password" />
-                </form>
-            </div>
-        </>
-
+        <div className="forgotPassword">
+            <h1> Send a recovery token to your email </h1>
+            <form ref={form} onSubmit={sendEmail}>
+                <input type="hidden" name="token" value={Math.floor(Math.random() * 100000)} />
+                <label>Email</label>
+                <input type="email" name="to_email" />
+                <input type="submit" value="Forgot password" />
+            </form>
+        </div>
     )
-}
-
-export default ForgotPwPanel;
+};
