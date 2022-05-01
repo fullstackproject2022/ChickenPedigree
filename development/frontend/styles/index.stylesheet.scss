@@ -6,20 +6,12 @@ $cellWidth: 85px;
 $font-fam: 'Grape Nuts',
 'Beau Rivage',
 sans-serif;
-<<<<<<< HEAD:development/frontend/styles/index.stylesheet.scss
-button{
-    cursor: pointer;
-}
-
-html{
-=======
 
 button {
     cursor: pointer;
 }
 
 html {
->>>>>>> dev-sam:development/frontend/styles/index-stylesheet.scss
     background-color: rgb(33, 37, 43);
 }
 
@@ -63,11 +55,7 @@ body {
   =====================
   */
 
-<<<<<<< HEAD:development/frontend/styles/index.stylesheet.scss
-  // Doesn't do anything but left in incase was neeeded.
-=======
 // Doesn't do anything but left in incase was neeeded.
->>>>>>> dev-sam:development/frontend/styles/index-stylesheet.scss
 .table_container {
     max-width: 1250px;
     /* max-height: 500px; */
@@ -144,11 +132,7 @@ th.down {
 
 .table tbody tr:nth-child(2n) td {
     background: #fff;
-<<<<<<< HEAD:development/frontend/styles/index.stylesheet.scss
-} 
-=======
 }
->>>>>>> dev-sam:development/frontend/styles/index-stylesheet.scss
 
 
 // panel placement
@@ -158,21 +142,12 @@ th.down {
 }
 
 .left-panel {
-<<<<<<< HEAD:development/frontend/styles/index.stylesheet.scss
-    position: absolute;
-=======
     // position: absolute;
->>>>>>> dev-sam:development/frontend/styles/index-stylesheet.scss
     top: 87px;
     left: 0;
 }
 
 .top-panel {
-<<<<<<< HEAD:development/frontend/styles/index.stylesheet.scss
-    position: absolute;
-    top: 0;
-    left: 0;
-=======
     // position: absolute;
     top: 0;
     left: 0;
@@ -181,5 +156,4 @@ th.down {
 .body-wrapper {
     display: flex;
     margin-left: -15px;
->>>>>>> dev-sam:development/frontend/styles/index-stylesheet.scss
 }
