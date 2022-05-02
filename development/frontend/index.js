@@ -44,10 +44,10 @@ function App() {
                 <MainPanel />
             </section>
         </div>
-    </StrictMode><ForgotPwPanel />
+    </StrictMode>
 */
     return (
-        <>
+        <><ForgotPwPanel />
             <ChangePwPanel />
         </>
     )

@@ -7,7 +7,7 @@ const mailtokenSchema = mongoose.Schema({
         required: true
     },
     token: {
-        type: Number,
+        type: String,
         required: true
     }
 }, { collection: 'mailtoken' });

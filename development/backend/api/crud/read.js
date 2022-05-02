@@ -31,4 +31,6 @@ const userExists = async (email) => {
 }
 
 
+
+
 export default { fetchCollection, fetchOne, userExists }

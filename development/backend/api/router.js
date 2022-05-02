@@ -162,6 +162,7 @@ ROUTER.get("/find/:email", async (req, res) => {
 });
 
 
+// create a token
 ROUTER.post('/tokens/', async (req, res) => {
     try {
         const token = new Mailtoken({
@@ -172,6 +173,40 @@ ROUTER.post('/tokens/', async (req, res) => {
         res.status(201).json({ newToken });
     } catch (err) {
         res.status(400).json({ message: err.message });
+    }
+});
+
+
+// get token info
+ROUTER.get("/mailtoken/:id", async (req, res) => {
+    try {
+        const mailtoken = await Mailtoken.findOne({ token: req.params.id });
+        if (!mailtoken) {
+            throw new Error("Mailtoken does not exist");
+        }
+        res.send(mailtoken);
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+});
+
+
+// update a user
+ROUTER.put("/user/:id", async (req, res) => {
+    try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
+
+        const user = await User.findOne({ _id: req.params.id });
+        if (!user) {
+            throw new Error("User does not exist");
+        }
+        user.password = hashPssword;
+        await user.save();
+        res.send(user);
+    } catch (err) {
+        res.status(404).json({ message: err.message });
     }
 });
 
