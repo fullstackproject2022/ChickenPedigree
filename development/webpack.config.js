@@ -52,7 +52,6 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
-                
             },
             {
                 test: /\.svg$/,
@@ -66,5 +65,5 @@ module.exports = {
             filename: "index.html"
         })
         // new bundleAnalyzer()
-    ],
+    ], 
 };

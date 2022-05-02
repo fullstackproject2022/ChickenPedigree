@@ -1,10 +1,10 @@
 // CRUD create
 
-const createUser = async (user) => {
+const createUser = async (collection) => {
     const createDetails = {
         username: user.username,
         firstname: user.firstname,
-        lastname: user.firstname + " " + user.lastname,
+        lastname: user.lastname,
         fullname: user.fullname,
         password: user.password,
         role: user.role,
@@ -29,15 +29,4 @@ const createUser = async (user) => {
         });
 }
 
-async function loginUser(credentials) {
-    return fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(res => res.json())
-}
-
-export { createUser, loginUser }
+export default { createUser }

@@ -5,7 +5,7 @@ const TableBody = ({ columns, tableData }) => {
         <tbody>
             {tableData.map((data) => {
                 return (
-                    <tr key={data._id}>
+                    <tr key={data.id}>
                         {columns.map(({ key }) => {
                             return <td key={key}>{data[key] ? data[key] === "U" ? "" : data[key] : ""}</td>;
                         })}

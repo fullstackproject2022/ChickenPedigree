@@ -11,13 +11,14 @@ body {
 .left-panel {
   position: relative;
   background: rgb(40, 44, 52);
-  width: 75px;
+  width: 72px;
+  min-width: 72px;
   height: 89.35vh;
   box-sizing: border-box;
   padding: 15px 0 20px 20px;
   transition: width .35s ease-out;
   overflow: hidden;
-  min-width: 75px;
+  padding-right: 0;
 }
 
 .inactive,
@@ -39,10 +40,9 @@ body {
 .divider {
   height: 2px;
   border-radius: 1px;
-  background-color: #ff79c6;
+  background-color: rgb(255, 121, 198);
   bottom: -60px;
   margin-right: 14px;
-  margin-bottom: 75px;
 }
 
 //*** All menu items ***// 
@@ -51,18 +51,20 @@ body {
   position: relative;
   color: #eee;
   font-size: 40px;
-  margin-top: 75px;
+  margin-top: 40px;
   width: 200px;
   * {
-    margin: 6px 3px;
+    margin: 6px 0px 6px 3px;
   }
 }
 
 .left-panel-div {
   position: relative;
   display: block;
+  width: 100%;
   font-size: 32px;
   margin: 0 auto;
+  padding-top: 6px;
   right: 1px;
   span {
     position: relative;
@@ -74,3 +76,61 @@ body {
     overflow: hidden;
   }
 }
+
+.left-panel-div:hover {
+  background-color:  rgb(33, 37, 43);
+  border-left: 3px solid rgb(255, 121, 198);
+}
+
+.left-panel-items div:focus {
+  background-color: rgb(33, 37, 43);
+  border-left: 3px solid rgb(255, 121, 198);
+  width: 100%;
+}
+
+
+// //*** All menu items ***// 
+// .left-panel-settingComp {
+//   // display: inline-block;
+//   position: relative;
+//   color: #eee;
+//   font-size: 40px;
+//   margin-top: 75px;
+//   width: 200px;
+// }
+
+// .left-panel-settingComp * {
+//   margin: 6px 3px;
+// }
+
+
+// .left-panel-settings {
+//   position: relative;
+//   display: block;
+//   font-size: 32px;
+//   margin: 0 auto;
+//   right: 1px;
+// }
+
+// .left-panel-settings span {
+//   position: relative;
+//   top: -2.4px;
+//   left: 12px;
+//   display: inline;
+//   vertical-align: top;
+//   text-overflow: clip;
+//   overflow: hidden;
+// }
+
+
+// .left-panel-footer div * {
+//   $size: 35px;
+//   position: relative;
+//   text-align: center;
+//   width: $size;
+//   height: $size;
+//   color: #eee;
+//   font-size: 40px;
+//   bottom: 0;
+//   cursor: pointer;
+// }
