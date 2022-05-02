@@ -20,4 +20,3 @@ const deleteUser = async (id) => {
         });
 }
 export default { deleteUser }
-

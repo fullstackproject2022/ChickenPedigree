@@ -1,0 +1,61 @@
+@use "./master.stylesheet.scss"as master;
+
+.userContainer {
+    margin: auto;
+
+    width: 80%;
+    padding: 1%;
+
+    background-color: azure;
+}
+
+.userShow {
+    display: inline-block;
+    width: 45%;
+    height: 40%;
+    padding: 2%;
+
+    span {
+        width: 60%;
+        float: right;
+    }
+}
+
+.userUpdate {
+    display: inline-block;
+    width: 45%;
+    height: 40%;
+    padding: 2%;
+    padding-bottom: 4%;
+    //background-color: bisque;
+}
+
+.floater,
+select {
+    margin-left: 2%;
+    width: 60%;
+    float: right;
+}
+
+h1 {
+    padding-bottom: 2%;
+}
+
+.createUser {
+    width: 45%;
+    height: 40%;
+    padding: 2%;
+    padding-bottom: 4%;
+    margin: auto;
+    background-color: azure;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .userUpdate,
+    .userShow {
+        display: block;
+        width: 90%;
+    }
+
+}

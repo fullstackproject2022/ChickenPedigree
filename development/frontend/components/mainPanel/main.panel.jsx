@@ -1,8 +1,7 @@
 import React, { StrictMode, useEffect, useState } from "react"
 import '../../styles/mainPanel.stylesheet.scss'
 import ChickenTable from "../table/chicken.table.jsx"
-import AboveTable from "../aboveTableComp/AboveTable.jsx"
-
+import AdminPanel from "../adminPanel/adminPanel.jsx"
 
 const MainPanel = () => {
 
@@ -11,16 +10,8 @@ const MainPanel = () => {
 
     return <>
         <StrictMode>
-
-
-
-            <div className="parent-Main">
-                <AboveTable setSelectedFilter={setSelectedFilter} setSelectedDetails={setselectedDetails} />
-
-                <div className="main-panel">
-                              
-                <ChickenTable selectedFilter={selectedFilter} searchDetail={selectedDetails} />
-                </div>
+            <div className="main-panel">
+                <AdminPanel />
             </div>
             
             
