@@ -8,6 +8,7 @@ import Table from './table.jsx';
 const ChickenTable = ({selectedFilter, searchDetail}) => {
     console.log(selectedFilter, searchDetail)
     const filteredChicks = []
+    // const [filteredChicks, setFilteredChicks] = useState([])
 
 
     const [chicken_data, setChickenData] = useState([])
@@ -61,6 +62,7 @@ const ChickenTable = ({selectedFilter, searchDetail}) => {
             if (val[selectedFilter].includes(searchDetail)) { // .includes(searchDetail) for string
                 console.log("string")
                 filteredChicks.push(val)
+                // setFilteredChicks([...filteredChicks, val])
                 // return val
             }
         }
@@ -69,33 +71,39 @@ const ChickenTable = ({selectedFilter, searchDetail}) => {
             if (val[selectedFilter] == searchDetail) { // == searchDetail for integers
                 console.log("number")
                 filteredChicks.push(val)
+                // setFilteredChicks([...filteredChicks, val])
                 // return val
 
             }
         }
+
         })
+
+
+        const data = searchDetail == "" ? chicken_data : filteredChicks
+
+        
+        
+        if (data.length > 0) {
+            const tableColumns = [ // not including children here
+                { label: "Batch Year", key: "batchYear", sortable: true },
+                { label: "Breed ID", key: "breed", sortable: true },
+                { label: "Chicken ID", key: "_id", sortable: true },
+                { label: "Sex", key: "sex", sortable: true },
+                { label: "Status", key: "status", sortable: true },
+                { label: "Mother ID", key: "fParent", sortable: true },
+                { label: "Father ID", key: "mParent", sortable: true },
+                { label: "Comments", key: "comments", sortable: false }
+            ];
+
+            return < Table data={data} columns={tableColumns} />
+            }
+
         // .map((val) => {
         //     filteredChicks.push(val)
         // })
 
-    const data = searchDetail == "" ? chicken_data : filteredChicks
 
-    
-    
-    if (data.length > 0) {
-        const tableColumns = [ // not including children here
-            { label: "Batch Year", key: "batchYear", sortable: true },
-            { label: "Breed ID", key: "breed", sortable: true },
-            { label: "Chicken ID", key: "_id", sortable: true },
-            { label: "Sex", key: "sex", sortable: true },
-            { label: "Status", key: "status", sortable: true },
-            { label: "Mother ID", key: "fParent", sortable: true },
-            { label: "Father ID", key: "mParent", sortable: true },
-            { label: "Comments", key: "comments", sortable: false }
-        ];
-
-        return < Table data={data} columns={tableColumns} />
-        }
 }
 
 
