@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const Chicken = require(`${dbPath}/chicken.schema.js`);
 const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
+const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
 const jwt = require('jsonwebtoken');
 
@@ -154,14 +155,24 @@ ROUTER.post('/users/', async (req, res) => {
 ROUTER.get("/find/:email", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
-        if (!user) {
-            throw new Error("User does not exist");
-        }
         res.send(user);
     } catch (err) {
-        res.status(404).json({ message: err.message });
+        res.status(404);
     }
 });
 
+
+ROUTER.post('/tokens/', async (req, res) => {
+    try {
+        const token = new Mailtoken({
+            email: req.body.email,
+            token: req.body.token
+        });
+        const newToken = await token.save();
+        res.status(201).json({ newToken });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
 
 module.exports = ROUTER;

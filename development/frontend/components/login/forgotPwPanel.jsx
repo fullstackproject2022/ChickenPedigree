@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import read from '../../../backend/api/crud/read';
 import emailjs from '@emailjs/browser';
+import create from '../../../backend/api/crud/create';
 // https://dashboard.emailjs.com/admin/account
 // emailjs logins
 //chickenpedigree@gmail.com
@@ -14,14 +15,16 @@ const ForgotPwPanel = () => {
         //sandrakaljula9@gmail.com
         let email = form.current.to_email.value;
         let token = form.current.token.value;
-        //console.log(email, token)
-        let exists = await read.userExists(email);
 
-        if (exists[0] == undefined) {
-            console.log("No user with given email address exists in our system.");
+        let exists = await read.userExists(email);
+        //console.log(exists);
+        if (exists == undefined) {
+            alert("No user with given email address exists in our system.");
             return;
         }
-        //console.log("YEYY");
+
+        create.createMailtoken(email, token);
+        /*
         //send the email
         emailjs.sendForm('service_g519zjy', 'template_9dzxoxf', form.current, 'o56xON4hLUJsVdf_J')
             .then(function () {
@@ -30,6 +33,7 @@ const ForgotPwPanel = () => {
                 console.log('FAILED...', error);
             });
         alert("A login token has successfully been sent to your email.");
+            */
 
     }
 
@@ -37,7 +41,7 @@ const ForgotPwPanel = () => {
     return (
         <>
             <div className="forgotPassword">
-                <h1> Send a recovery token to your email </h1>
+                <h2> Send a recovery token to your email </h2>
                 <form ref={form} onSubmit={sendEmail}>
                     <input type="hidden" name="token" value={Math.floor(Math.random() * 100000)} />
                     <label>Email</label>

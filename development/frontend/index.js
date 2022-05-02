@@ -17,6 +17,7 @@ import jwtDecode from 'jwt-decode'
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './styles/index.stylesheet.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import ChangePwPanel from "./components/login/ChangePwPanel.jsx";
 
 function App() {
     /*
@@ -43,11 +44,11 @@ function App() {
                 <MainPanel />
             </section>
         </div>
-    </StrictMode>
+    </StrictMode><ForgotPwPanel />
 */
     return (
         <>
-            <ForgotPwPanel />
+            <ChangePwPanel />
         </>
     )
 }
