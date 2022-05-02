@@ -7,26 +7,61 @@ import ChickenTable from "./components/table/chicken.table.jsx";
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
-import MainPanel from "./components/mainPanel/main.panel.jsx";
-import AboveTable from "./components/aboveTableComp/AboveTable.jsx";
 
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import './styles/index.stylesheet.scss';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 
 const App = () => {
     return <StrictMode>
-        <div className="container">
-            <TopPanel />
-            <section className="body-wrapper">
+
+        <div className="entire-page">
+
+
+            <div className="top-panel">
+                <TopPanel />
+            </div>
+
+            <div className="left-panel">
                 <LeftPanel />
-                <MainPanel />
-            </section>
+            </div>
+
+
+
+
+            {/* This is code for top and left panel */}
+            {/* <Router>
+                <LeftPanel />
+
+                <Routes>
+
+                    <Route path="/" />
+
+                </Routes>
+            </Router> */}
+
+            {/* This is code for main chicken Table */}
+            {/* <div>
+                <ChickenTable />
+            </div> */}
+
+
+            {/* This is code for Admin panel */}
+            {/* <AdminPanel /> */}
+
         </div>
 
 
-    </StrictMode>
-} 
 
+    </StrictMode>
+}
+
+/*
+
+*/
+
+//<ChickenTable />
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
 

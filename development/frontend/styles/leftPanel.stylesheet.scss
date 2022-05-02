@@ -1,136 +1,220 @@
-.left-panel-toggle,
-.left-panel-settings {
+// @use "./master.stylesheet.scss" as master;
+// @use "react-icons/ai" as icons;
+
+
+// all left panel buttons need to be made dynamic with how the respond to the vertical change of the screen
+
+
+
+
+//*** All the Top of left panel components ***// 
+.left-panel-toggle, .left-panel-settingsButton{
   cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 body {
   background-color: #eee;
-  overflow-y: hidden;
 }
 
 .left-panel {
-  position: relative;
+  position: fixed;
   background: rgb(40, 44, 52);
-  width: 72px;
-  min-width: 72px;
-  height: 89.35vh;
+  width: 75px;
+  height: 100%;
   box-sizing: border-box;
   padding: 15px 0 20px 20px;
+
   transition: width .35s ease-out;
-  overflow: hidden;
-  padding-right: 0;
 }
 
-.inactive,
-.inactive>.left-panel-settings {
-  overflow-y: auto;
+.left-panel.inactive {
   width: 250px;
 }
 
-.topOf-left-panel {
+.left-panel .topOf-left-panel{
+
+  // the line bellow allows items to be moved around freely
   position: relative;
 }
 
-.left-panel-toggle {
+.left-panel .topOf-left-panel .left-panel-toggle {
   font-size: 40px;
   overflow: hidden;
   color: #eee;
+
+  // .left-panel .topOf-left-panel with code "position: relative;" and the code bellow allows
+  // this toggle icon to be moved and animated freely
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .divider {
+  position: absolute;
+  // margin: 0 auto; use margin to center divider
+  // width: 80%;
   height: 2px;
   border-radius: 1px;
   background-color: rgb(255, 121, 198);
   bottom: -60px;
-  margin-right: 14px;
+  left: 0px;
+  right: 14px;
 }
+
+ 
 
 //*** All menu items ***// 
-.left-panel-items {
-  cursor: pointer;
-  position: relative;
+.left-panel .left-panel-items .left-panel-settingComp {
+  
+  // text-align: center;
   color: #eee;
+  position: absolute;
   font-size: 40px;
-  margin-top: 40px;
-  width: 200px;
-  * {
-    margin: 6px 0px 6px 3px;
-  }
+  top: 70%; // this needs to be dynamic 
+  border: 2px solid;
+  right: 0;
+  left: 17px;
 }
 
-.left-panel-div {
-  position: relative;
-  display: block;
-  width: 100%;
-  font-size: 32px;
-  margin: 0 auto;
-  padding-top: 6px;
-  right: 1px;
-  span {
-    position: relative;
-    top: -2.4px;
-    left: 12px;
-    display: inline;
-    vertical-align: top;
-    text-overflow: clip;
-    overflow: hidden;
-  }
-}
+.left-panel .left-panel-items .left-panel-settingsComp .left-panel-settingsButton {
+  // display: block;
+  display: inline-block;
+  font-size: 30px;
+  // top: 70%;
 
-.left-panel-div:hover {
-  background-color:  rgb(33, 37, 43);
-  border-left: 3px solid rgb(255, 121, 198);
-}
 
-.left-panel-items div:focus {
-  background-color: rgb(33, 37, 43);
-  border-left: 3px solid rgb(255, 121, 198);
-  width: 100%;
 }
 
 
-// //*** All menu items ***// 
-// .left-panel-settingComp {
-//   // display: inline-block;
-//   position: relative;
-//   color: #eee;
-//   font-size: 40px;
-//   margin-top: 75px;
-//   width: 200px;
+.left-panel-footer{
+  position: absolute;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  top: 80%;
+  color: #eee;
+  right: 0;
+  left: 17px;
+  font-size: 40px;
+  // border: 2px solid;
+  cursor: pointer;
+}
+
+
+ // this is text to appear after setting button is clicked
+// .topOf-left-panel .left-panel-settingsText {
+//   display: inline-block;
+//   margin: 0 10px;
+//   color: #fff;
+//   position: absolute;
+//   opacity: 1;
+//   transition: opacity .2s ease-out;
 // }
 
-// .left-panel-settingComp * {
-//   margin: 6px 3px;
-// }
-
-
-// .left-panel-settings {
-//   position: relative;
-//   display: block;
-//   font-size: 32px;
-//   margin: 0 auto;
-//   right: 1px;
-// }
-
-// .left-panel-settings span {
-//   position: relative;
-//   top: -2.4px;
-//   left: 12px;
-//   display: inline;
-//   vertical-align: top;
-//   text-overflow: clip;
+// .left-panel.left-panel.inactive .topOf-left-panel .left-panel-settingsText {
+//   opacity: 1;
+//   width: 0;
+//   height: 0;
 //   overflow: hidden;
 // }
 
-
-// .left-panel-footer div * {
-//   $size: 35px;
-//   position: relative;
-//   text-align: center;
-//   width: $size;
-//   height: $size;
-//   color: #eee;
-//   font-size: 40px;
-//   bottom: 0;
-//   cursor: pointer;
+// .topOf-left-panel .left-panel-settingsText h5{
+//   font-size: 15px;
 // }
+
+
+
+
+
+
+
+
+
+
+// .navbar {
+//     background-color: rgb(33, 37, 43);
+//     height: 80px;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//   }
+    
+//   .menu-bars {
+//     margin-left: 2rem;
+//     font-size: 2rem;
+//     background: none;
+//   }
+    
+//   .nav-menu {
+//     background-color: rgb(33, 37, 43);
+//     width: 250px;
+//     height: 100vh;
+//     display: flex;
+//     justify-content: center;
+//     position: fixed;
+//     top: 0;
+//     left: -100%;
+//     transition: 850ms;
+//   }
+    
+//   .nav-menu.active {
+//     left: 0;
+//     transition: 350ms;
+//   }
+//   .nav-text {
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding: 8px 0;
+//     list-style: none;
+//     height: 60px;
+
+//   }
+
+//   .nav-text a {
+//     text-decoration: none;
+//     color: #f5f5f5;
+//     font-size: 18px;
+//     width: 95%;
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     padding: 0 16px;
+//     border-radius: 4px;
+//   }
+    
+//   .nav-text a:hover {
+    
+//     background-color: rgb(40, 44, 52);
+//     border: none;
+    
+//     border-left: 5px solid rgb(255, 121, 198); // this should be when its selected
+
+//   }
+    
+//   .nav-menu-items {
+//     width: 100%;
+//   }
+    
+//   .navbar-toggle {
+//     background-color: rgb(33, 37, 43);
+//     width: 100%;
+//     height: 80px;
+//     display: flex;
+//     justify-content: flex-start;
+//     align-items: center;
+//   }
+    
+//   span {
+//     margin-left: 16px;
+//   }
