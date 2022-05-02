@@ -151,10 +151,9 @@ ROUTER.post('/users/', async (req, res) => {
 });
 
 // check if user with email exists
-ROUTER.get("/user/:email", async (req, res) => {
+ROUTER.get("/find/:email", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
-        console.log(user.email);
         if (!user) {
             throw new Error("User does not exist");
         }

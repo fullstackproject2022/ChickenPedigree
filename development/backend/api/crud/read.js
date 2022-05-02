@@ -22,14 +22,12 @@ const fetchOne = async (collection, id) => {
 // check if user exists with email
 const userExists = async (email) => {
     var data = []
-    await fetch(`/api/user/${email}`)
+
+    await fetch(`/api/find/${email}`)
         .then(response => response.json())
         .then(res => data.push(res))
         .catch(error => console.log(error.message))
-    if (data.length > 0) {
-        return true;
-    }
-    return false;
+    return data[0]
 }
 
 

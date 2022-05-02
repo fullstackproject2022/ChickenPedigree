@@ -9,19 +9,20 @@ import emailjs from '@emailjs/browser';
 const ForgotPwPanel = () => {
 
     const form = useRef();
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
         //sandrakaljula9@gmail.com
         let email = form.current.to_email.value;
         let token = form.current.token.value;
+        //console.log(email, token)
+        let exists = await read.userExists(email);
 
-        const exists = read.userExists(email);
-        if (!exists) {
-            alert("No user with given email address exists in our system.")
+        if (exists[0] == undefined) {
+            console.log("No user with given email address exists in our system.");
             return;
         }
-        console.log("YEYY");
-
+        //console.log("YEYY");
+        //send the email
         emailjs.sendForm('service_g519zjy', 'template_9dzxoxf', form.current, 'o56xON4hLUJsVdf_J')
             .then(function () {
                 console.log('SUCCESS!');

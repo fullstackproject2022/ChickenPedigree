@@ -34,23 +34,24 @@ function App() {
     } catch (err) {
         console.log(err);
     };
-*/
-    return <StrictMode>
-        <ForgotPwPanel />
 
-
-    </StrictMode>
-}
-/*
-<div className="container">
+    <StrictMode>
+        <div className="container">
             <TopPanel />
             <section className="body-wrapper">
                 <LeftPanel />
                 <MainPanel />
             </section>
         </div>
-        <AdminPanel />
+    </StrictMode>
 */
+    return (
+        <>
+            <ForgotPwPanel />
+        </>
+    )
+}
+
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
 
 
