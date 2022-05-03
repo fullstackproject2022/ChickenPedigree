@@ -8,33 +8,36 @@ import create from '../../../backend/api/crud/create';
 //chickenpedigree@gmail.com
 //chickenchicken
 const ForgotPwPanel = () => {
-
-    const form = useRef();
+    const [email, setEmail] = useState();
     const sendEmail = async (e) => {
         e.preventDefault();
         //sandrakaljula9@gmail.com
-        let email = form.current.to_email.value;
-        let token = form.current.token.value;
 
+        // checks if a user with the given email exists
         let exists = await read.userExists(email);
-        //console.log(exists);
         if (exists == undefined) {
             alert("No user with given email address exists in our system.");
             return;
         }
 
-        create.createMailtoken(email, token);
-        /*
+        //create random token value. Can change 7 to 2 for longer results.
+        let token = (Math.random() + 1).toString(36).substring(7);
+        console.log("random", token);
+        create.createMailtoken(email, token); // that expires in 10 minutes
+
         //send the email
-        emailjs.sendForm('service_g519zjy', 'template_9dzxoxf', form.current, 'o56xON4hLUJsVdf_J')
+        var templateParams = {
+            to_email: email,
+            token: token
+        };
+
+        emailjs.send('service_g519zjy', 'template_9dzxoxf', templateParams, 'o56xON4hLUJsVdf_J')
             .then(function () {
                 console.log('SUCCESS!');
             }, function (error) {
                 console.log('FAILED...', error);
             });
         alert("A login token has successfully been sent to your email.");
-            */
-
     }
 
 
@@ -42,10 +45,9 @@ const ForgotPwPanel = () => {
         <>
             <div className="forgotPassword">
                 <h2> Send a recovery token to your email </h2>
-                <form ref={form} onSubmit={sendEmail}>
-                    <input type="hidden" name="token" value={Math.floor(Math.random() * 100000)} />
+                <form onSubmit={sendEmail}>
                     <label>Email</label>
-                    <input type="email" name="to_email" />
+                    <input type="email" name="to_email" onChange={e => setEmail(e.target.value)} />
                     <input type="submit" value="Forgot password" />
                 </form>
             </div>

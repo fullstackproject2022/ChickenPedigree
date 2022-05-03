@@ -9,6 +9,11 @@ const mailtokenSchema = mongoose.Schema({
     token: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Date,
+        expires: '5m',
+        default: Date.now
     }
 }, { collection: 'mailtoken' });
 
