@@ -5,84 +5,35 @@ import Table from './table.jsx';
 
 
 
-const ChickenTable = ({selectedFilter, searchDetail}) => {
-    console.log(selectedFilter, searchDetail)
-    const filteredChicks = []
+const ChickenTable = ({selectedFilter = "", searchDetail = ""}) => {
+    const [chicken_data, setChickenData] = useState([]) 
+    const [data, setData] = useState(0)
 
-
-    const [chicken_data, setChickenData] = useState([])
     useEffect(() => {
-        console.log("FIRING!")
         getData()
-    }, [])
+    }, [data.length])     
 
     const getData = () => {
         read.fetchCollection("chicken") // returns it in object format
             .then(result => setChickenData(result))
-    }
+    }       
 
-    // Does not work for any object attribute thats not a string
-    // if (hasNumber.test(input)) {
-    //     let neww = Number(input)
-    //     console.log(typeof neww)
-    //     setChosenDetail(neww)
-    // }
-    // else {
-    //     setChosenDetail(input)
-    //     }
-    // function checkInput(input) {
-
-        
-    // }
-
-    chicken_data.filter((val) => {
-        // console.log(val.breed)        
+    setData(searchDetail == "" ? chicken_data : chicken_data.filter((chicken) => {      
         const isNumber = (input) => (/^[\d]+$/).test(input)
-        const isString = (input) => (/^[a-zA-Z_]+$/).test(input)    
+        const isString = (input) => (/^[a-zA-Z_]+$/).test(input)
 
-    //     return searchDetail 
-    //     ? val
-    //     : isString(searchDetail)
-    //         ? val[selectedFilter].includes(searchDetail) 
-    //             && filteredChicks.push(val)
-    //         : isNumber(searchDetail) 
-    //             && val[selectedFilter] == searchDetail 
-    //                 && filteredChicks.push(val)   
-    // })
-    
-
-        // console.log(selectedFilter)
-        if (searchDetail == "") {
-            return val
+        if (isString(searchDetail)){
+            if (chicken[selectedFilter].includes(searchDetail)) return chicken
+        } 
+        else if (isNumber(searchDetail)){
+            if (chicken[selectedFilter] == searchDetail) return chicken
         }
-        
-        else if (isString(searchDetail)) {
-            // 
-            if (val[selectedFilter].includes(searchDetail)) { // .includes(searchDetail) for string
-                console.log("string")
-                filteredChicks.push(val)
-                // return val
-            }
-        }
-        else if (isNumber(searchDetail)) {
-            
-            if (val[selectedFilter] == searchDetail) { // == searchDetail for integers
-                console.log("number")
-                filteredChicks.push(val)
-                // return val
-
-            }
-        }
-        })
-        // .map((val) => {
-        //     filteredChicks.push(val)
-        // })
-
-    const data = searchDetail == "" ? chicken_data : filteredChicks
-
+    }))
     
-    
-    if (data.length > 0) {
+    // console.log(data)
+
+
+    if (data.length > 0){
         const tableColumns = [ // not including children here
             { label: "Batch Year", key: "batchYear", sortable: true },
             { label: "Breed ID", key: "breed", sortable: true },
@@ -93,9 +44,9 @@ const ChickenTable = ({selectedFilter, searchDetail}) => {
             { label: "Father ID", key: "mParent", sortable: true },
             { label: "Comments", key: "comments", sortable: false }
         ];
-
         return < Table data={data} columns={tableColumns} />
-        }
+    }
+
 }
 
 

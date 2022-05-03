@@ -20,7 +20,6 @@ const CreatePanel = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        console.log("update");
         const createDetails = {
             username: username,
             firstname: firstName,

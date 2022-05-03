@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 const TableBody = ({ columns, tableData }) => {
     return (
         <tbody>
-            {tableData.map((data) => {
+            {tableData.map((data, id) => {
                 return (
-                    <tr key={data.id}>
+                    <tr key={id}>
                         {columns.map(({ key }) => {
                             return <td key={key}>{data[key] ? data[key] === "U" ? "" : data[key] : ""}</td>;
                         })}
