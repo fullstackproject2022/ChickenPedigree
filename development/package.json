@@ -39,13 +39,18 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^7.1.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
     "mongoose": "^6.2.10",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.3.0"
   }
 }

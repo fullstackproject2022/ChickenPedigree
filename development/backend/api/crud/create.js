@@ -1,6 +1,6 @@
 // CRUD create
 
-const createUser = async (collection) => {
+const createUser = async (user) => {
     const createDetails = {
         username: user.username,
         firstname: user.firstname,
