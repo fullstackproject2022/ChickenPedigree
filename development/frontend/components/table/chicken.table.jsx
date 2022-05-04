@@ -31,7 +31,7 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
                             if (chicken[selectedFilter] == searchDetail) { return chicken }
                         }
                     })))
-    }, [searchDetail])
+    }, [searchDetail, selectedFilter])
 
 
     if (chickenData.length > 0) {

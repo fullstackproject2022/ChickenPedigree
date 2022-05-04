@@ -1,38 +1,58 @@
-//the top panel is not optimised for shrinking screen
-// possible solution is to align it to the right 
+// //the top panel is not optimised for shrinking screen
+// // possible solution is to align it to the right 
 
-// .aboveTable-wrapper {
-//     position: fixed;
-// }
-
-.aboveTableComp {
-    height: 60px;
-    width: 100%;
-    border: 2px solid transparent;
+.aboveTable-wrapper {
     margin-top: 90px;
+    display: flex;
+    height: 40px;
 }
 
-.radioBtns {
-    margin-top: 15px;
-    padding-right: 15px;
+.aboveTable-wrapper div {
+    display: flex;
+    flex-grow: 2;
+    flex-wrap: nowrap;
+    float: left;
 }
 
-.radioBtns input[type="radio"] {
-    width: 25px;
-    height: 25px;
-    accent-color: #5e6a82;
-    background: rgb(186, 73, 137);
+.hspan{
+    flex-grow: 2;
+    margin: 0 auto;
 }
 
 .radio {
-    font-size: 24px;
+    margin-left: 10px;
     color: #eee;
-    padding: 0 8px 0 72px;
+    font-size: 23px;
+    padding-right: 7px;
+    
 }
 
-.filter {
-    margin-top: -28px;
-    margin-left: 900px;
+.radioBtns input[type="radio"] {
+    $radius: 23px;
+    width: $radius;
+    height: $radius;
+    accent-color: #5e6a82;
+    background: rgb(186, 73, 137);
+    margin-right: 25px;
+    margin-top: 7px;
+}
+
+// //** Filter comp **//
+
+.filter-wrapper{
+    justify-content: right;
+    margin-right: 25px;
+}
+
+
+.filter-wrapper div{
+    flex-grow: 1;
+    max-width: fit-content;
+}
+
+
+.search-box {
+    max-width: 150px;
 }
 
 .drop-down-menu {
@@ -41,12 +61,7 @@
     border-radius: 8px;
     font-size: 17px;
     color: #eee;
-}
-
-.search-box {
-    margin-top: -27px;
-    margin-left: 1050px;
-    max-width: 150px;
+    margin-right: 5px;
 }
 
 .search {
@@ -54,48 +69,48 @@
     border: 2px solid rgb(113, 126, 149);
     border-radius: 6px;
     color: #eee;
-    height: 21px;
 }
 
 .search::placeholder {
+    text-indent: 10px;
+    padding-left: 10px;
     color: rgb(113, 126, 149);
-    font-size: 18px;
+    font-size: 20px;
 }
 
-.buttons {
-    margin-top: -25px;
-    margin-left: 1210px;
+.search * {
+    padding-left: 4px;
 }
 
 .go-button {
-    height: 26px;
+    margin-left: 5px;
     width: 100px;
     border: 2px solid rgb(113, 126, 149);
-    background-color: rgb(40, 44, 52);
-    color: rgb(113, 126, 149);
+    background-color: #343b48;
+    color: #eee;
     border-radius: 6px;
     font-size: 18px;
 }
 
 .go-button:hover {
-    color: rgb(40, 44, 52);
-    background-color: rgb(113, 126, 149);
-    border: 2px solid rgb(186, 73, 137);
+    border: 2px solid #3d4656;
 }
 
 .reset-button {
-    height: 26px;
     width: 100px;
     border: 2px solid rgb(113, 126, 149);
-    background-color: rgb(40, 44, 52);
-    color: rgb(113, 126, 149);
+    background-color: #343b48;
+    color: #eee;
     border-radius: 6px;
     font-size: 18px;
     margin-left: 10px;
 }
 
 .reset-button:hover {
-    color: rgb(40, 44, 52);
-    background-color: rgb(113, 126, 149);
-    border: 2px solid rgb(186, 73, 137);
+    border: 2px solid #3d4656;
+}
+
+
+input[type="text"]{
+    font-size: 20px;
 }

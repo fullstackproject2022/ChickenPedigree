@@ -38,13 +38,14 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
 
     return (
         <div className='aboveTable-wrapper'>
-            <div className='aboveTableComp'>
-                <div className='radioBtns'>
-                    <label className='radio'>View</label>
-                    <input type="radio" id='viewbtn' name="choice" value="view" defaultChecked></input>
-                    <label className='radio'>Edit</label>
-                    <input type="radio" id='editbtn' name="choice" value="edit"></input>
-                </div>
+            <div className='radioBtns'>
+                <label className='radio'>View</label>
+                <input type="radio" id='viewbtn' name="choice" value="view" defaultChecked></input>
+                <label className='radio'>Edit</label>
+                <input type="radio" id='editbtn' name="choice" value="edit"></input>
+            </div>
+            <div className='hspan'></div>
+            <div className='filter-wrapper'>
                 <div className='filter'>
                     <select name="option" className="drop-down-menu" value={chosenFilter}
                         onChange={(e) => setChosenFilter(e.target.value)} >

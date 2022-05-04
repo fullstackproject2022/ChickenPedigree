@@ -14,12 +14,11 @@ body {
   background: rgb(33, 37, 43);
   width: 72px;
   min-width: 72px;
-  height: 89.35vh;
+  height: 100vh;
   box-sizing: border-box;
   padding: 15px 0 20px 20px;
   transition: width .35s ease-out;
   overflow: hidden;
-  padding-right: 0;
 }
 
 .inactive,
@@ -83,6 +82,7 @@ body {
 .left-panel-div:hover {
   background-color: #282c34;
   border-left: 3px solid rgb(255, 121, 198);
+  width: 100%;
 }
 
 .left-panel-items div:focus {

@@ -9,9 +9,6 @@ import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 import AboveTable from "./components/aboveTableComp/AboveTable.jsx";
 
-// import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-
-
 const App = () => {
     return <>
         <div className="container">

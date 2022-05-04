@@ -4,9 +4,7 @@ import * as AiIcons from "react-icons/ai"; // need to make sure not all icons ar
 import * as MdIcons from "react-icons/md"
 import * as BsIcons from "react-icons/bs"
 
-import LeftPanelContent from "./LeftPanel.content.jsx"
 import '../../styles/leftPanel.stylesheet.scss'
-import Button from '../standAloneComponents/button.jsx';
 
 const LeftPanel = () => {
     const [inactive, setInactive] = useState(false)
