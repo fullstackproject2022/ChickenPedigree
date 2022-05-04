@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { loginUser } from '../../../backend/api/crud/create';
 import logo from "../../styles/assets/logo3.png";
 import ForgotPwPanel from './forgotPwPanel.jsx';
+import '../../styles/login.stylesheet.scss';
 
 export default function Login({ setToken }) {
   const [username, setUserName] = useState();
@@ -20,7 +21,7 @@ export default function Login({ setToken }) {
   const ForgotPw = e => {
     e.preventDefault();
     console.log('forgot password');
-    
+    <ForgotPw />;
   }
 
   return (
@@ -29,20 +30,22 @@ export default function Login({ setToken }) {
           <img src={logo} alt="logo" className='logo-img'/>
       </div>
       <h1> Peck It </h1>
-      <ForgotPwPanel />
-      {/* <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           <p>Username</p>
-          <input type="text" placeholder="Username" id="username" onChange={e => setUserName(e.target.value)} />
+          <input required type="text" placeholder="Username" id="username" onChange={e => setUserName(e.target.value)} />
         </div>
         <div>
           <p>Password</p>
-          <input type="password" placeholder="Password" id="password" onChange={e => setPassword(e.target.value)} />
+          <input required type="password" placeholder="Password" id="password" onChange={e => setPassword(e.target.value)} />
         </div>
         <div className="submit" >
           <button type="submit">Submit</button>
         </div>
-      </form> */}
+      </form>
+      <div className="forgotPW" >
+          <button onClick={ForgotPw}>Forget your Password?</button>
+      </div>
     </div>
   )
 };

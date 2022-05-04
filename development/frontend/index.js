@@ -7,11 +7,11 @@ import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 
-import useToken from './useToken';
+import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'
 
 import './styles/index.stylesheet.scss';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
 
