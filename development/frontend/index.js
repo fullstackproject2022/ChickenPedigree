@@ -11,7 +11,8 @@ import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'
 
 import './styles/index.stylesheet.scss';
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import ChangePwPanel from "./components/login/ChangePwPanel.jsx";
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
         console.log(err);
     };
 
-    return <StrictMode>
+    <StrictMode>
         <div className="container">
             <TopPanel />
             <section className="body-wrapper">
@@ -39,11 +40,13 @@ function App() {
             </section>
         </div>
         <AdminPanel />
+    </StrictMode>
 
-     </StrictMode>
+    return (
+        <><ForgotPwPanel />
+            <ChangePwPanel />
+        </>
+    )
 }
 
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
-

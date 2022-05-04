@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { loginUser } from '../../../backend/api/crud/create';
+import create from '../../../backend/api/crud/create';
 import logo from "../../styles/assets/logo3.png";
 import ForgotPwPanel from './forgotPwPanel.jsx';
 import '../../styles/login.stylesheet.scss';
@@ -11,7 +11,7 @@ export default function Login({ setToken }) {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginUser({
+    const token = await create.loginUser({
       username,
       password
     });
@@ -27,7 +27,7 @@ export default function Login({ setToken }) {
   return (
     <div className="login-wrapper">
       <div className='logo'>
-          <img src={logo} alt="logo" className='logo-img'/>
+        <img src={logo} alt="logo" className='logo-img' />
       </div>
       <h1> Peck It </h1>
       <form onSubmit={handleSubmit}>

@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const Chicken = require(`${dbPath}/chicken.schema.js`);
 const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
+const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
 const jwt = require('jsonwebtoken');
 
@@ -151,18 +152,62 @@ ROUTER.post('/users/', async (req, res) => {
 });
 
 // check if user with email exists
-ROUTER.get("/user/:email", async (req, res) => {
+ROUTER.get("/find/:email", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
-        console.log(user.email);
-        if (!user) {
-            throw new Error("User does not exist");
-        }
         res.send(user);
+    } catch (err) {
+        res.status(404);
+    }
+});
+
+
+// create a token
+ROUTER.post('/tokens/', async (req, res) => {
+    try {
+        const token = new Mailtoken({
+            email: req.body.email,
+            token: req.body.token
+        });
+        const newToken = await token.save();
+        res.status(201).json({ newToken });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+
+// get token info
+ROUTER.get("/mailtoken/:id", async (req, res) => {
+    try {
+        const mailtoken = await Mailtoken.findOne({ token: req.params.id });
+        if (!mailtoken) {
+            throw new Error("Mailtoken does not exist");
+        }
+        res.send(mailtoken);
     } catch (err) {
         res.status(404).json({ message: err.message });
     }
 });
 
+
+// update a user
+ROUTER.put("/user/:id", async (req, res) => {
+    try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
+
+        const user = await User.findOne({ _id: req.params.id });
+        if (!user) {
+            throw new Error("User does not exist");
+        }
+        user.password = hashPssword;
+        await user.save();
+        res.send(user);
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+});
 
 module.exports = ROUTER;
