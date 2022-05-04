@@ -17,31 +17,6 @@ html {
 
 body {
     background-color: rgb(40, 44, 52);
-}
- 
-
-
-h1,
-h2 {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0;
-    justify-content: center;
-}
-
-thead {
-    width: max($cellWidth);
-    height: $cellHeight;
-}
-
-tbody {
-    width: $cellWidth;
-    height: $cellHeight;
-}
-
-
-body {
     color: #383f4d;
     line-height: 1.5;
     font-size: 14px;
@@ -92,8 +67,8 @@ caption {
     padding: 8px 20px;
     border-bottom: 1px solid #1a1a1a;
     font-weight: bold;
-    text-align: left;
-} 
+    font-size: 16px;
+}
 
 .table th.up {
     background-image: url($assets + "ascend.png");
@@ -118,8 +93,8 @@ th.down {
 }
 
 .table td {
-    border-top: 1px solid #ddd;
     padding: 8px 20px;
+    color: #eee;
 }
 
 .table tbody tr:first-child td {
@@ -127,11 +102,12 @@ th.down {
 }
 
 .table tbody tr:nth-child(n) td {
-    background: #eff0f0;
+    background: #30343c;
+    border-bottom: 1px solid #2c313a;
 }
 
 .table tbody tr:nth-child(2n) td {
-    background: #fff;
+    background: #2c313a;
 }
 
 

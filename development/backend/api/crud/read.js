@@ -1,6 +1,6 @@
 // CRUD read
 
-const fetchCollection = async (collection, filter = "", targetDetail = "") => {
+const fetchCollection = async (collection) => {
     var data = []
     await fetch(`/api/${collection}`)
         .then(response => response.json())

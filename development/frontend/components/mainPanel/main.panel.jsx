@@ -7,7 +7,7 @@ import AboveTable from "../aboveTableComp/AboveTable.jsx"
 const MainPanel = () => {
     const [selectedFilter, setSelectedFilter] = useState("")
     const [selectedDetails, setselectedDetails] = useState("")
-
+    
     return <>
         <div className="parent-Main">
             <AboveTable setSelectedFilter={setSelectedFilter} setSelectedDetails={setselectedDetails} />

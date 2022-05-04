@@ -1,89 +1,92 @@
 //the top panel is not optimised for shrinking screen
 // possible solution is to align it to the right 
 
-.aboveTableComp{
+// .aboveTable-wrapper {
+//     position: fixed;
+// }
+
+.aboveTableComp {
     height: 60px;
     width: 100%;
-    border: 2px solid red;
-    // position: absolute;
+    border: 2px solid transparent;
     margin-top: 90px;
-
 }
 
-.radioBtns{
+.radioBtns {
     margin-top: 15px;
     padding-right: 15px;
 }
 
-.radio{
-    font-size: 20px;
-    color: rgb(186, 73, 137);
-    padding-left: 8px;
-
+.radioBtns input[type="radio"] {
+    width: 25px;
+    height: 25px;
+    accent-color: #5e6a82;
+    background: rgb(186, 73, 137);
 }
 
-.filter{
-    // this should be not negative
+.radio {
+    font-size: 24px;
+    color: #eee;
+    padding: 0 8px 0 72px;
+}
+
+.filter {
     margin-top: -28px;
     margin-left: 900px;
 }
 
-.drop-down-menu{
-    background-color: rgb(40, 44, 52) ;
-    border: 2px solid  rgb(113, 126, 149) ;
+.drop-down-menu {
+    background-color: rgb(40, 44, 52);
+    border: 2px solid rgb(113, 126, 149);
     border-radius: 8px;
     font-size: 17px;
     color: #eee;
 }
 
-.search-box{
+.search-box {
     margin-top: -27px;
     margin-left: 1050px;
-    
     max-width: 150px;
 }
 
-.search{
+.search {
     background-color: rgb(40, 44, 52);
-    border: 2px solid  rgb(113, 126, 149) ;
+    border: 2px solid rgb(113, 126, 149);
     border-radius: 6px;
     color: #eee;
     height: 21px;
 }
 
-.search::placeholder{
+.search::placeholder {
     color: rgb(113, 126, 149);
     font-size: 18px;
-    // text-align: center;
-    // padding-left: 2px;
-
 }
 
-.buttons{
+.buttons {
     margin-top: -25px;
     margin-left: 1210px;
 }
 
-.go-button{
+.go-button {
     height: 26px;
     width: 100px;
-    border: 2px solid  rgb(113, 126, 149) ;
+    border: 2px solid rgb(113, 126, 149);
     background-color: rgb(40, 44, 52);
     color: rgb(113, 126, 149);
     border-radius: 6px;
     font-size: 18px;
 }
 
-.go-button:hover{
+.go-button:hover {
     color: rgb(40, 44, 52);
     background-color: rgb(113, 126, 149);
-    border: 2px solid  rgb(186, 73, 137) ;
+    border: 2px solid rgb(186, 73, 137);
 }
 
-.reset-button{
+.reset-button {
     height: 26px;
     width: 100px;
-    border: 2px solid  rgb(113, 126, 149) ;
+    border: 2px solid rgb(113, 126, 149);
     background-color: rgb(40, 44, 52);
     color: rgb(113, 126, 149);
     border-radius: 6px;
@@ -91,8 +94,8 @@
     margin-left: 10px;
 }
 
-.reset-button:hover{
+.reset-button:hover {
     color: rgb(40, 44, 52);
     background-color: rgb(113, 126, 149);
-    border: 2px solid  rgb(186, 73, 137) ;
+    border: 2px solid rgb(186, 73, 137);
 }
