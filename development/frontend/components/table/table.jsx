@@ -7,7 +7,7 @@ const Table = ({ data, columns }) => {
     const [dbTableData, setTableData] = useState(data); // setTableData is the updater function
     useEffect(() => {
         setTableData(data)
-    }, data)
+    }, [data])
 
     const doSort = (field, order) => {
         if (field) {
