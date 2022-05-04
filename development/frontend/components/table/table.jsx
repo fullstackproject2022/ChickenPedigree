@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TableBody from './body.table.jsx';
 import TableHead from './head.table.jsx';
 
 const Table = ({ data, columns }) => {
     const [dbTableData, setTableData] = useState(data); // setTableData is the updater function
+    useEffect(() => {
+        setTableData(data)
+    }, [data])
 
     const doSort = (field, order) => {
         if (field) {

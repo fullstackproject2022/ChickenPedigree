@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const TableBody = ({ columns, tableData }) => {
     return (
         <tbody>
-            {tableData.map((data) => {
+            {tableData.map((data, id) => {
                 return (
-                    <tr key={data._id}>
+                    <tr key={id}>
                         {columns.map(({ key }) => {
                             return <td key={key}>{data[key] ? data[key] === "U" ? "" : data[key] : ""}</td>;
                         })}

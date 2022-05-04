@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, className }) => {
 
   const [btnState, setBtnState] = useState(false)
 
@@ -12,7 +12,7 @@ const Button = ({ text, onClick }) => {
   }
 
   return (
-    <button className="btn" onClick={buttonPress}>{text}</button>
+    <button className={className} onClick={buttonPress}>{text}</button>
   )
 }
 

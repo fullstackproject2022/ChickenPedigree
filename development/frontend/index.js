@@ -6,6 +6,7 @@ import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
+import AboveTable from "./components/aboveTableComp/AboveTable.jsx";
 
 import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'

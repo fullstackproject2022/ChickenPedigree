@@ -1,14 +1,27 @@
 body {
-    background-color: transparent;
+    background-color: rgb(40, 44, 52);
+
 }
 
 .main-panel {
+    position: relative;
     display: flex;
     width: 100%;
     float: right;
-    margin-left: 10px;
-    margin-top: 87.5px;
-    height: 100vh - 10.3vh;
-    background-color: rgb(113, 126, 149);
+    margin-left: 80px;
+    margin-right: 10;
+    // margin-top: 87.5px;
+    margin-top: 10px;
+    height: 100vh - 15vh;
     overflow-y: auto;
+}
+
+.parent-Main {
+    width: 100%;
+    margin-left: 10px;
+}
+
+.main-panel * {
+    text-align: center;
+    height: 30px;
 }

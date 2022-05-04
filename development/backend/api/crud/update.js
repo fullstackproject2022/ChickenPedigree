@@ -1,11 +1,11 @@
 // CRUD update
 
-const updateUser = async (user, id) => {
+const updateUser = async (collection, user) => {
     const updateDetails = {
         username: user.username,
         firstname: user.firstname,
         lastname: user.lastname,
-        fullname: user.firstname + " " + user.lastname,
+        fullname: user.fullname,
         password: user.password,
         role: user.role,
         admin: user.admin,
@@ -15,7 +15,7 @@ const updateUser = async (user, id) => {
         email2: user.email2,
     };
 
-    fetch(`/api/users/${id}`, {
+    fetch(`/api/${collection}/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

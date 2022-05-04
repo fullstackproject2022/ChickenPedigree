@@ -1,0 +1,116 @@
+// //the top panel is not optimised for shrinking screen
+// // possible solution is to align it to the right 
+
+.aboveTable-wrapper {
+    margin-top: 90px;
+    display: flex;
+    height: 40px;
+}
+
+.aboveTable-wrapper div {
+    display: flex;
+    flex-grow: 2;
+    flex-wrap: nowrap;
+    float: left;
+}
+
+.hspan{
+    flex-grow: 2;
+    margin: 0 auto;
+}
+
+.radio {
+    margin-left: 10px;
+    color: #eee;
+    font-size: 23px;
+    padding-right: 7px;
+    
+}
+
+.radioBtns input[type="radio"] {
+    $radius: 23px;
+    width: $radius;
+    height: $radius;
+    accent-color: #5e6a82;
+    background: rgb(186, 73, 137);
+    margin-right: 25px;
+    margin-top: 7px;
+}
+
+// //** Filter comp **//
+
+.filter-wrapper{
+    justify-content: right;
+    margin-right: 25px;
+}
+
+
+.filter-wrapper div{
+    flex-grow: 1;
+    max-width: fit-content;
+}
+
+
+.search-box {
+    max-width: 150px;
+}
+
+.drop-down-menu {
+    background-color: rgb(40, 44, 52);
+    border: 2px solid rgb(113, 126, 149);
+    border-radius: 8px;
+    font-size: 17px;
+    color: #eee;
+    margin-right: 5px;
+}
+
+.search {
+    background-color: rgb(40, 44, 52);
+    border: 2px solid rgb(113, 126, 149);
+    border-radius: 6px;
+    color: #eee;
+}
+
+.search::placeholder {
+    text-indent: 10px;
+    padding-left: 10px;
+    color: rgb(113, 126, 149);
+    font-size: 20px;
+}
+
+.search * {
+    padding-left: 4px;
+}
+
+.go-button {
+    margin-left: 5px;
+    width: 100px;
+    border: 2px solid rgb(113, 126, 149);
+    background-color: #343b48;
+    color: #eee;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+.go-button:hover {
+    border: 2px solid #3d4656;
+}
+
+.reset-button {
+    width: 100px;
+    border: 2px solid rgb(113, 126, 149);
+    background-color: #343b48;
+    color: #eee;
+    border-radius: 6px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.reset-button:hover {
+    border: 2px solid #3d4656;
+}
+
+
+input[type="text"]{
+    font-size: 20px;
+}
