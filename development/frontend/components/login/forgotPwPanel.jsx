@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import read from '../../../backend/api/crud/read';
 import emailjs from '@emailjs/browser';
 import create from '../../../backend/api/crud/create';
+import '../../styles/login.stylesheet.scss';
+
 // https://dashboard.emailjs.com/admin/account
 // emailjs logins
 //chickenpedigree@gmail.com
@@ -43,11 +45,11 @@ const ForgotPwPanel = () => {
 
     return (
         <>
-            <div className="forgotPassword">
-                <h2> Send a recovery token to your email </h2>
+            <div className="login-wrapper">
+                <h1> Send a recovery token to your email </h1>
                 <form onSubmit={sendEmail}>
                     <label>Email</label>
-                    <input type="email" name="to_email" onChange={e => setEmail(e.target.value)} />
+                    <input type="email" name="to_email" onChange={e => setEmail(e.target.value)} /><br />
                     <input type="submit" value="Forgot password" />
                 </form>
             </div>
