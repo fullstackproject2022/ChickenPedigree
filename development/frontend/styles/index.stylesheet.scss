@@ -43,6 +43,8 @@ body {
     border-spacing: 0;
 }
 
+
+
 caption {
     font-style: italic;
     font-size: 90%;
@@ -68,6 +70,8 @@ caption {
     border-bottom: 1px solid #1a1a1a;
     font-weight: bold;
     font-size: 16px;
+    position: sticky;
+    top: 0;
 }
 
 .table th.up {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AboveTable from '../aboveTableComp/AboveTable.jsx';
 import TableBody from './body.table.jsx';
 import TableHead from './head.table.jsx';
 
