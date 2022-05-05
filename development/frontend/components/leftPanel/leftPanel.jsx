@@ -15,6 +15,7 @@ const LeftPanel = ({ setActivePanel }) => {
         setInactive(!inactive)
     }
 
+    
     return (
         <div className={`left-panel ${inactive ? "inactive" : ""}`}>
             <div className='top-left-panel'>
@@ -24,13 +25,13 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {return (setActivePanel('chickens')) }}>
+            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('chickens')) }}>
                 <div className="left-panel-div">
                     <GiChicken /><span>Chickens</span>
                 </div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {return (setActivePanel('pairing')) }}>
+            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('pairing')) }}>
                 <div className="left-panel-div">
                     <BsFillEggFill /><span>Pair</span>
                 </div>
@@ -39,7 +40,7 @@ const LeftPanel = ({ setActivePanel }) => {
             <div className="bottom-left-panel">
                 
                 <div className="divider"></div>
-                <div className="left-panel-item" onClick={() => {return (setActivePanel('accounts')) }}>
+                <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('accounts')) }}>
                     <div className="left-panel-div">
                         <MdAccountCircle /><span>Account</span>
                     </div>
