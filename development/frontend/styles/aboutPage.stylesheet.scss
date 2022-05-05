@@ -1,0 +1,58 @@
+$border: 3px red solid;
+
+
+.wrapper{
+    margin-top: 90px;
+    display: block;
+    height: 85vh;
+    width: 100vw;
+    // border: 3px red solid;
+    text-align: center;
+    color: #eee;
+    font-size: 25px;
+
+    h1{
+        font-size: 42px;
+    }
+
+    h3 {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    p{
+        // border: $border;
+        margin-top: 5%;
+        padding: 0 5%;
+        margin-bottom: 50px;
+        
+    }
+    ul{
+        // border: $border;
+        width: 30%;
+        margin: 0 auto;
+    }
+    li{
+        text-align: left;
+        width: 500px;
+    }
+}
+
+
+.names {
+    font-size: 28px;
+
+    ul{
+        font-size: 22px;
+        font-style: italic;
+    }
+}
+
+.contributor-role{ // not needed
+    margin-left: -160px;
+}
+
+.contributor-list {
+    // border: $border;
+    // height: 60vh;
+    margin: 8% 18% 0 18%;
+}

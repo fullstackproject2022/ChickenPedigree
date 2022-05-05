@@ -12,6 +12,8 @@ import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'
 
 import './styles/index.stylesheet.scss';
+import AboutPage from "./components/aboutPage/aboutPage.jsx";
+import BottomPanel from "./components/bottomPanel/bottomPanel.jsx";
 
 function App() {
 
@@ -33,7 +35,7 @@ function App() {
     console.log(err);
   };
 
-  const [activePanel, setActivePanel] = useState('chickens');
+  const [activePanel, setActivePanel] = useState('about');
 
   const pageSelector = () => {
     console.log(activePanel);
@@ -44,6 +46,8 @@ function App() {
         return <Pairing />
       case "accounts":
         return <AdminPanel />
+      case "about":
+        return <AboutPage />
     }
   }
 
@@ -55,6 +59,7 @@ function App() {
           <LeftPanel setActivePanel={setActivePanel} />
           {pageSelector()}
         </section>
+        <BottomPanel />
       </div>
     </StrictMode>
   )
