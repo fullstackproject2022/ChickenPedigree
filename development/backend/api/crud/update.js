@@ -30,4 +30,26 @@ const updateUser = async (collection, user) => {
         });
 }
 
-export default { updateUser };
+
+const updatePassword = async (user, id) => {
+    const updateDetails = {
+        password: user.password,
+        id: id
+    };
+
+    fetch(`/api/user/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updateDetails)
+    })
+        .then(res => res.json())
+        .then(response => {
+            if (response.message) {
+                console.log(response.message);
+            }
+        });
+}
+
+export default { updateUser, updatePassword };

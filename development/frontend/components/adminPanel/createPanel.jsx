@@ -34,7 +34,7 @@ const CreatePanel = () => {
         };
         let err = validateForm.validate(createDetails);
         if (err == 0) {
-            createUser(createDetails);
+            read.createUser(createDetails);
         }
 
     }

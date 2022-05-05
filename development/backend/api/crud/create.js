@@ -29,4 +29,40 @@ const createUser = async (collection) => {
         });
 }
 
+<<<<<<< HEAD
 export default { createUser }
+=======
+async function loginUser(credentials) {
+    return fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+        .then(res => res.json())
+}
+
+
+const createMailtoken = async (email, token) => {
+    const createDetails = {
+        email: email,
+        token: token
+    };
+    fetch(`/api/tokens/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(createDetails)
+    })
+        .then(res => res.json())
+        .then(response => {
+            if (response.message) {
+                console.log(response.message);
+            }
+        });
+}
+
+export default { createUser, loginUser, createMailtoken }
+>>>>>>> main
