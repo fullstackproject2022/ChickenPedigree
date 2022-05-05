@@ -1,126 +1,222 @@
-.year {
-    display: flex;
-    justify-content: center;
-    height: 65px;
+$female-chicken-color: rgb(189, 147, 249);
+$male-chicken-color: rgb(147, 198, 249);
+
+
+.pairing-wrapper {
+    position: relative;
+    margin-top: 87px;
     width: 100%;
-    margin: 0 auto;
-    background-color: rgb(37, 41, 44);
-}
+    padding: 0 35px;
 
-.years-collected {
-    float: left;
-    margin: auto;
-    padding: 5px;
-    color: white;
-}
+    button {
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        height: 39px;
+        margin: 10px 0;
+        box-shadow: 1px 1px 5px rgb(37, 41, 44);
+        font-weight: bold;
+        min-width: 100%;
+        background-color: rgb(64, 71, 88);
 
-.all-years {
-    color: red;
-}
+        &:hover {
+            background-color: rgb(40, 44, 52);
+        }
 
-.errMsg {
-    height: 30px;
-    width: auto;
-    margin-top: 7px;
-}
+        &:active {
+            $bgColor: rgb(189, 147, 249);
+            background-color: $bgColor;
+            box-shadow: 0 0 3px $bgColor;
+            color: white;
+        }
 
-.errMsg label {
-    color: red;
-    font-size: 20px;
-    font-weight: bold;
-}
+        // &:focus {
+        //     background-color: #a5a5a5;
+        // }
 
-
-.selection-panel {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    background-color: rgb(37, 41, 44);
-    height: 300px;
-    width: 100%;
-}
-
-.selection-panel div {
-    float: left;
-    height: 100%;
-    width: 90px;
-    padding: 15px;
-    margin: 0 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.filter-subjects,
-.target-subjects,
-.matched-pairs {
-    background-color: rgb(94, 106, 130);
-}
-
-.female-chickens .male-chickens {
-    white-space: pre-line;
-}
-
-
-button {
-    cursor: pointer;
-    display: block;
-    border: none;
-    border-radius: 4px;
-    height: 39px;
-    background-color: rgb(64, 71, 88);
-    margin: 10px 0;
-    box-shadow: 1px 1px 5px rgb(37, 41, 44);
-    font-weight: bold;
-
-
-    &:hover {
-        background-color: rgb(40, 44, 52);
     }
 
-    &:active {
-        $bgColor: rgb(189, 147, 249);
-        background-color: $bgColor;
-        box-shadow: 0 0 3px $bgColor;
+    .year {
+        display: flex;
+        justify-content: center;
+        height: 65px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgb(37, 41, 44);
+    }
+
+    .years-collected {
+        float: left;
+        margin: auto;
+        padding: 5px;
         color: white;
     }
 
-}
+    label {
+        color: #eee;
+        font-size: 23px;
+        padding-right: 7px;
+    }
 
-.clickToggle {
-    background-color: rgb(189, 147, 249);
-}
+    .years-collected label {
+        margin-left: 10px;
+    }
 
-.arrow-buttons button {
-    margin: 0 auto;
-    margin-top: 65px;
-    padding-top: 8px;
-    width: 50px;
-    color: white;
-    font-size: 15px;
+    .all-years label {
+        color: red;
+    }
 
-    &:hover {
+    .errMsg {
+        height: 30px;
+        width: auto;
+        margin-top: 7px;
+        padding: 20px 0;
+    }
+
+    .errMsg label {
+        display: block;
+        color: red;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    .selection-panel {
+        display: flex;
+        margin: 0;
+        background-color: rgb(37, 41, 44);
+        height: 83.75%;
+        width: 100%;
+    }
+
+    .selection-panel div {
+        flex-grow: 1;
+        display: block;
+        float: left;
+        height: auto;
+        width: 10%;
+        padding: 15px;
+        margin: 0 50px;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+
+    .filter-subjects,
+    .target-subjects {
+        max-width: 15%;
+    }
+
+    .filter-subjects,
+    .target-subjects,
+    .matched-pairs {
         background-color: rgb(94, 106, 130);
     }
-}
 
-.female-chickens {
-    color: pink;
-}
-
-.male-chickens {
-    color: powderblue;
-}
-
-.selected-female,
-.selected-male {
-    $bg: yellow;
-    background-color: $bg;
-
-    &:hover {
-        background-color: $bg;
+    .female-chickens .male-chickens {
+        white-space: pre-line;
     }
-}
 
-.matched-pairs {
-    min-width: 300px;
+    .clickToggle {
+        background-color: rgb(189, 147, 249);
+    }
+
+
+    .arrow-buttons {
+        max-width: fit-content;
+    }
+
+    .arrow-buttons button {
+        display: block;
+        margin: 0;
+        margin-top: 65px;
+        padding-top: 8px;
+        min-width: 150px;
+        color: white;
+        font-size: 15px;
+
+        &:hover {
+            background-color: rgb(94, 106, 130);
+        }
+    }
+
+    .female-chickens {
+        color: $female-chicken-color;
+    }
+
+    .male-chickens {
+        color: powderblue;
+    }
+
+    .selected-female,
+    .selected-male {
+        border: 1px solid #21252b;
+        box-shadow: 0 0 0 2px #6a6a6a;
+
+        &:hover {
+            // background-color: rgb(175, 175, 110);
+            color: #eee;
+        }
+    }
+
+    .selected-female {
+        background-color: $female-chicken-color;
+    }
+
+    .selected-male {
+        background-color: $male-chicken-color;
+    }
+
+
+    .matched-pairs {
+        flex-grow: 4;
+        float: right;
+        width: 1003px;
+    }
+
+    .matched-pairs button {
+        display: flex;
+        align-items: center;
+        padding-left: 40%;
+        color: #eee;
+
+        .female-span {
+            color: $female-chicken-color;
+        }
+
+        .male-span {
+            color: $male-chicken-color;
+        }
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+
+        span {
+            padding: 0 10px;
+        }
+
+
+    }
+
+    input[type="radio"] {
+        $radius: 23px;
+        width: $radius;
+        height: $radius;
+        accent-color: #5e6a82;
+        background: rgb(186, 73, 137);
+        margin-right: 25px;
+        margin-top: 37px;
+    }
+
+    .radio-btns label {
+        margin: 0;
+        margin-right: 30px;
+        margin-left: -8px;
+    }
+
+    .selected-pairing:focus {
+        background-color: #060606;
+    }
+
 }

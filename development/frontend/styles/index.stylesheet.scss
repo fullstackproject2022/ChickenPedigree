@@ -11,12 +11,8 @@ button {
     cursor: pointer;
 }
 
-html {
-    background-color: rgb(33, 37, 43);
-}
 
 body {
-    background-color: #21252b;
     color: #383f4d;
     line-height: 1.5;
     font-size: 14px;
@@ -35,14 +31,13 @@ body {
     max-width: 1250px;
     /* max-height: 500px; */
     margin: 0 auto;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .table {
     width: 100%;
     border-spacing: 0;
 }
-
 
 
 caption {
@@ -84,10 +79,6 @@ caption {
     background-position: 90%;
 }
 
-// .table th.default {
-//     background-image: url($assets + "descend.png");
-// }
-
 th.up,
 th.default,
 th.down {
@@ -114,9 +105,6 @@ th.down {
 .table tbody tr:nth-child(2n) td {
     background: #2c313a;
 }
-
-
-// panel placement
 
 .entire-page {
     position: relative;

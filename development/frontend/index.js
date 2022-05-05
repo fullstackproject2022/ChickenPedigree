@@ -36,7 +36,7 @@ function App() {
   const [activePanel, setActivePanel] = useState('chickens');
 
   const pageSelector = () => {
-    console.log(activePanel);
+    // console.log(activePanel);
     switch (activePanel) {
       case "chickens":
         return <MainPanel />

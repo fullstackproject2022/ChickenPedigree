@@ -1,7 +1,10 @@
-import React, { StrictMode, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import read from "../../../backend/api/crud/read";
 import '../../styles/pairing.stylesheet.scss'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import pairingIcon from '../../styles/assets/icon-egg.png'
+import SelectionPanel from './selectionPanel.component.jsx'
+
 
 const PairingWindow = () => {
     const [years, setYears] = useState([])
@@ -11,14 +14,16 @@ const PairingWindow = () => {
     const [fSelected, setFSelected] = useState(null)
     const [mSelected, setMSelected] = useState(null)
     const [errMsg, setErrMsg] = useState('')
+    const [pairs, setPairs] = useState([])
+    const [pairSelected, setPairSelected] = useState(null)
 
     const toggleBySex = () => {
         setFRadio(!fRadio)
         setMRadio(!mRadio)
     }
 
+
     const toggleButtonClicked = (element) => {
-        // console.log(fSelected || mSelected)
         if (fSelected && (element.target.innerText == fSelected.target.innerText)) {
             setFSelected(null)
             element.target.className = 'female-chickens'
@@ -45,15 +50,28 @@ const PairingWindow = () => {
             setMSelected(element)
             element.target.className = 'selected-male'
         }
-
     }
 
     const makePair = () => {
-        if (!fSelected || !mSelected) {
-            return setErrMsg(`Error, missing male or female chicken`)
+        if (!fSelected && !mSelected) {
+            return setErrMsg(`Error, missing both female and male chicken`)
         }
+        else if (!fSelected) {
+            return setErrMsg(`Error, missing female chicken`)
+        }
+        else if (!mSelected) {
+            return setErrMsg(`Error, missing male chicken`)
+        }
+        console.log(fSelected.target.innerHTML, mSelected.target.innerHTML)
         setErrMsg('')
+        const obj = { female: Number(fSelected.target.innerHTML), male: Number(mSelected.target.innerHTML) }
+        pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg(`That female is already paired!`)
     }
+
+    const pairClicked = () => {
+
+    }
+
 
     const removePair = (female, male) => {
         console.log("removing pair!")
@@ -73,7 +91,7 @@ const PairingWindow = () => {
 
     if (years.length > 0) {
         return <>
-            <StrictMode>
+            <div className="pairing-wrapper">
                 <div className="year">
                     <div className="years-collected all-years">
                         <input type="checkbox" value="All" />
@@ -86,7 +104,7 @@ const PairingWindow = () => {
                         </div>
                     })}
                 </div>
-                <div>
+                <div className="radio-btns">
                     <span>
                         <input type="radio" value="Female" className="radio-female" onChange={toggleBySex} checked={fRadio} />
                         <label>By female</label>
@@ -145,21 +163,20 @@ const PairingWindow = () => {
                         </button>
                     </div>
                     <div className="matched-pairs">
-                        {/* 
-                        
-                            !--TODO 
-                                Couple pairings in this div
-                                Next, filter chickens so only the selected years show
-                                Next, work on the algorithm that computes the relevant %s
-                            
-                        */}
+                        {
+                            pairs.map((pairing) => {
+                                return fRadio
+                                    ? <button className="paired-div" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
+                                    </button>
+                                    : <button className="paired-div" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
+                                    </button>
+                            })
+                        }
                     </div>
-
-
                 </section>
-
-
-            </StrictMode>
+            </div>
         </>
 
     }

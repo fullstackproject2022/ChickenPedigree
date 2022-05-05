@@ -14,7 +14,7 @@
     float: left;
 }
 
-.hspan{
+.hspan {
     flex-grow: 2;
     margin: 0 auto;
 }
@@ -24,7 +24,7 @@
     color: #eee;
     font-size: 23px;
     padding-right: 7px;
-    
+
 }
 
 .radioBtns input[type="radio"] {
@@ -38,13 +38,13 @@
 }
 
 // //** Filter comp **//
-.filter-wrapper{
+.filter-wrapper {
     justify-content: right;
     margin-right: 25px;
 }
 
 
-.filter-wrapper div{
+.filter-wrapper div {
     flex-grow: 1;
     max-width: fit-content;
 }
@@ -89,11 +89,12 @@
     color: #eee;
     border-radius: 6px;
     font-size: 18px;
+
     &:hover {
         border: 2px solid #3d4656;
     }
 }
 
-input[type="text"]{
+input[type="text"] {
     font-size: 20px;
 }
