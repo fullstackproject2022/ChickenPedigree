@@ -6,13 +6,15 @@
     height: 60px;
     background: rgb(33, 37, 43);
     margin-top: -40px;
-    
+    z-index: 1;
+    text-align: right;
+
 
     div {
         cursor: pointer;
-        float: right;
+        // float: right;
         padding-top: 4px;
-        padding-right: 10px;
+        margin-right: 20px;
         font-size: 16px;
         color: #eee;
         font-family: "Poppins";
