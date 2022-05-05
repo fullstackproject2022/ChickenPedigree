@@ -38,7 +38,6 @@
 }
 
 // //** Filter comp **//
-
 .filter-wrapper{
     justify-content: right;
     margin-right: 25px;
@@ -82,34 +81,18 @@
     padding-left: 4px;
 }
 
-.go-button {
-    margin-left: 5px;
+.buttons button {
+    margin: 0 0 0 5px;
     width: 100px;
     border: 2px solid rgb(113, 126, 149);
     background-color: #343b48;
     color: #eee;
     border-radius: 6px;
     font-size: 18px;
+    &:hover {
+        border: 2px solid #3d4656;
+    }
 }
-
-.go-button:hover {
-    border: 2px solid #3d4656;
-}
-
-.reset-button {
-    width: 100px;
-    border: 2px solid rgb(113, 126, 149);
-    background-color: #343b48;
-    color: #eee;
-    border-radius: 6px;
-    font-size: 18px;
-    margin-left: 10px;
-}
-
-.reset-button:hover {
-    border: 2px solid #3d4656;
-}
-
 
 input[type="text"]{
     font-size: 20px;

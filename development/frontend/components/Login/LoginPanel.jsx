@@ -16,6 +16,7 @@ export default function loginPanel({ setToken }) {
             password
         });
         setToken(token);
+        document.location.reload();
     }
 
     return (
