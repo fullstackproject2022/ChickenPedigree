@@ -11,8 +11,14 @@ const LeftPanel = ({ setActivePanel }) => {
 
     const [inactive, setInactive] = useState(false)
 
-    const toggleButton = () => {
-        setInactive(!inactive)
+    const toggleButton = (state) => {
+        if (state==null){
+            setInactive(!inactive)
+        }
+        else{
+            setInactive(state)
+        }
+        
     }
 
     return (
@@ -24,13 +30,13 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {toggleButton(); return (setActivePanel('chickens')) }}>
+            <div className="left-panel-item" onClick={() => {toggleButton(false); return (setActivePanel('chickens')) }}>
                 <div className="left-panel-div">
                     <GiChicken /><span>Chickens</span>
                 </div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {toggleButton(); return (setActivePanel('pairing')) }}>
+            <div className="left-panel-item" onClick={() => {toggleButton(false); return (setActivePanel('pairing')) }}>
                 <div className="left-panel-div">
                     <BsFillEggFill /><span>Pair</span>
                 </div>
@@ -39,7 +45,7 @@ const LeftPanel = ({ setActivePanel }) => {
             <div className="bottom-left-panel">
                 
                 <div className="divider"></div>
-                <div className="left-panel-item" onClick={() => {toggleButton(); return (setActivePanel('accounts')) }}>
+                <div className="left-panel-item" onClick={() => {toggleButton(false); return (setActivePanel('accounts')) }}>
                     <div className="left-panel-div">
                         <MdAccountCircle /><span>Account</span>
                     </div>
