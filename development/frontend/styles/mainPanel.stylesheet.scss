@@ -10,9 +10,9 @@ body {
     float: right;
     margin-left: 80px;
     margin-right: 10;
-    // margin-top: 87.5px;
+    // margin-bottom: 87.5px;
+    height: calc(100vh - 195px) !important;
     margin-top: 10px;
-    height: 100vh - 15vh;
     overflow-y: auto;
 }
 
