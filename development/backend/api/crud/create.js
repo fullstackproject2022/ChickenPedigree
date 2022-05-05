@@ -29,9 +29,6 @@ const createUser = async (collection) => {
         });
 }
 
-<<<<<<< HEAD
-export default { createUser }
-=======
 async function loginUser(credentials) {
     return fetch('/api/login', {
         method: 'POST',
@@ -65,4 +62,3 @@ const createMailtoken = async (email, token) => {
 }
 
 export default { createUser, loginUser, createMailtoken }
->>>>>>> main

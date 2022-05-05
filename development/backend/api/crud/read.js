@@ -20,10 +20,6 @@ const fetchOne = async (collection, id) => {
 
 
 
-<<<<<<< HEAD
-export default { fetchCollection, fetchOne }
-=======
 
 
 export default { fetchCollection, fetchOne, userExists }
->>>>>>> main

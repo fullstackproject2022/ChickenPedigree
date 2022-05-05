@@ -121,9 +121,6 @@ ROUTER.post('/users/', async (req, res) => {
     }
 });
 
-<<<<<<< HEAD
-module.exports = ROUTER
-=======
 // check if user with email exists
 ROUTER.get("/find/:email", async (req, res) => {
     try {
@@ -184,4 +181,3 @@ ROUTER.put("/user/:id", async (req, res) => {
 });
 
 module.exports = ROUTER;
->>>>>>> main
