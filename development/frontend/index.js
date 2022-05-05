@@ -1,26 +1,63 @@
-import React, { StrictMode } from "react";
+import React, { StrictMode, useState } from "react";
 import ReactDOM from "react-dom/client";
+import LoginPage from './components/Login/LoginPage.jsx';
 
-import './styles/index.stylesheet.scss';
-
-import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
-import AboveTable from "./components/aboveTableComp/AboveTable.jsx";
+import Pairing from "./components/pairings/pairing.component.jsx";
+import AdminPanel from "./components/adminPanel/adminPanel.jsx"
 
-const App = () => {
-    return <>
-        <div className="container">
-            <TopPanel />
-            <section className="body-wrapper">
-                <LeftPanel />
-                <MainPanel />
-            </section>
-        </div>
-    </>
-} 
+import useToken from '../backend/api/useToken';
+import jwtDecode from 'jwt-decode'
+
+import './styles/index.stylesheet.scss';
+
+function App() {
+
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <LoginPage setToken={setToken} />
+  };
+
+  if (document.getElementById('dot')) {
+    document.getElementById('dot').remove();
+  };
+
+  try {
+    // console.log(token);
+    jwtDecode(token, process.env.TOKEN_SECRET);
+    next();
+  } catch (err) {
+    console.log(err);
+  };
+
+  const [activePanel, setActivePanel] = useState('chickens');
+
+  const pageSelector = () => {
+    console.log(activePanel);
+    switch (activePanel) {
+      case "chickens":
+        return <MainPanel />
+      case "pairing":
+        return <Pairing />
+      case "accounts":
+        return <AdminPanel />
+    }
+  }
+
+  return (
+    <StrictMode>
+      <div className="container">
+        <TopPanel />
+        <section className="body-wrapper">
+          <LeftPanel setActivePanel={setActivePanel} />
+          {pageSelector()}
+        </section>
+      </div>
+    </StrictMode>
+  )
+}
 
 ReactDOM.createRoot(document.getElementById("root")).render(< App />);
-
-

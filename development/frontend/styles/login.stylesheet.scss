@@ -1,3 +1,7 @@
+body {
+    background-color: #21252b;
+}
+
 // login page
 .login-wrapper {
     color: #fff;
@@ -15,10 +19,10 @@
     align-items: center;
 
     h1 {
-        text-shadow:
-            -1px -1px 0 #ff79c6,
-            1px -1px 0 #ff79c6,
-            -1px 1px 0 #ff79c6,
+        text-shadow: 
+            -1px -1px 0 #ff79c6, 
+            1px -1px 0 #ff79c6, 
+            -1px 1px 0 #ff79c6, 
             1px 1px 0 #ff79c6;
         color: #21252b;
     }
@@ -49,22 +53,22 @@
         font-weight: 400;
         font-size: 20px;
         border-radius: 3px;
-        box-shadow: 0 5px 0px darken($button-bg-color, 0%);
-        border-bottom: 2px solid darken($button-bg-color, 3%);
-
-        &:hover {
-            background: darken($button-bg-color, 5%);
-            box-shadow: 0 4px 1px darken($button-bg-color, 5%);
-            border-bottom: 2px solid darken($button-bg-color, 8%);
-            transition: all 0.1s ease-in;
+        box-shadow: 0 5px 0px darken($button-bg-color,0%);
+        border-bottom: 2px solid darken($button-bg-color,3%);
+        
+        &:hover{
+          background: darken($button-bg-color,5%);
+          box-shadow: 0 4px 1px darken($button-bg-color,5%);
+          border-bottom: 2px solid darken($button-bg-color,8%);
+          transition: all 0.1s ease-in;
         }
-
-        &:active {
-            transform: translateY(4px);
-            border-bottom-width: 2px;
-            box-shadow: none;
+        
+        &:active{
+          transform:translateY(4px);
+          border-bottom-width: 2px;
+          box-shadow: none;
         }
-    }
+      }
 }
 
 

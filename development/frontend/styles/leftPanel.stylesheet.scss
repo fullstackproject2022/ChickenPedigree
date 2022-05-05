@@ -4,7 +4,6 @@
 }
 
 body {
-  background-color: #eee;
   overflow-y: hidden;
 }
 
@@ -12,13 +11,25 @@ body {
   position: relative;
   // background: rgb(40, 44, 52);
   background: rgb(33, 37, 43);
-  width: 72px;
-  min-width: 72px;
+  width: 65px;
+  min-width: 65px;
   height: 100vh;
   box-sizing: border-box;
-  padding: 15px 0 20px 20px;
+  padding: 15px 0 15px 20px;
   transition: width .35s ease-out;
   overflow: hidden;
+  
+  .left-panel-item {
+  cursor: pointer;
+  position: relative;
+  color: #eee;
+  font-size: 40px;
+  margin-top: 40px;
+  width: 200px;
+  * {
+    margin: 6px 5px 6px 0;
+  }
+  }
 }
 
 .inactive,
@@ -27,8 +38,9 @@ body {
   width: 250px;
 }
 
-.topOf-left-panel {
+.top-left-panel {
   position: relative;
+  margin-left: -5px;
 }
 
 .left-panel-toggle {
@@ -42,47 +54,35 @@ body {
   border-radius: 1px;
   background-color: rgb(255, 121, 198);
   bottom: -60px;
-  margin-right: 14px;
+  margin-left: -20px;
 }
 
 //*** All menu items ***// 
-.left-panel-items {
-  cursor: pointer;
-  position: relative;
-  color: #eee;
-  font-size: 40px;
-  margin-top: 40px;
-  width: 200px;
-
-  * {
-    margin: 6px 0px 6px 3px;
-  }
-}
-
 .left-panel-div {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   font-size: 32px;
   margin: 0 auto;
-  padding-top: 6px;
   right: 1px;
+  // padding: 10px 0;
 
   span {
     position: relative;
     top: -2.4px;
     left: 12px;
     display: inline;
-    vertical-align: top;
+    // vertical-align: top;
     text-overflow: clip;
     overflow: hidden;
   }
-}
 
-.left-panel-div:hover {
-  background-color: #282c34;
-  border-left: 3px solid rgb(255, 121, 198);
-  width: 100%;
+  &:hover {
+    background-color: #282c34;
+    border-left: 3px solid rgb(255, 121, 198);
+    width: 100%;
+  }
 }
 
 .left-panel-items div:focus {
@@ -91,49 +91,7 @@ body {
   width: 100%;
 }
 
-
-// //*** All menu items ***// 
-// .left-panel-settingComp {
-//   // display: inline-block;
-//   position: relative;
-//   color: #eee;
-//   font-size: 40px;
-//   margin-top: 75px;
-//   width: 200px;
-// }
-
-// .left-panel-settingComp * {
-//   margin: 6px 3px;
-// }
-
-
-// .left-panel-settings {
-//   position: relative;
-//   display: block;
-//   font-size: 32px;
-//   margin: 0 auto;
-//   right: 1px;
-// }
-
-// .left-panel-settings span {
-//   position: relative;
-//   top: -2.4px;
-//   left: 12px;
-//   display: inline;
-//   vertical-align: top;
-//   text-overflow: clip;
-//   overflow: hidden;
-// }
-
-
-// .left-panel-footer div * {
-//   $size: 35px;
-//   position: relative;
-//   text-align: center;
-//   width: $size;
-//   height: $size;
-//   color: #eee;
-//   font-size: 40px;
-//   bottom: 0;
-//   cursor: pointer;
-// }
+.bottom-left-panel {
+  position: absolute;
+  bottom: 20%;
+}
