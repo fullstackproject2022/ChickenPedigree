@@ -11,7 +11,7 @@ body {
     margin-left: 80px;
     margin-right: 10;
     // margin-bottom: 87.5px;
-    height: calc(100vh - 195px) !important;
+    height: calc(100vh - 180px) !important; // make table not extend bellow page
     margin-top: 10px;
     overflow-y: auto;
 }

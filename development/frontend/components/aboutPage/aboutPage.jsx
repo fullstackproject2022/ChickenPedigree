@@ -33,14 +33,14 @@ function AboutPage() {
                     <li className='names'>
                         Sandra Kaljula:
                         <ul>
-                            <li className='contributor-role'>Admin Panel, Login In, Database</li>
+                            <li className='contributor-role'>Admin Panel, Login, Database</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Mark Harvey:
                         <ul>
-                            <li className='contributor-role'>Log In, Left Panel</li>
+                            <li className='contributor-role'>Login, Left Panel</li>
                         </ul>
                     </li>
 
