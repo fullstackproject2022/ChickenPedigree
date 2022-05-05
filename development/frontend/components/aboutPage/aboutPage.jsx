@@ -26,28 +26,28 @@ function AboutPage() {
 
                         Sam Hurenkamp:
                         <ul>
-                            <li className='contributor-role'>Main Panel, Pairing page, Database</li>
+                            <li className='contributor-role'>Main Panel, Pairing Page, Database</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Sandra Kaljula:
                         <ul>
-                            <li className='contributor-role'>Admin Panel, Login in, Database</li>
+                            <li className='contributor-role'>Admin Panel, Login In, Database</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Mark Harvey:
                         <ul>
-                            <li className='contributor-role'>Log in Page, Left panel</li>
+                            <li className='contributor-role'>Log In, Left Panel</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Ramin Darudi:
                         <ul>
-                            <li className='contributor-role'>Main Panel, Left Panel, Top Panel</li>
+                            <li className='contributor-role'>Main Panel, Left Panel, Top & Bottom Panel</li>
                         </ul>
                     </li>
                     
