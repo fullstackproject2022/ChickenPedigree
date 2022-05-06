@@ -23,6 +23,7 @@ const UpdatePanel = ({ id, setPagePanel }) => {
         getData()
     }, [])
     const getData = () => {
+        // console.log(id)
         read.fetchOne("users", id)//<---------------------here
             .then(result => setUserData(result))
     }

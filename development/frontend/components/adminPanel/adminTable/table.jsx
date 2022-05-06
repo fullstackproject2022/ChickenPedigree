@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TableBody from './body.table.jsx';
 import TableHead from './head.table.jsx';
 
-const Table = ({ data, columns, setPagePanel }) => {
+const Table = ({ data, columns, setPagePanel, setEditID }) => {
     const [dbTableData, setTableData] = useState(data); // setTableData is the updater function
 
     const doSort = (field, order) => {
@@ -33,7 +33,7 @@ const Table = ({ data, columns, setPagePanel }) => {
                     Only the 5 most recent registrations are shown
                 </caption>
                 <TableHead columns={columns} doSort={doSort} />
-                <TableBody columns={columns} tableData={dbTableData} setPagePanel={setPagePanel} />
+                <TableBody columns={columns} tableData={dbTableData} setPagePanel={setPagePanel} setEditID={setEditID} />
             </table>
         </>
     );
