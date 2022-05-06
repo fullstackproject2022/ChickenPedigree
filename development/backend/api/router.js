@@ -70,7 +70,7 @@ ROUTER.post('/login', async (req, res) => {
 // delete a user
 ROUTER.delete("/delete/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id });
+        const user = await User.find({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }

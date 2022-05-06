@@ -3,7 +3,7 @@ import read from '../../../../backend/api/crud/read';
 import Table from './table.jsx';
 
 
-const AdminTable = () => {
+const AdminTable = ({ setPagePanel, setEditID }) => {
     const [user_data, setUserData] = useState([])
     useEffect(() => {
         getData()
@@ -23,7 +23,7 @@ const AdminTable = () => {
             { label: ".", key: "update", sortable: false }
         ];
 
-        return < Table data={user_data} columns={tableColumns} />
+        return < Table data={user_data} columns={tableColumns} setPagePanel={setPagePanel} setEditID={setEditID} />
     }
 }
 

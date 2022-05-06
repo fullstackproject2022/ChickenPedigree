@@ -1,10 +1,9 @@
 import React, { Component, useState, useEffect } from 'react';
 import Button from "./button.jsx";
 import deletion from '../../../../backend/api/crud/delete';
-import read from '../../../../backend/api/crud/read';
 
 
-const TableBody = ({ columns, tableData }) => {
+const TableBody = ({ columns, tableData, setPagePanel, setEditID }) => {
 
 
     function deleteUser(id) {
@@ -19,7 +18,8 @@ const TableBody = ({ columns, tableData }) => {
 
     function updateUser(_id) {
         console.log("update " + _id);
-
+        return (setEditID(_id))
+        //setPagePanel("UpdatePanel")
     }
     return (
         <tbody className='tbody'>
@@ -31,7 +31,8 @@ const TableBody = ({ columns, tableData }) => {
                                 return <td key={key}><Button text={"delete"} onClick={deleteUser} id={data._id} /></td>
                             }
                             else if (key == "update") {
-                                return <td key={key}><Button text={"update"} onClick={updateUser} id={data._id} /></td>
+                                return <td key={key}>
+                                    <Button text={"update"} onClick={updateUser} id={data._id} setPagePanel={setPagePanel} /></td>
                             }
                             else { // key != "delete" && key != "update"
                                 return <td key={key}>{data[key] ? data[key] === "U" ? "" : data[key] : ""}</td>;
