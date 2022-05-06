@@ -3,7 +3,8 @@ import read from "../../../backend/api/crud/read";
 import '../../styles/pairing.stylesheet.scss'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import pairingIcon from '../../styles/assets/icon-egg.png'
-import SelectionPanel from './selectionPanel.component.jsx'
+import FSelectionPanel from './FSelectionPanel.component.jsx'
+import MSelectionPanel from './MSelectionPanel.component.jsx'
 
 
 const PairingWindow = () => {
@@ -15,7 +16,22 @@ const PairingWindow = () => {
     const [mSelected, setMSelected] = useState(null)
     const [errMsg, setErrMsg] = useState('')
     const [pairs, setPairs] = useState([])
+    const [panelText1, setPanelText1] = useState('')
+    const [panelText2, setPanelText2] = useState('')
     // const [pairSelected, setPairSelected] = useState(null)
+
+    useEffect(() => {
+        setPanelText1(fRadio ? 'Female' : 'Male')
+        setPanelText2(fRadio ? 'Male' : 'Female')
+    }, [fRadio])
+
+
+    const createSelectionPanel = (filterBy) => {
+        return filterBy === "F"
+            ? <FSelectionPanel className={"filter-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
+            : <MSelectionPanel className={"target-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
+
+    }
 
     const toggleBySex = () => {
         setFRadio(!fRadio)
@@ -86,15 +102,11 @@ const PairingWindow = () => {
                 <div className="errMsg">
                     <label>{errMsg}</label>
                 </div>
+                <div className="header-div" id="first-header"> <span id="filter-header">{panelText1}</span> </div>
+                <div className="header-div" id="second-header"> <span id="target-header">{panelText2}</span>  </div>
                 <section className="selection-panel">
-                    <SelectionPanel
-                        fRadioSelected={fRadio}
-                        mRadioSelected={mRadio}
-                        chickens={chickens}
-                        fSelected={fSelected}
-                        mSelected={mSelected}
-                        setFSelected={setFSelected}
-                        setMSelected={setMSelected} />
+                    {createSelectionPanel("F")}
+                    {createSelectionPanel("M")}
                     <div className="arrow-buttons">
                         <button onClick={makePair}>
                             <FaArrowRight />
@@ -119,7 +131,6 @@ const PairingWindow = () => {
                 </section>
             </div>
         </>
-
     }
 }
 

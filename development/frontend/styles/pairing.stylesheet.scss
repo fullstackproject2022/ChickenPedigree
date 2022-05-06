@@ -1,5 +1,7 @@
 $female-chicken-color: rgb(189, 147, 249);
 $male-chicken-color: rgb(147, 198, 249);
+$col-default: #eee;
+
 
 .pairing-wrapper {
     position: relative;
@@ -26,7 +28,7 @@ $male-chicken-color: rgb(147, 198, 249);
             $bgColor: rgb(189, 147, 249);
             background-color: $bgColor;
             box-shadow: 0 0 3px $bgColor;
-            color: white;
+            color: $col-default;
         }
     }
 
@@ -43,11 +45,11 @@ $male-chicken-color: rgb(147, 198, 249);
         float: left;
         margin: auto;
         padding: 5px;
-        color: white;
+        color: $col-default;
     }
 
     label {
-        color: #eee;
+        color: $col-default;
         font-size: 23px;
         padding-right: 7px;
     }
@@ -74,26 +76,9 @@ $male-chicken-color: rgb(147, 198, 249);
         font-weight: bold;
     }
 
-    .filter-subjects,
-    .target-subjects {
-        max-width: 15%;
-        min-width: 150px;
-    }
-
-    .filter-subjects,
-    .target-subjects,
     .matched-pairs {
         background-color: rgb(94, 106, 130);
     }
-
-    .female-chickens .male-chickens {
-        white-space: pre-line;
-    }
-
-    .clickToggle {
-        background-color: rgb(189, 147, 249);
-    }
-
 
     .arrow-buttons {
         max-width: fit-content;
@@ -123,7 +108,7 @@ $male-chicken-color: rgb(147, 198, 249);
         display: flex;
         align-items: center;
         // padding-left: 40%;
-        color: #eee;
+        color: $col-default;
 
         .female-span {
             color: $female-chicken-color;
@@ -183,4 +168,6 @@ $male-chicken-color: rgb(147, 198, 249);
     .paired-div img {
         margin: 0;
     }
+
+    @import './selectionPanel.stylesheet.scss';
 }

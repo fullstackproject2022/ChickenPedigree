@@ -1,5 +1,4 @@
 import React from "react"
-import '../../styles/selectionPanel.stylesheet.scss'
 
 const SelectionPanel = (
     {
@@ -9,9 +8,9 @@ const SelectionPanel = (
         fSelected,
         mSelected,
         setFSelected,
-        setMSelected
+        setMSelected,
+        className
     }) => {
-
 
     const toggleButtonClicked = (element) => {
         if (fSelected && (element.target.innerText == fSelected.target.innerText)) {
@@ -43,7 +42,7 @@ const SelectionPanel = (
     }
 
     return <>
-        <div className="filter-subjects">
+        <div className={className}>
             {fRadioSelected
                 ? chickens.map((chicken) => {
                     return chicken.sex === 'F'
@@ -61,23 +60,6 @@ const SelectionPanel = (
                 })
             }
 
-        </div>
-        <div className="target-subjects">
-            {fRadioSelected
-                ? chickens.map((chicken) => {
-                    return chicken.sex === 'M'
-                        && <button key={chicken._id}
-                            className="male-chickens"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                })
-                : mRadioSelected
-                && chickens.map((chicken) => {
-                    return chicken.sex === 'F'
-                        && <button key={chicken._id}
-                            className="female-chickens"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                })
-            }
         </div>
     </>
 }

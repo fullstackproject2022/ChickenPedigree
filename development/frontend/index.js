@@ -6,7 +6,6 @@ import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 import Pairing from "./components/pairings/pairing.component.jsx";
-import SelectionPanel from './components/pairings/selectionPanel.component.jsx'
 import AdminPanel from "./components/adminPanel/adminPanel.jsx"
 
 
@@ -45,7 +44,6 @@ function App() {
         return <MainPanel />
       case "pairing":
         return <Pairing />
-      // return <SelectionPanel />
       case "accounts":
         return <AdminPanel />
     }
