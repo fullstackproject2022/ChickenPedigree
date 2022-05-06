@@ -6,15 +6,15 @@ import AboveTable from "../aboveTableComp/AboveTable.jsx"
 
 const MainPanel = () => {
     const [selectedFilter, setSelectedFilter] = useState("")
-    const [selectedDetails, setselectedDetails] = useState("")
-    
+    const [selectedDetails, setSelectedDetails] = useState("")
+
     return <>
         <div className="parent-Main">
-            <AboveTable setSelectedFilter={setSelectedFilter} setSelectedDetails={setselectedDetails} />
+            <AboveTable setSelectedFilter={setSelectedFilter} setSelectedDetails={setSelectedDetails} />
             <div className="main-panel">
                 <ChickenTable selectedFilter={selectedFilter} searchDetail={selectedDetails} />
             </div>
-        </div>         
+        </div>
     </>
 }
 

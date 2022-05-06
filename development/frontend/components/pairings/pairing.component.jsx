@@ -15,57 +15,26 @@ const PairingWindow = () => {
     const [mSelected, setMSelected] = useState(null)
     const [errMsg, setErrMsg] = useState('')
     const [pairs, setPairs] = useState([])
-    const [pairSelected, setPairSelected] = useState(null)
+    // const [pairSelected, setPairSelected] = useState(null)
 
     const toggleBySex = () => {
         setFRadio(!fRadio)
         setMRadio(!mRadio)
     }
 
-
-    const toggleButtonClicked = (element) => {
-        if (fSelected && (element.target.innerText == fSelected.target.innerText)) {
-            setFSelected(null)
-            element.target.className = 'female-chickens'
-            return
-        }
-        else if (mSelected && (element.target.innerText == mSelected.target.innerText)) {
-            setMSelected(null)
-            element.target.className = 'male-chickens'
-            return
-        }
-
-        const isFemale = element.target.className === 'female-chickens'
-        const isMale = element.target.className === 'male-chickens'
-
-        if (fSelected && isFemale) { fSelected.target.className = 'female-chickens' }
-        else if (mSelected && isMale) { mSelected.target.className = 'male-chickens' }
-
-
-        if (isFemale) {
-            setFSelected(element)
-            element.target.className = 'selected-female'
-        }
-        else if (isMale) {
-            setMSelected(element)
-            element.target.className = 'selected-male'
-        }
-    }
-
     const makePair = () => {
         if (!fSelected && !mSelected) {
-            return setErrMsg(`Error, missing both female and male chicken`)
+            return setErrMsg('Error, missing both female and male chicken')
         }
         else if (!fSelected) {
-            return setErrMsg(`Error, missing female chicken`)
+            return setErrMsg('Error, missing female chicken')
         }
         else if (!mSelected) {
-            return setErrMsg(`Error, missing male chicken`)
+            return setErrMsg('Error, missing male chicken')
         }
-        console.log(fSelected.target.innerHTML, mSelected.target.innerHTML)
         setErrMsg('')
         const obj = { female: Number(fSelected.target.innerHTML), male: Number(mSelected.target.innerHTML) }
-        pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg(`That female is already paired!`)
+        pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg('That female is already paired!')
     }
 
     const pairClicked = () => {
@@ -97,10 +66,10 @@ const PairingWindow = () => {
                         <input type="checkbox" value="All" />
                         <label>All</label>
                     </div>
-                    {years.map((y) => {
-                        return <div className="years-collected" key={y * 2}>
-                            <input type="checkbox" key={y * 3} />
-                            <label key={y}>{y}</label>
+                    {years.map((x) => {
+                        return <div className="years-collected" key={x * 2}>
+                            <input type="checkbox" key={x * 3} />
+                            <label key={x}>{x}</label>
                         </div>
                     })}
                 </div>
@@ -118,42 +87,14 @@ const PairingWindow = () => {
                     <label>{errMsg}</label>
                 </div>
                 <section className="selection-panel">
-                    <div className="filter-subjects">
-                        {fRadio
-                            ? chickens.map((chicken) => {
-                                return chicken.sex === 'F'
-                                    && <button
-                                        key={chicken._id}
-                                        className="female-chickens"
-                                        onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                            })
-                            : mRadio
-                            && chickens.map((chicken) => {
-                                return chicken.sex === 'M'
-                                    && <button key={chicken._id}
-                                        className="male-chickens"
-                                        onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                            })
-                        }
-
-                    </div>
-                    <div className="target-subjects">
-                        {fRadio
-                            ? chickens.map((chicken) => {
-                                return chicken.sex === 'M'
-                                    && <button key={chicken._id}
-                                        className="male-chickens"
-                                        onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                            })
-                            : mRadio
-                            && chickens.map((chicken) => {
-                                return chicken.sex === 'F'
-                                    && <button key={chicken._id}
-                                        className="female-chickens"
-                                        onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
-                            })
-                        }
-                    </div>
+                    <SelectionPanel
+                        fRadioSelected={fRadio}
+                        mRadioSelected={mRadio}
+                        chickens={chickens}
+                        fSelected={fSelected}
+                        mSelected={mSelected}
+                        setFSelected={setFSelected}
+                        setMSelected={setMSelected} />
                     <div className="arrow-buttons">
                         <button onClick={makePair}>
                             <FaArrowRight />

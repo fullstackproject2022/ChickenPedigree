@@ -1,7 +1,6 @@
 $female-chicken-color: rgb(189, 147, 249);
 $male-chicken-color: rgb(147, 198, 249);
 
-
 .pairing-wrapper {
     position: relative;
     margin-top: 87px;
@@ -29,11 +28,6 @@ $male-chicken-color: rgb(147, 198, 249);
             box-shadow: 0 0 3px $bgColor;
             color: white;
         }
-
-        // &:focus {
-        //     background-color: #a5a5a5;
-        // }
-
     }
 
     .year {
@@ -80,30 +74,10 @@ $male-chicken-color: rgb(147, 198, 249);
         font-weight: bold;
     }
 
-
-    .selection-panel {
-        display: flex;
-        margin: 0;
-        background-color: rgb(37, 41, 44);
-        height: 83.75%;
-        width: 100%;
-    }
-
-    .selection-panel div {
-        flex-grow: 1;
-        display: block;
-        float: left;
-        height: auto;
-        width: 10%;
-        padding: 15px;
-        margin: 0 50px;
-        overflow-y: auto;
-        overflow-x: auto;
-    }
-
     .filter-subjects,
     .target-subjects {
         max-width: 15%;
+        min-width: 150px;
     }
 
     .filter-subjects,
@@ -139,34 +113,6 @@ $male-chicken-color: rgb(147, 198, 249);
         }
     }
 
-    .female-chickens {
-        color: $female-chicken-color;
-    }
-
-    .male-chickens {
-        color: powderblue;
-    }
-
-    .selected-female,
-    .selected-male {
-        border: 1px solid #21252b;
-        box-shadow: 0 0 0 2px #6a6a6a;
-
-        &:hover {
-            // background-color: rgb(175, 175, 110);
-            color: #eee;
-        }
-    }
-
-    .selected-female {
-        background-color: $female-chicken-color;
-    }
-
-    .selected-male {
-        background-color: $male-chicken-color;
-    }
-
-
     .matched-pairs {
         flex-grow: 4;
         float: right;
@@ -176,7 +122,7 @@ $male-chicken-color: rgb(147, 198, 249);
     .matched-pairs button {
         display: flex;
         align-items: center;
-        padding-left: 40%;
+        // padding-left: 40%;
         color: #eee;
 
         .female-span {
@@ -195,8 +141,6 @@ $male-chicken-color: rgb(147, 198, 249);
         span {
             padding: 0 10px;
         }
-
-
     }
 
     input[type="radio"] {
@@ -215,8 +159,28 @@ $male-chicken-color: rgb(147, 198, 249);
         margin-left: -8px;
     }
 
-    .selected-pairing:focus {
+    .paired-div:focus {
         background-color: #060606;
     }
 
+    .paired-div {
+        padding: 0 125px;
+    }
+
+    .paired-div * {
+        // background-color: rgb(47, 98, 149);
+        margin: 0 auto;
+    }
+
+    .female-span {
+        margin: 0 0 0 auto;
+    }
+
+    .male-span {
+        margin: 0 auto 0 0;
+    }
+
+    .paired-div img {
+        margin: 0;
+    }
 }
