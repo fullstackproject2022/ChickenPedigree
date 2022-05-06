@@ -11,12 +11,11 @@ const fetchCollection = async (collection) => {
 
 const fetchOne = async (collection, id) => {
     let data = []
-    console.log(id)
     await fetch(`/api/${collection}/${id}`)
         .then(response => response.json())
         .then(res => data.push(res))
         .catch(error => console.log(error.message))
-    console.log(data)
+    //console.log(data[0])
     return data[0]
 }
 

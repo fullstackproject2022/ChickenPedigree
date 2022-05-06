@@ -9,18 +9,14 @@ const Button = ({ text, onClick, id, setPagePanel, className }) => {
 
   const buttonPress = () => {
     setBtnState(!btnState)
-    onClick(id); 
+    onClick(id);
     if (text === "update") {
-      
-      return ( setPagePanel("UpdatePanel"));
-      
+      return (setPagePanel("UpdatePanel"));
     }
-    
-
   }
 
   return (
-    <button className={className} onClick={() => {buttonPress() }}>{text}</button>
+    <button className={className} onClick={() => { buttonPress() }}>{text}</button>
   )
 }
 

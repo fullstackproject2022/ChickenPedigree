@@ -22,9 +22,8 @@ const UpdatePanel = ({ id, setPagePanel }) => {
     useEffect(() => {
         getData()
     }, [])
-    const getData = () => {
-        // console.log(id)
-        read.fetchOne("users", id)//<---------------------here
+    const getData = async () => {
+        await read.fetchOne("users", id)//<---------------------here
             .then(result => setUserData(result))
     }
 

@@ -17,7 +17,7 @@ const TableBody = ({ columns, tableData, setPagePanel, setEditID }) => {
 
 
     function updateUser(_id) {
-        console.log("update " + _id);
+        //console.log("update button " + _id);
         return (setEditID(_id))
         //setPagePanel("UpdatePanel")
     }

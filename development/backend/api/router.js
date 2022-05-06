@@ -84,11 +84,11 @@ ROUTER.delete("/delete/:id", async (req, res) => {
 // get one user
 ROUTER.get("/users/:_id", async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id });
+        const user = await User.findOne({ _id: req.params._id });
         if (!user) {
             throw new Error("User does not exist");
         }
-        console.log("this is the id: " + user)
+        //console.log("this is the id: " + user)
         res.send(user);
 
     } catch (err) {
