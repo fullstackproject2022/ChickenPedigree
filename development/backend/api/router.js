@@ -84,20 +84,20 @@ ROUTER.delete("/delete/:id", async (req, res) => {
 // get one user
 ROUTER.get("/users/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }
         res.send(user);
     } catch (err) {
-        res.status(404).json({ message: err.message });
+        res.status(404);
     }
 });
 
 // update a user
 ROUTER.put("/users/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }
@@ -139,7 +139,7 @@ ROUTER.post('/users/', async (req, res) => {
 
         });
 
-        const foundUser = await User.findOne({ id: req.body.id });
+        const foundUser = await User.findOne({ _id: req.body.id });
         if (foundUser) throw new Error("User already exists");
         const newUser = await user.save();
         res.status(201).json({ newUser });
