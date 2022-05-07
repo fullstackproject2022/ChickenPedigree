@@ -1,7 +1,7 @@
 // Builds permissions panel.
 import React, { useState } from 'react';
 import createUser from '../../../backend/api/crud/create';
-import './../../styles/updatePanel.stylesheet.scss';
+import '../../styles/admin.stylesheet.scss'
 import validateForm from './validateForm';
 
 const CreatePanel = ({ setPagePanel }) => {
@@ -39,8 +39,8 @@ const CreatePanel = ({ setPagePanel }) => {
     }
     return (
         <>
-            <div className='createUser'>
-                <h2>Create a new user here</h2>
+            <div className='UpdateWrapper'>
+                <h3>Create a new user here</h3>
                 <form className="userUpdateForm" onSubmit={handleSubmit}>
                     <div><label>Username</label>
                         <input className="floater"
@@ -78,11 +78,15 @@ const CreatePanel = ({ setPagePanel }) => {
                         </select>
                     </div>
                     <label>Admin</label>
-                    <div className="floater">{/*fixx*/}
-                        <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
-                        <label>True</label>
-                        <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />
-                        <label>False</label>
+                    <div className="floater" id='radio'>
+                        <div>
+                            <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
+                            <label>True</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />
+                            <label>False</label>
+                        </div>
                     </div>
                     <div><label>Phone</label>
                         <input className="floater"

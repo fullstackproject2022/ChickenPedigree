@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Button from "../standAloneComponents/button.jsx";
 import read from '../../../backend/api/crud/read';
 import updateUser from '../../../backend/api/crud/update';
-import './../../styles/updatePanel.stylesheet.scss';
+import '../../styles/admin.stylesheet.scss'
 import validateForm from './validateForm';
 
 
@@ -29,8 +29,7 @@ const UpdatePanel = ({ id, setPagePanel }) => {
 
     const handleSubmit = async e => { // CHange to actual user update
         e.preventDefault();
-        console.log("update");
-        /*
+        //console.log("update");
         const updateDetails = {
             username: username != undefined ? username : user_data.username,
             firstname: firstName != undefined ? firstName : user_data.firstname,
@@ -45,19 +44,19 @@ const UpdatePanel = ({ id, setPagePanel }) => {
             email: email != undefined ? email : user_data.email,
             email2: email2 != undefined ? email2 : user_data.email2,
         };
-        let err = validateForm.validate(updateDetails);
+        //let err = validateForm.validate(updateDetails);
+        await updateUser(updateDetails, id);
         if (err == 0) {
-            updateUser(updateDetails, id)//<---------------------here "626a7a71006d0701adef3159"
+
         }
-        */
         return (setPagePanel("AdminTable"));
     }
 
 
     return (
         <>
-            <span>Sidenote: On the left you see the current info and you can change the ones you would like on the right panel and leave the ones you do not want to change empty.</span>
             <div className="userContainer">
+                {/*Sidenote: On the left you see the current info and you can change the ones you would like on the right panel and leave the ones you do not want to change empty.*/}
                 <div className="userShow">
                     <h3 className="userTitle">User details</h3>
                     <label>Username</label><span className="userShowUsername">{user_data.username}</span><br />
@@ -107,7 +106,7 @@ const UpdatePanel = ({ id, setPagePanel }) => {
                             </select>
                         </div>
                         <label>Admin</label>
-                        <div className="floater">{/*fixx*/}
+                        <div className="floater" id='radio'>
                             <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
                             <label>True</label>
                             <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />

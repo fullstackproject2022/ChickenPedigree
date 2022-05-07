@@ -1,26 +1,28 @@
 // CRUD update
 
-const updateUser = async (collection, user) => {
-    const updateDetails = {
-        username: user.username,
-        firstname: user.firstname,
-        lastname: user.lastname,
-        fullname: user.fullname,
-        password: user.password,
-        role: user.role,
-        admin: user.admin,
-        phone: user.phone,
-        phone2: user.phone2,
-        email: user.email,
-        email2: user.email2,
+const updateUser = async (updateDetails, id) => {
+    console.log("JEÖÖPPP");
+    const userDetails = {
+        username: updateDetails.username,
+        firstname: updateDetails.firstname,
+        lastname: updateDetails.lastname,
+        fullname: updateDetails.fullname,
+        password: updateDetails.password,
+        role: updateDetails.role,
+        admin: updateDetails.admin,
+        phone: updateDetails.phone,
+        phone2: updateDetails.phone2,
+        email: updateDetails.email,
+        email2: updateDetails.email2,
     };
+    console.log(userDetails);
 
-    fetch(`/api/${collection}/${id}`, {
+    fetch(`/api/users/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(updateDetails)
+        body: JSON.stringify(userDetails)
     })
         .then(res => res.json())
         .then(response => {

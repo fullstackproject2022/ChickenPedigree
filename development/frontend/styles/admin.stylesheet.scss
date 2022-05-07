@@ -1,5 +1,123 @@
-.AdminBtn {
-    margin-top: 100px;
-    height: 10vh;
-    border: 2px red solid;
+.AdminWrapper {
+    padding-top: 4%;
+    position: relative;
+    //display: flex;
+    width: 100%;
+    //float: right;
+    margin-left: 80px;
+    margin-right: 10;
+    // margin-top: 87.5px;
+    margin-top: 10px;
+    height: 100vh - 15vh;
+    overflow-y: auto;
+}
+
+.AdminHeader {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.floater,
+select {
+    width: 60%;
+    float: right;
+    width: 300px;
+    height: 15px;
+}
+
+select {
+    height: 20px;
+}
+
+input::placeholder {
+    font-size: 1.5vh;
+}
+
+.userContainer {
+    margin: auto;
+    width: 90%;
+    padding: 3%;
+    background-color: #30343c;
+    color: #eee;
+}
+
+.userShow {
+    display: inline-block;
+    width: 45%;
+    height: 40%;
+    padding: 3%;
+
+    span {
+        width: 60%;
+        float: right;
+    }
+}
+
+.userUpdate {
+    display: inline-block;
+    width: 45%;
+    height: 40%;
+    padding: 1%;
+}
+
+.createUser {
+    width: 45%;
+    height: 40%;
+    padding: 2%;
+    padding-bottom: 4%;
+    margin: auto;
+}
+
+.UpdateWrapper {
+    width: 50%;
+    margin: auto;
+    padding: 5%;
+    background-color: #30343c;
+
+    label,
+    h3 {
+        color: #eee;
+    }
+}
+
+
+.tbody * {
+    text-align: center;
+    height: 30px;
+}
+
+@media only screen and (max-width: 1080px) {
+
+    .userUpdate,
+    .userShow {
+        display: block;
+        width: 90%;
+    }
+
+    .UpdateWrapper {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 590px) {
+
+    .userUpdateForm div * {
+        display: block;
+    }
+
+    .userUpdateForm #radio {
+        display: inline;
+    }
+
+    .floater,
+    select {
+        width: 60%;
+        float: none;
+        width: 300px;
+        height: 15px;
+    }
+
+    select {
+        height: 20px;
+    }
 }

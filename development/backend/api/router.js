@@ -190,7 +190,7 @@ ROUTER.get("/mailtoken/:id", async (req, res) => {
 });
 
 
-// update a user
+// update a users password
 ROUTER.put("/user/:id", async (req, res) => {
     try {
         // Hash Password

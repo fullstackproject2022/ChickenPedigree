@@ -19,8 +19,8 @@ const AdminTable = ({ setPagePanel, setEditID }) => {
             { label: "Username", key: "username", sortable: true },
             { label: "Fullname", key: "fullname", sortable: true },
             { label: "Role", key: "role", sortable: true },
-            { label: ".", key: "delete", sortable: false },
-            { label: ".", key: "update", sortable: false }
+            { label: "", key: "delete", sortable: false },
+            { label: "", key: "update", sortable: false }
         ];
 
         return < Table data={user_data} columns={tableColumns} setPagePanel={setPagePanel} setEditID={setEditID} />

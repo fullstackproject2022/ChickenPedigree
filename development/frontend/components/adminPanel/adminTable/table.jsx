@@ -29,9 +29,6 @@ const Table = ({ data, columns, setPagePanel, setEditID }) => {
     return (
         <>
             <table className="table">
-                <caption>
-                    Only the 5 most recent registrations are shown
-                </caption>
                 <TableHead columns={columns} doSort={doSort} />
                 <TableBody columns={columns} tableData={dbTableData} setPagePanel={setPagePanel} setEditID={setEditID} />
             </table>

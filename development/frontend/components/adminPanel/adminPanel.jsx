@@ -32,14 +32,18 @@ const AdminPanel = () => {
 
     return (
         <>
-            <div className='AdminWrapper'>
-                <h1> Peck It </h1>
 
-                {pageSelector()}
+            <div className='AdminWrapper'>
+                <div className='AdminHeader'>
+                    <Button text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
+                    <Button text={"Create a new User"} onClick={switchPanel1} className={"AdminBtn"} />
+                </div>
+                <div className='AdminPanel'>
+                    {pageSelector()}
+                </div>
             </div>
         </>
     )
 };
-//<Button text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
-//<Button text={"Create Panel"} onClick={switchPanel1} className={"AdminBtn"} />
+
 export default AdminPanel;
