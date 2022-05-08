@@ -4,7 +4,7 @@ const validate = (updateDetails) => {
     let err = [];
     let firstname = updateDetails.firstname
     let lastname = updateDetails.lastname
-    let phone = updateDetails.phone
+    let phone = updateDetails.phone + ""
     let email = updateDetails.email
 
     let conditions = { // regex tested on https://regex101.com/

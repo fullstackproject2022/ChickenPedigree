@@ -126,16 +126,19 @@ ROUTER.put("/users/:_id", async (req, res) => {
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
     try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
         const user = new User({
             username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             fullname: req.body.fullname,
-            password: req.body.password,
+            password: hashPssword,
             role: req.body.role,
             admin: req.body.admin,
-            phone: req.body.phone,
-            phone2: req.body.phone2,
+            phone: req.body.phone + "",
+            phone2: req.body.phone2 + "",
             email: req.body.email,
             email2: req.body.email2,
 

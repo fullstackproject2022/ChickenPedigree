@@ -1,6 +1,6 @@
 // Builds permissions panel.
 import React, { useState } from 'react';
-import createUser from '../../../backend/api/crud/create';
+import create from '../../../backend/api/crud/create';
 import '../../styles/admin.stylesheet.scss'
 import validateForm from './validateForm';
 
@@ -23,6 +23,7 @@ const CreatePanel = ({ setPagePanel }) => {
             username: username,
             firstname: firstName,
             lastname: lastName,
+            fullname: firstName + " " + lastName,
             password: password,
             role: role,
             admin: admin,
@@ -33,7 +34,7 @@ const CreatePanel = ({ setPagePanel }) => {
         };
         let err = validateForm.validate(createDetails);
         if (err == 0) {
-            createUser(createDetails);
+            create.createUser(createDetails);
         }
         return (setPagePanel("AdminTable"));
     }
