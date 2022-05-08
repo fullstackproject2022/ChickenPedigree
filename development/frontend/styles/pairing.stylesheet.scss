@@ -76,10 +76,6 @@ $col-default: #eee;
         font-weight: bold;
     }
 
-    .matched-pairs {
-        background-color: rgb(94, 106, 130);
-    }
-
     .arrow-buttons {
         max-width: fit-content;
     }
@@ -102,6 +98,7 @@ $col-default: #eee;
         flex-grow: 4;
         float: right;
         width: 1003px;
+        background-color: rgb(94, 106, 130);
     }
 
     .matched-pairs button {
@@ -144,29 +141,12 @@ $col-default: #eee;
         margin-left: -8px;
     }
 
-    .paired-div:focus {
-        background-color: #060606;
-    }
+    .paired-button {
+        justify-content: center;
 
-    .paired-div {
-        padding: 0 125px;
-    }
-
-    .paired-div * {
-        // background-color: rgb(47, 98, 149);
-        margin: 0 auto;
-    }
-
-    .female-span {
-        margin: 0 0 0 auto;
-    }
-
-    .male-span {
-        margin: 0 auto 0 0;
-    }
-
-    .paired-div img {
-        margin: 0;
+        :focus {
+            background-color: #060606;
+        }
     }
 
     @import './selectionPanel.stylesheet.scss';

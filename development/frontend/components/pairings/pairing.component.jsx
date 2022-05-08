@@ -119,10 +119,10 @@ const PairingWindow = () => {
                         {
                             pairs.map((pairing) => {
                                 return fRadio
-                                    ? <button className="paired-div" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                    ? <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
                                         <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
                                     </button>
-                                    : <button className="paired-div" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                    : <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
                                         <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
                                     </button>
                             })
