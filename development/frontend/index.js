@@ -6,12 +6,16 @@ import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 import Pairing from "./components/pairings/pairing.component.jsx";
-import AdminPanel from "./components/adminPanel/adminPanel.jsx"
+import AdminPanel from "./components/adminPanel/adminPanel.jsx";
+
+
 
 import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'
 
 import './styles/index.stylesheet.scss';
+import AboutPage from "./components/aboutPage/aboutPage.jsx";
+import BottomPanel from "./components/bottomPanel/bottomPanel.jsx";
 
 function App() {
 
@@ -36,7 +40,7 @@ function App() {
   const [activePanel, setActivePanel] = useState('chickens');
 
   const pageSelector = () => {
-    console.log(activePanel);
+    // console.log(activePanel);
     switch (activePanel) {
       case "chickens":
         return <MainPanel />
@@ -44,6 +48,8 @@ function App() {
         return <Pairing />
       case "accounts":
         return <AdminPanel />
+      case "about":
+        return <AboutPage />
     }
   }
 
@@ -55,6 +61,7 @@ function App() {
           <LeftPanel setActivePanel={setActivePanel} />
           {pageSelector()}
         </section>
+        <BottomPanel setActivePanel={setActivePanel} />
       </div>
     </StrictMode>
   )

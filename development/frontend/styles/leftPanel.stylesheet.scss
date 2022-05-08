@@ -18,17 +18,14 @@ body {
   padding: 15px 0 15px 20px;
   transition: width .35s ease-out;
   overflow: hidden;
-  
+
   .left-panel-item {
-  cursor: pointer;
-  position: relative;
-  color: #eee;
-  font-size: 40px;
-  margin-top: 40px;
-  width: 200px;
-  * {
-    margin: 6px 5px 6px 0;
-  }
+    cursor: pointer;
+    position: relative;
+    color: #eee;
+    font-size: 40px;
+    margin-top: 40px;
+    width: 200px;
   }
 }
 
