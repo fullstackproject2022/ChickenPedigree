@@ -38,7 +38,7 @@ const LeftPanel = ({ setActivePanel }) => {
                 </div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('pairing')) }}>
+            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('history')) }}>
                 <div className="left-panel-div">
                     <MdHistory /><span>History</span>
                 </div>
