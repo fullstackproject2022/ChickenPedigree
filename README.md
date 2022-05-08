@@ -9,6 +9,38 @@ Its simple, easy to use nature ensured an enjoyable user experience, which vastl
 PeckIt aims to reduce the time that students and researchers within the group will spend on these tasks, thereby freeing up additional time for more important research matters.
 Although PeckIt only caters to the Løvlie research team, its thought and implimentation open up the door towards future wider applications, such as in farming.
 
+
+## Installing
+* Download from github https://github.com/fullstackproject2022/ChickenPedigree.
+* Ensure `npm` is configured on the system
+* If required to install dependencies manually:
+	> automatically install all dependencies
+	```
+		npm i
+	```
+
+## Executing the program (Terminal)
+* Step 1: Open a UNIX terminal e.g., GitBash
+* Step 2: Make sure npm is installed
+* Step 2: Download the appropriate NPM modules according to the package.json file (`npm i`)
+* Step 3: (Optional) Download nodemon globally using npm.
+* Step 4:
+	* Build production code via CLI:
+	```
+		npm run build
+	```
+	* Then run:
+		```
+			npm run concurrent
+		```	
+			
+* Step 4: The web app should now run.
+* Step 5: If the web app did not open automatically, then navigate manually to the following address:
+			```
+				http://localhost:8080
+			```
+* Step 6: Enjoy!
+
 ## Dependencies
 
 ### Dev-Dependencies
@@ -44,38 +76,6 @@ Although PeckIt only caters to the Løvlie research team, its thought and implim
 * react: v18.0.0
 * react-dom: v18.0.0
 * react-icons: v4.3.1
-
-
-## Installing
-* Download from github https://github.com/fullstackproject2022/ChickenPedigree.
-* Ensure `npm` is configured on the system
-* If required to install dependencies manually:
-	> automatically install all dependencies
-	```
-		npm i
-	```
-
-## Executing the program (Terminal)
-* Step 1: Open a UNIX terminal e.g., GitBash
-* Step 2: Make sure npm is installed
-* Step 2: Download the appropriate NPM modules according to the package.json file (`npm i`)
-* Step 3: (Optional) Download nodemon globally using npm.
-* Step 4:
-	* Build production code via CLI:
-	```
-		npm run build
-	```
-	* Then run:
-		```
-			npm run concurrent
-		```	
-			
-* Step 4: The web app should now run.
-* Step 5: If the web app did not open automatically, then navigate manually to the following address:
-			```
-				http://localhost:8080
-			```
-* Step 6: Enjoy!
 
 ## Authors
 Sam Hurenkamp, Ramin Darudi, Sandra Kaljula, Mark Harvey
