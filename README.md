@@ -30,9 +30,9 @@ Although PeckIt only caters to the Løvlie research team, its thought and implim
 		npm run build
 	```
 	* Then run:
-		```
-			npm run concurrent
-		```	
+	```
+		npm run concurrent
+	```	
 			
 * Step 4: The web app should now run.
 * Step 5: If the web app did not open automatically, then navigate manually to the following address:

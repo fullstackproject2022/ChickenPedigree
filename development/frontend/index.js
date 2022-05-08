@@ -7,7 +7,7 @@ import MainPanel from "./components/mainPanel/main.panel.jsx";
 import Pairing from "./components/pairings/pairing.component.jsx";
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import useToken from '../backend/api/useToken';
-import jwtDecode from 'jwt-decode'
+import jwtDecode from 'jwt-decode';
 import AboutPage from "./components/aboutPage/aboutPage.jsx";
 import BottomPanel from "./components/bottomPanel/bottomPanel.jsx";
 import './styles/index.stylesheet.scss';
@@ -26,10 +26,10 @@ function App() {
 
   try {
     // console.log(token);
-    jwtDecode(token, process.env.TOKEN_SECRET);
-    next();
+    let decoded = jwtDecode(token);
+    // console.log(decoded);
   } catch (err) {
-    console.log(err);
+    alert(err);
   };
 
   const [activePanel, setActivePanel] = useState('chickens');
