@@ -9,6 +9,7 @@ Its simple, easy to use nature ensured an enjoyable user experience, which vastl
 PeckIt aims to reduce the time that students and researchers within the group will spend on these tasks, thereby freeing up additional time for more important research matters.
 Although PeckIt only caters to the Løvlie research team, its thought and implimentation open up the door towards future wider applications, such as in farming.
 
+## Dependencies
 
 ### Dev-Dependencies
 * @babel/core: v7.17.9
@@ -45,7 +46,7 @@ Although PeckIt only caters to the Løvlie research team, its thought and implim
 * react-icons: v4.3.1
 
 
-### Installing
+## Installing
 * Download from github https://github.com/fullstackproject2022/ChickenPedigree.
 * Ensure `npm` is configured on the system
 * If required to install dependencies manually:
@@ -54,7 +55,7 @@ Although PeckIt only caters to the Løvlie research team, its thought and implim
 		npm i
 	```
 
-### Executing the program (Terminal)
+## Executing the program (Terminal)
 * Step 1: Open a UNIX terminal e.g., GitBash
 * Step 2: Make sure npm is installed
 * Step 2: Download the appropriate NPM modules according to the package.json file (`npm i`)
