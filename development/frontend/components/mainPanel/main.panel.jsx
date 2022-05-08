@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect, useState } from "react"
+import React, { useState } from "react"
 import '../../styles/mainPanel.stylesheet.scss'
 import ChickenTable from "../table/chicken.table.jsx"
 import AboveTable from "../aboveTableComp/AboveTable.jsx"
