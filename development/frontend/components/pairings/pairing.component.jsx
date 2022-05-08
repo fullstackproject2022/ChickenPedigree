@@ -26,11 +26,14 @@ const PairingWindow = () => {
     }, [fRadio])
 
 
-    const createSelectionPanel = (filterBy) => {
+    const createSelectionPanel = (filterBy, headerID) => {
         return filterBy === "F"
-            ? <FSelectionPanel className={"filter-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
-            : <MSelectionPanel className={"target-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
-
+            ? <div className="wrapper"><div className="header-div" id={headerID}> <span id="filter-header">{panelText1}</span> </div>
+                <FSelectionPanel className={"filter-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
+            </div>
+            : <div className="wrapper"><div className="header-div" id={headerID}> <span id="target-header">{panelText2}</span></div>
+                <MSelectionPanel className={"target-subjects"} fRadioSelected={fRadio} mRadioSelected={mRadio} chickens={chickens} fSelected={fSelected} mSelected={mSelected} setFSelected={setFSelected} setMSelected={setMSelected} />
+            </div>
     }
 
     const toggleBySex = () => {
@@ -102,11 +105,9 @@ const PairingWindow = () => {
                 <div className="errMsg">
                     <label>{errMsg}</label>
                 </div>
-                <div className="header-div" id="first-header"> <span id="filter-header">{panelText1}</span> </div>
-                <div className="header-div" id="second-header"> <span id="target-header">{panelText2}</span>  </div>
                 <section className="selection-panel">
-                    {createSelectionPanel("F")}
-                    {createSelectionPanel("M")}
+                    {createSelectionPanel("F", "first-header")}
+                    {createSelectionPanel("M", "second-header")}
                     <div className="arrow-buttons">
                         <button onClick={makePair}>
                             <FaArrowRight />
