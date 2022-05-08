@@ -1,6 +1,7 @@
 $female-chicken-color: rgb(189, 147, 249);
 $male-chicken-color: rgb(147, 198, 249);
 $col-default: #eee;
+$top-radius: 15px;
 
 
 .pairing-wrapper {
@@ -95,10 +96,19 @@ $col-default: #eee;
     }
 
     .matched-pairs {
-        display: flex;
-        flex-grow: 4;
-        float: right;
+        // border: 2px solid lavender;
         background-color: rgb(94, 106, 130);
+        border-top-left-radius: $top-radius;
+        border-top-right-radius: $top-radius;
+        min-width: 350px;
+        max-width: 350px;
+
+        .wrapper {
+            border-top-left-radius: $top-radius;
+            border-top-right-radius: $top-radius;
+            margin: 0;
+        }
+
     }
 
     .matched-pairs button {

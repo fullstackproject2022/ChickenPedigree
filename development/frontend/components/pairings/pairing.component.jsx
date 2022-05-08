@@ -117,17 +117,20 @@ const PairingWindow = () => {
                         </button>
                     </div>
                     <div className="matched-pairs">
-                        {
-                            pairs.map((pairing) => {
-                                return fRadio
-                                    ? <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
-                                        <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
-                                    </button>
-                                    : <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
-                                        <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
-                                    </button>
-                            })
-                        }
+                        <div className="wrapper">
+                            <div className="header-div"> Matched Pairs </div>
+                            {
+                                pairs.map((pairing) => {
+                                    return fRadio
+                                        ? <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                            <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
+                                        </button>
+                                        : <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                            <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
+                                        </button>
+                                })
+                            }
+                        </div>
                     </div>
                 </section>
             </div>
