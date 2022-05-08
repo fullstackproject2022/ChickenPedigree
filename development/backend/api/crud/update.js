@@ -1,7 +1,6 @@
 // CRUD update
 
 const updateUser = async (updateDetails, id) => {
-    console.log("JEÖÖPPP");
     const userDetails = {
         username: updateDetails.username,
         firstname: updateDetails.firstname,
@@ -15,7 +14,6 @@ const updateUser = async (updateDetails, id) => {
         email: updateDetails.email,
         email2: updateDetails.email2,
     };
-    console.log(userDetails);
 
     fetch(`/api/users/${id}`, {
         method: 'PUT',

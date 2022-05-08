@@ -97,9 +97,9 @@ ROUTER.get("/users/:_id", async (req, res) => {
 });
 
 // update a user
-ROUTER.put("/users/:id", async (req, res) => {
+ROUTER.put("/users/:_id", async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id });
+        const user = await User.findOne({ _id: req.params._id });
         if (!user) {
             throw new Error("User does not exist");
         }

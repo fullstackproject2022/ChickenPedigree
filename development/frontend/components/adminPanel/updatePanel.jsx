@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from "../standAloneComponents/button.jsx";
 import read from '../../../backend/api/crud/read';
-import updateUser from '../../../backend/api/crud/update';
+import update from '../../../backend/api/crud/update';
 import '../../styles/admin.stylesheet.scss'
 import validateForm from './validateForm';
 
@@ -34,21 +34,24 @@ const UpdatePanel = ({ id, setPagePanel }) => {
             username: username != undefined ? username : user_data.username,
             firstname: firstName != undefined ? firstName : user_data.firstname,
             lastname: lastName != undefined ? lastName : user_data.lastname,
+            fullname: "",
             password: user_data.password,
 
             role: role != undefined ? role : user_data.role,
             admin: admin != undefined ? admin : user_data.admin,
 
-            phone: phone != undefined ? phone : user_data.phone,
-            phone2: phone2 != undefined ? phone2 : user_data.phone2,
+            phone: phone != undefined ? phone + "" : user_data.phone + "",
+            phone2: phone2 != undefined ? phone2 + "" : user_data.phone2 + "",
             email: email != undefined ? email : user_data.email,
             email2: email2 != undefined ? email2 : user_data.email2,
         };
-        //let err = validateForm.validate(updateDetails);
-        await updateUser(updateDetails, id);
-        if (err == 0) {
+        updateDetails.fullname = updateDetails.firstname + " " + updateDetails.lastname;
 
+        let err = validateForm.validate(updateDetails);
+        if (err == 0) {
+            update.updateUser(updateDetails, id)
         }
+
         return (setPagePanel("AdminTable"));
     }
 
