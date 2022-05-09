@@ -7,12 +7,12 @@ const historySchema = mongoose.Schema({
         required: true
     },
     fChickenID: {
-        type: String,
+        type: Number,
         unique: true,
         required: true
     },
     mChickenID: {
-        type: String,
+        type: Number,
         unique: true,
         required: true
     },

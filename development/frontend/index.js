@@ -5,6 +5,7 @@ import LeftPanel from "./components/leftPanel/leftPanel.jsx";
 import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 import Pairing from "./components/pairings/pairing.component.jsx";
+import History from "./components/historyPage/historyPanel.jsx";
 import AdminPanel from "./components/adminPanel/adminPanel.jsx";
 import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode'
@@ -41,6 +42,8 @@ function App() {
         return <MainPanel />
       case "pairing":
         return <Pairing />
+      case "history":
+        return <History />
       case "accounts":
         return <AdminPanel />
       case "about":

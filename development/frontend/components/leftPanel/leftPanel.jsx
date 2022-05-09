@@ -4,6 +4,7 @@ import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai"; // need
 import { MdAccountCircle } from "react-icons/md"
 import { BsFillEggFill } from "react-icons/bs"
 import { GiChicken } from "react-icons/gi";
+import { MdHistory } from "react-icons/md";
 
 import '../../styles/leftPanel.stylesheet.scss'
 
@@ -15,7 +16,7 @@ const LeftPanel = ({ setActivePanel }) => {
         setInactive(!inactive)
     }
 
-    
+
     return (
         <div className={`left-panel ${inactive ? "inactive" : ""}`}>
             <div className='top-left-panel'>
@@ -25,22 +26,27 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('chickens')) }}>
+            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('chickens')) }}>
                 <div className="left-panel-div">
                     <GiChicken /><span>Chickens</span>
                 </div>
             </div>
 
-            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('pairing')) }}>
+            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('pairing')) }}>
                 <div className="left-panel-div">
                     <BsFillEggFill /><span>Pair</span>
                 </div>
             </div>
+            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('history')) }}>
+                <div className="left-panel-div">
+                    <MdHistory /><span>History</span>
+                </div>
+            </div>
 
             <div className="bottom-left-panel">
-                
+
                 <div className="divider"></div>
-                <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('accounts')) }}>
+                <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('accounts')) }}>
                     <div className="left-panel-div">
                         <MdAccountCircle /><span>Account</span>
                     </div>
