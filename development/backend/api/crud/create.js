@@ -61,4 +61,20 @@ const createMailtoken = async (email, token) => {
         });
 }
 
-export default { createUser, loginUser, createMailtoken }
+const createPairingHistory = async (historyDetails) => {
+    fetch(`/api/history/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(historyDetails)
+    })
+        .then(res => res.json())
+        .then(response => {
+            if (response.message) {
+                console.log(response.message);
+            }
+        });
+}
+
+export default { createUser, loginUser, createMailtoken, createPairingHistory }

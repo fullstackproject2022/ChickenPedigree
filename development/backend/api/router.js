@@ -7,6 +7,7 @@ const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
 const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
+const History = require(`${dbPath}/history.schema.js`)
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -211,5 +212,34 @@ ROUTER.put("/user/:id", async (req, res) => {
         res.status(404).json({ message: err.message });
     }
 });
+
+// Create new pairing History
+ROUTER.post('/history/', async (req, res) => {
+    try {
+        const history = new History({
+            userID: req.body.userID,
+            fChickenID: req.body.fChickenID,
+            mChickenID: req.body.mChickenID
+        });
+
+        const newHistory = await history.save();
+        res.status(201).json({ newHistory });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// get all pairing History
+ROUTER.get('/history', async (_, res) => {
+    let data = await History.find()
+    if (!data) {
+        res.status(400).json(
+            { message: `Error: Pairing history data not found!` }
+        )
+    }
+    res.send(data)
+});
+
+
 
 module.exports = ROUTER;
