@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import Table from './table.jsx';
 
-const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
+const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults }) => {
     const [chickenData, setChickenData] = useState([])
     const columns = [ // not including children here
         { label: "Batch Year", key: "batchYear", sortable: true },
@@ -34,9 +34,14 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
     }, [searchDetail, selectedFilter])
 
 
+
     if (chickenData.length > 0) {
+        //setNoResults(false)
         return < Table data={chickenData} columns={columns} />
     }
+    // else{
+    //     setNoResults(true)
+    // }
 
 }
 export default ChickenTable;

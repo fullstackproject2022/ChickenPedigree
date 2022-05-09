@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import '../../styles/aboveTable.stylesheet.scss'
 import Button from '../standAloneComponents/button.jsx'
 import read from '../../../backend/api/crud/read';
+import FileImport from '../importExport/FileImport.jsx';
 
 
-const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
+const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurrentTable, setImportTable }) => {
     const [chosenFilter, setChosenFilter] = useState("_id");
     const [chosenDetail, setChosenDetail] = useState();
     const [inputValue, setInputValue] = useState("");
+    const [errMsg, setErrMsg] = useState("")
     const hasNumber = /^[\d]+$/
 
     function checkInput(input) {
@@ -26,12 +28,24 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
 
 
     const goBtn = () => {
-        setSelectedFilter(chosenFilter)
-        setSelectedDetails(chosenDetail)
+        
+        if(chosenDetail != ""){
+            setSelectedFilter(chosenFilter)
+            setSelectedDetails(chosenDetail)
+        }
+        
+        if (noResults){
+            setErrMsg("No results")
+        }
+        // else if (!noResults){
+        //     setErrMsg("")
+        // }
     }
 
     const resetBtn = () => {
         setInputValue("")
+        setSelectedDetails("")
+        setSelectedFilter("")
     }
 
 
@@ -39,14 +53,14 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
     return (
         <div className='aboveTable-wrapper'>
             <div className='radioBtns'>
-                <label className='radio'>View</label>
-                <input type="radio" id='viewbtn' name="choice" value="view" defaultChecked></input>
-                <label className='radio'>Edit</label>
-                <input type="radio" id='editbtn' name="choice" value="edit"></input>
+                <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable}/>
             </div>
-            <div className='hspan'></div>
+            <div className='hspan'>
+                
+            </div>
             <div className='filter-wrapper'>
                 <div className='filter'>
+                    <label className='errMsg'>{errMsg}</label>
                     <select name="option" className="drop-down-menu" value={chosenFilter}
                         onChange={(e) => setChosenFilter(e.target.value)} >
                         <option value="_id">Chicken ID</option>

@@ -35,7 +35,7 @@ function App() {
     console.log(err);
   };
 
-  const [activePanel, setActivePanel] = useState('about');
+  const [activePanel, setActivePanel] = useState('chickens');
 
   const pageSelector = () => {
     console.log(activePanel);
