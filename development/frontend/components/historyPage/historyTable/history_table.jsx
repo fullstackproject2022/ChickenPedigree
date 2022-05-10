@@ -19,6 +19,7 @@ const HistoryTable = () => {
             { label: "User id", key: "userID", sortable: true },
             { label: "F chicken id", key: "fChickenID", sortable: true },
             { label: "M chicken id", key: "mChickenID", sortable: true },
+            { label: "Date paired", key: "createdAt", sortable: true }
         ];
 
         return < Table data={history_data} columns={tableColumns} />

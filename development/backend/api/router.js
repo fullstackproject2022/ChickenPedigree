@@ -9,6 +9,8 @@ const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
 const History = require(`${dbPath}/history.schema.js`)
 
+const { db } = require(`${dbPath}/user.schema.js`)
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -216,12 +218,22 @@ ROUTER.put("/user/:id", async (req, res) => {
 // Create new pairing History
 ROUTER.post('/history/', async (req, res) => {
     try {
+        // Auto increment id
+        let newID = undefined;
+        try {
+            newID = (await db.collection('counters').findOne()).seq + 1
+        }
+        catch (error) {
+            if (!newID) newID == 1
+        }
+
         const history = new History({
+            historyID: newID,
             userID: req.body.userID,
             fChickenID: req.body.fChickenID,
             mChickenID: req.body.mChickenID
         });
-
+        console.log(history);
         const newHistory = await history.save();
         res.status(201).json({ newHistory });
     } catch (err) {
