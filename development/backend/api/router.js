@@ -27,6 +27,20 @@ ROUTER.get('/chicken', async (_, res) => {
     res.send(data)
 });
 
+// get one chicken
+ROUTER.get("/chicken/:_id", async (req, res) => {
+    try {
+        const chicken = await Chicken.findOne({ _id: req.params._id });
+        if (!chicken) {
+            throw new Error("Chicken does not exist");
+        }
+        res.send(chicken);
+
+    } catch (err) {
+        res.status(404);
+    }
+});
+
 // get all users
 ROUTER.get('/users', async (_, res) => {
     let data = await User.find()
