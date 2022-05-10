@@ -121,6 +121,32 @@ ROUTER.put("/users/:id", async (req, res) => {
     }
 });
 
+// updateChicken
+ROUTER.put("/chickentest/:_id", async (req, res) => {
+    try{
+        const chicken = await Chicken.findOne({_id: req.params._id})
+        if(!chicken) {
+            throw new Error("Chicken does not exist");
+        }
+
+        chicken._id = req.body._id,
+            chicken.batchYear = req.body.batchYear,
+            chicken.breed = req.body.breed,
+            chicken.status = req.body.status,
+            chicken.sex = req.body.sex,
+            chicken.fParent = req.body.fParent,
+            chicken.mParent = req.body.mParent,
+            chicken.children = req.body.children,
+            chicken.comment = req.body.comment
+
+            await chicken.save();
+
+        res.send(chicken)
+    } catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+})
+
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
     try {

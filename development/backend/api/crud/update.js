@@ -30,6 +30,37 @@ const updateUser = async (collection, user) => {
         });
 }
 
+const updateChickenDatabase = (chickenData) => {
+    chickenData.forEach(chicken => {
+        const updateDetails = {
+            _id: chicken._id,
+            batchYear: chicken.batchYear,
+            breed: chicken.breed,
+            status: chicken.status,
+            sex: chicken.sex,
+            fParent: chicken.fparent,
+            mParent: chicken.mParent,
+            children: chicken.children,
+            comment: chicken.comment
+
+        }
+
+        fetch(`/api/chickentest/${chicken._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateDetails)
+        })
+            .then(res => res.json())
+            .then(response => {
+                if (response.message) {
+                    console.log("Response message" + response.message);
+                }
+            });
+    })
+}
+
 
 const updatePassword = async (user, id) => {
     const updateDetails = {
@@ -52,4 +83,4 @@ const updatePassword = async (user, id) => {
         });
 }
 
-export default { updateUser, updatePassword };
+export default { updateUser, updatePassword, updateChickenDatabase };

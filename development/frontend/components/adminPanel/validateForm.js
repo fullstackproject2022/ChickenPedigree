@@ -21,4 +21,33 @@ const validate = (updateDetails) => {
     }
 }
 
-export default { validate }
+
+const validateChicken = (chickenDetails) => {
+    let err = []
+    chickenDetails.forEach(chicken => {
+        let conditions = {
+            "_id": chicken._id.match(/^[\d]+$/) != null,
+            "batchYear": chicken.batchYear.match(/^[\d]+$/) != null,
+            // "breed": chicken.batchYear.match(/[RJF]$/) != null,
+            "status": chicken.status.match(/^[A|U]$/) != null,
+            "sex": chicken.sex.match(/^[M|F|U]$/) != null
+            // "fParent": chicken.fParent.match(/^[\d]+$/) != null,
+            // "mParent": chicken.mParent.match(/^[\d]+$/) != null
+        };
+    
+        for (const [key, value] of Object.entries(conditions)) {
+            if (!value) { err.push(" " + key); }
+        }
+        if (err.length == 0) {
+            console.log(chicken)
+            console.log("here")
+            return 0;
+        } else {
+            alert(`invalid field input(s): ${err}`); // print err to screen using alert
+            return 1;
+        }
+    })
+
+}
+
+export default { validate, validateChicken }

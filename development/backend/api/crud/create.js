@@ -29,6 +29,7 @@ const createUser = async (user) => {
         });
 }
 
+
 async function loginUser(credentials) {
     return fetch('/api/login', {
         method: 'POST',
