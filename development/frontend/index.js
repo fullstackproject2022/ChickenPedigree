@@ -27,8 +27,7 @@ function App() {
 
   try {
     // console.log(token);
-    jwtDecode(token, process.env.TOKEN_SECRET);
-    next();
+    jwtDecode(token);
   } catch (err) {
     console.log(err);
   };

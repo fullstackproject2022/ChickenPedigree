@@ -33,17 +33,19 @@ const HistoryPanel = () => {
         <>
             <div className='HistoryWrapper'>
                 <div className='HistoryForm'>
-                    <h3>Create a pairing history here</h3>
+                    <h3>Create a pairing history here</h3> <br />
                     <form className="historyForm" onSubmit={handleSubmit}>
-                        <div><label>F chicken id</label>
+                        <div><label>Female chicken id</label>
                             <input className="floater"
                                 type="text"
+                                placeholder='Female chicken id'
                                 onChange={e => setF_chicken_id(e.target.value)}
                             />
                         </div>
-                        <div><label>M chicken id</label>
+                        <div><label>Male chicken id</label>
                             <input className="floater"
                                 type="text"
+                                placeholder='Male chicken id'
                                 onChange={e => setM_chicken_id(e.target.value)}
                             />
                         </div>

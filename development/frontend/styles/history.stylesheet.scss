@@ -3,17 +3,46 @@ $male-chicken-color: rgb(147, 198, 249);
 $col-default: #eee;
 
 .HistoryWrapper {
-    margin: auto;
+    text-align: center;
+    width: 97%;
+    margin-top: 87px;
+    margin-left: 10px;
+    overflow: auto;
+
+    .HistoryForm {
+        padding: 10px;
+        background-color: #30343c;
+        padding: 15px;
+
+        label,
+        h3 {
+            color: #eee;
+        }
+    }
+
+    .HistoryForm * {
+        display: inline;
+        padding-right: 2%;
+    }
+
+    input {
+        width: 150px;
+        height: 20px;
+    }
+
+    //HistoryTable {}
+    input::placeholder {
+        font-size: 1.5vh;
+    }
 
     button {
         font-size: 18px;
         cursor: pointer;
         border: 2px solid rgb(113, 126, 149);
         border-radius: 6px;
-        height: 39px;
+        height: 30px;
         margin: 10px 0px;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
-        min-width: 100%;
         background-color: rgb(64, 71, 88);
         color: $col-default;
 
@@ -28,8 +57,11 @@ $col-default: #eee;
             color: $col-default;
         }
     }
+
+    @media only screen and (max-width: 960px) {
+        .HistoryForm * {
+            display: block;
+            padding-right: 2%;
+        }
+    }
 }
-
-.HistoryForm {}
-
-.HistoryTable {}
