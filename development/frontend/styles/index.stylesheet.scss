@@ -127,3 +127,17 @@ th.down {
     display: flex;
     margin-left: -15px;
 }
+
+button {
+    margin: 0 0 0 5px;
+    width: 100px;
+    border: 2px solid rgb(113, 126, 149);
+    background-color: #343b48;
+    color: #eee;
+    border-radius: 6px;
+    font-size: 18px;
+
+    &:hover {
+        border: 2px solid #3d4656;
+    }
+}

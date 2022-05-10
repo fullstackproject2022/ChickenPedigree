@@ -3,9 +3,9 @@
   cursor: pointer;
 }
 
-body {
-  overflow-y: hidden;
-}
+// body {
+//   overflow-y: hidden;
+// }
 
 .left-panel {
   position: relative;
@@ -13,7 +13,7 @@ body {
   background: rgb(33, 37, 43);
   width: 65px;
   min-width: 65px;
-  height: 100vh;
+  height: 90vh;
   box-sizing: border-box;
   padding: 15px 0 15px 20px;
   transition: width .35s ease-out;
@@ -33,9 +33,22 @@ body {
   }
 }
 
-@media only screen and (max-height: 530px) {
+@media only screen and (max-height: 600px) {
   .left-panel .left-panel-item {
     margin-top: 1vh;
+  }
+}
+@media only screen and (max-height: 750px) {
+  .left-panel {
+    height: 75vh;
+  }
+}
+@media only screen and (max-height: 1000px) {
+  .left-panel {
+    height: 85vh;
+  }
+  .bottom-left-panel {
+    bottom: 10%;
   }
 }
 
@@ -95,5 +108,5 @@ body {
 
 .bottom-left-panel {
   position: absolute;
-  bottom: 25%;
+  bottom: 22.5%;
 }
