@@ -23,29 +23,30 @@ const HistoryPanel = () => {
     return (
         <>
             <div className='HistoryWrapper'>
-                <h3>Create a pairing history here</h3>
-                <form className="historyForm" onSubmit={handleSubmit}>
-                    <div><label>User id</label>
-                        <input className="floater"
-                            type="text"
-                            onChange={e => setUser_id(e.target.value)}
-                        />
-                    </div>
-                    <div><label>F chicken id</label>
-                        <input className="floater"
-                            type="text"
-                            onChange={e => setF_chicken_id(e.target.value)}
-                        />
-                    </div>
-                    <div><label>M chicken id</label>
-                        <input className="floater"
-                            type="text"
-                            onChange={e => setM_chicken_id(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit">Submit</button>
-                </form>
-
+                <div className='HistoryForm'>
+                    <h3>Create a pairing history here</h3>
+                    <form className="historyForm" onSubmit={handleSubmit}>
+                        <div><label>User id</label>
+                            <input className="floater"
+                                type="text"
+                                onChange={e => setUser_id(e.target.value)}
+                            />
+                        </div>
+                        <div><label>F chicken id</label>
+                            <input className="floater"
+                                type="text"
+                                onChange={e => setF_chicken_id(e.target.value)}
+                            />
+                        </div>
+                        <div><label>M chicken id</label>
+                            <input className="floater"
+                                type="text"
+                                onChange={e => setM_chicken_id(e.target.value)}
+                            />
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
                 <div className='HistoryTable'>
                     <HistoryTable />
                 </div>
