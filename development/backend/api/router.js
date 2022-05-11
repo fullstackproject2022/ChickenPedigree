@@ -7,6 +7,9 @@ const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
 const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
+const History = require(`${dbPath}/history.schema.js`)
+
+const { db } = require(`${dbPath}/user.schema.js`)
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -22,6 +25,20 @@ ROUTER.get('/chicken', async (_, res) => {
         )
     }
     res.send(data)
+});
+
+// get one chicken
+ROUTER.get("/chicken/:_id", async (req, res) => {
+    try {
+        const chicken = await Chicken.findOne({ _id: req.params._id });
+        if (!chicken) {
+            throw new Error("Chicken does not exist");
+        }
+        res.send(chicken);
+
+    } catch (err) {
+        res.status(404);
+    }
 });
 
 // get all users
@@ -211,5 +228,44 @@ ROUTER.put("/user/:id", async (req, res) => {
         res.status(404).json({ message: err.message });
     }
 });
+
+// Create new pairing History
+ROUTER.post('/history/', async (req, res) => {
+    try {
+        // Auto increment id
+        let newID = undefined;
+        try {
+            newID = (await db.collection('counters').findOne()).seq + 1
+        }
+        catch (error) {
+            if (!newID) newID == 1
+        }
+
+        const history = new History({
+            historyID: newID,
+            userID: req.body.userID,
+            fChickenID: req.body.fChickenID,
+            mChickenID: req.body.mChickenID
+        });
+        console.log(history);
+        const newHistory = await history.save();
+        res.status(201).json({ newHistory });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// get all pairing History
+ROUTER.get('/history', async (_, res) => {
+    let data = await History.find()
+    if (!data) {
+        res.status(400).json(
+            { message: `Error: Pairing history data not found!` }
+        )
+    }
+    res.send(data)
+});
+
+
 
 module.exports = ROUTER;

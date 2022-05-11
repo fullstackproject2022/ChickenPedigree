@@ -143,7 +143,9 @@ const UpdatePanel = ({ id, setPagePanel }) => {
                                 onChange={e => setEmail2(e.target.value)}
                             />
                         </div>
-                        <button type="submit">Submit</button>
+                        <div className='CreateSubmit'>
+                            <button type="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>

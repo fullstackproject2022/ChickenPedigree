@@ -1,6 +1,7 @@
 $female-chicken-color: rgb(189, 147, 249);
 $male-chicken-color: rgb(147, 198, 249);
 $col-default: #eee;
+$top-radius: 15px;
 
 
 .pairing-wrapper {
@@ -76,17 +77,13 @@ $col-default: #eee;
         font-weight: bold;
     }
 
-    .matched-pairs {
-        background-color: rgb(94, 106, 130);
-    }
-
     .arrow-buttons {
         max-width: fit-content;
+        padding-top: 150px;
     }
 
     .arrow-buttons button {
         display: block;
-        margin: 0;
         margin-top: 65px;
         padding-top: 8px;
         min-width: 150px;
@@ -99,15 +96,24 @@ $col-default: #eee;
     }
 
     .matched-pairs {
-        flex-grow: 4;
-        float: right;
-        width: 1003px;
+        // border: 2px solid lavender;
+        background-color: rgb(94, 106, 130);
+        border-top-left-radius: $top-radius;
+        border-top-right-radius: $top-radius;
+        min-width: 350px;
+        max-width: 350px;
+
+        .wrapper {
+            border-top-left-radius: $top-radius;
+            border-top-right-radius: $top-radius;
+            margin: 0;
+        }
+
     }
 
     .matched-pairs button {
         display: flex;
         align-items: center;
-        // padding-left: 40%;
         color: $col-default;
 
         .female-span {
@@ -144,29 +150,12 @@ $col-default: #eee;
         margin-left: -8px;
     }
 
-    .paired-div:focus {
-        background-color: #060606;
-    }
+    .paired-button {
+        justify-content: center;
 
-    .paired-div {
-        padding: 0 125px;
-    }
-
-    .paired-div * {
-        // background-color: rgb(47, 98, 149);
-        margin: 0 auto;
-    }
-
-    .female-span {
-        margin: 0 0 0 auto;
-    }
-
-    .male-span {
-        margin: 0 auto 0 0;
-    }
-
-    .paired-div img {
-        margin: 0;
+        :focus {
+            background-color: #060606;
+        }
     }
 
     @import './selectionPanel.stylesheet.scss';

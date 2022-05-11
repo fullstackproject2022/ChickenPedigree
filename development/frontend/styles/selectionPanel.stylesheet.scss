@@ -5,82 +5,79 @@ $male-chicken-color: rgb(147, 198, 249);
     display: flex;
     margin: 0;
     background-color: rgb(37, 41, 44);
-    height: 83.75%;
-    width: 100%;
-}
+    // height: 3%;
 
-.selection-panel div {
-    flex-grow: 1;
-    display: block;
-    float: left;
-    // height: auto;
-    width: 10%;
-    padding: 15px;
-    margin: 0 50px;
-    // overflow-y: auto;
-    overflow-x: auto;
-}
-
-.female-chickens {
-    color: $female-chicken-color;
-}
-
-.male-chickens {
-    color: powderblue;
-}
-
-.selected-female,
-.selected-male {
-    border: 1px solid #21252b;
-    box-shadow: 0 0 0 2px #6a6a6a;
-
-    &:hover {
-        // background-color: rgb(175, 175, 110);
-        color: #eee;
+    div {
+        display: block;
+        flex-grow: 1;
+        margin: 0 50px;
     }
-}
 
-.selected-female {
-    background-color: $female-chicken-color;
-}
+    .wrapper {
+        min-width: 250px;
+        max-width: 350px;
+        width: 100%;
 
-.selected-male {
-    background-color: $male-chicken-color;
-}
+        div {
+            margin: 0;
+            padding: 2% 4%;
 
-.filter-subjects,
-.target-subjects {
-    max-width: 15%;
-    min-width: 150px;
-    background-color: rgb(94, 106, 130);
-}
+            * {
+                display: block;
+            }
+        }
+    }
 
-.header-div {
-    display: flex;
-    float: left;
-    background-color: rgb(64, 71, 88);
-    box-shadow: 1px 1px 5px rgb(37, 41, 44);
-    border: 2px solid white;
-    border-radius: 4px;
-    color: #eee;
-    height: 51px;
-    border: none;
-    border-radius: 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    width: 15.175%;
-    min-width: 155.5px;
-    justify-content: center;
-    font-size: 26px;
-    padding-top: 10px;
-}
+    .female-chickens {
+        color: $female-chicken-color;
+    }
 
-#first-header {
-    margin-left: 50px;
-    top: 42.3%;
-}
+    .male-chickens {
+        color: powderblue;
+    }
 
-#second-header {
-    margin-left: 125px;
-    top: 1.3%;
+    .selected-female,
+    .selected-male {
+        border: 1px solid #21252b;
+        box-shadow: 0 0 0 2px #6a6a6a;
+
+        &:hover {
+            // background-color: rgb(175, 175, 110);
+            color: #eee;
+        }
+    }
+
+    .selected-female {
+        background-color: $female-chicken-color;
+    }
+
+    .selected-male {
+        background-color: $male-chicken-color;
+    }
+
+    .filter-subjects,
+    .target-subjects,
+    .header-div {
+        min-width: 150px;
+        max-width: 450px;
+        background-color: rgb(94, 106, 130);
+    }
+
+    .header-div {
+        max-height: 40px;
+        background-color: rgb(64, 71, 88);
+        box-shadow: 1px 1px 5px rgb(37, 41, 44);
+        color: #eee;
+        min-height: 50px;
+        border: none;
+        border-radius: 0;
+        border-top-left-radius: $top-radius;
+        border-top-right-radius: $top-radius;
+
+        * {
+            font-size: 26px;
+            padding-top: 5px;
+        }
+    }
+
 }
