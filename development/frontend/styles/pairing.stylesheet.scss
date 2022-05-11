@@ -6,9 +6,10 @@ $top-radius: 15px;
 
 .pairing-wrapper {
     position: relative;
-    margin-top: 87px;
+    margin: 87px 10px 0 0;
     width: 100%;
-    padding: 0 35px;
+    padding: 0;
+    overflow: auto;
 
     button {
         cursor: pointer;
@@ -36,10 +37,11 @@ $top-radius: 15px;
     .year {
         display: flex;
         justify-content: center;
-        height: 65px;
+        height: 75px;
         width: 100%;
         margin: 0 auto;
         background-color: rgb(37, 41, 44);
+        border-bottom: 2px solid rgb(255, 121, 198);
     }
 
     .years-collected {
@@ -66,8 +68,7 @@ $top-radius: 15px;
     .errMsg {
         height: 30px;
         width: auto;
-        margin-top: 7px;
-        padding: 20px 0;
+        padding: 10px 0;
     }
 
     .errMsg label {
@@ -144,10 +145,17 @@ $top-radius: 15px;
         margin-top: 37px;
     }
 
-    .radio-btns label {
-        margin: 0;
-        margin-right: 30px;
-        margin-left: -8px;
+    .radio-btns {
+        span:first-child {
+            margin-left: 50px;
+        }
+        span:nth-child(2) {
+            margin-left: 170px;
+        }
+        label {
+            margin-right: 30px;
+            margin-left: -8px;
+        }
     }
 
     .paired-button {

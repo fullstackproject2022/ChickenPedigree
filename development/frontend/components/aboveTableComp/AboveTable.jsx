@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../../styles/aboveTable.stylesheet.scss'
 import Button from '../standAloneComponents/button.jsx'
-import read from '../../../backend/api/crud/read';
+// import read from '../../../backend/api/crud/read';
 
 
 const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
@@ -38,12 +38,12 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails }) => {
 
     return (
         <div className='aboveTable-wrapper'>
-            <div className='radioBtns'>
+            {/* <div className='radioBtns'>
                 <label className='radio'>View</label>
                 <input type="radio" id='viewbtn' name="choice" value="view" defaultChecked></input>
                 <label className='radio'>Edit</label>
                 <input type="radio" id='editbtn' name="choice" value="edit"></input>
-            </div>
+            </div> */}
             <div className='hspan'></div>
             <div className='filter-wrapper'>
                 <div className='filter'>

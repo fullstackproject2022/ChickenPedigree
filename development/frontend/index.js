@@ -13,6 +13,8 @@ import AboutPage from "./components/aboutPage/aboutPage.jsx";
 import BottomPanel from "./components/bottomPanel/bottomPanel.jsx";
 import './styles/index.stylesheet.scss';
 
+import TestPage from "./components/testPage/testPage.jsx";
+
 function App() {
 
   const { token, setToken } = useToken();
@@ -27,8 +29,8 @@ function App() {
 
   try {
     // console.log(token);
-    let decoded = jwtDecode(token);
-    // console.log(decoded);
+    jwtDecode(token);
+
   } catch (err) {
     alert(err);
   };
@@ -44,6 +46,8 @@ function App() {
         return <Pairing />
       case "history":
         return <History />
+      case "test":
+        return <TestPage />
       case "accounts":
         return <AdminPanel />
       case "about":
@@ -55,8 +59,8 @@ function App() {
     <StrictMode>
       <div className="container">
         <TopPanel />
-        <section className="body-wrapper">
-          <LeftPanel setActivePanel={setActivePanel} />
+        <LeftPanel setActivePanel={setActivePanel} />
+        <section className="body-wrapper" id="content">
           {pageSelector()}
         </section>
         <BottomPanel activePanel={activePanel} setActivePanel={setActivePanel} />

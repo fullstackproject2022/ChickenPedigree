@@ -3,32 +3,36 @@
   cursor: pointer;
 }
 
-// body {
-//   overflow-y: hidden;
-// }
-
 .left-panel {
-  position: relative;
   // background: rgb(40, 44, 52);
   background: rgb(33, 37, 43);
-  width: 65px;
+
   min-width: 65px;
-  height: 90vh;
+  width: 65px;
+  height: 100%; 
+  
   box-sizing: border-box;
-  padding: 15px 0 15px 20px;
+  padding: 15px 0;
   transition: width .35s ease-out;
   overflow: hidden;
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 15px;
 
   .left-panel-item {
+    min-width: 200px;
+    width: 100%;
+
     cursor: pointer;
     position: relative;
     color: #eee;
+    
     margin-top: 6vh;
-    width: 200px;
+    
     &div:focus {
       background-color: #282c34;
       border-left: 3px solid rgb(255, 121, 198);
-      width: 100%;
     }
   }
 }
@@ -44,16 +48,7 @@
     margin-top: 1vh;
   }
 }
-@media only screen and (max-height: 750px) {
-  .left-panel {
-    height: 75vh;
-  }
-}
-@media only screen and (max-height: 1000px) {
-  .left-panel {
-    height: 85vh;
-  }
-}
+
 
 .inactive,
 .inactive>.left-panel-settings {
@@ -67,6 +62,7 @@
 }
 
 .left-panel-toggle {
+  padding: 0 15px;
   font-size: 40px;
   overflow: hidden;
   color: #eee;
@@ -88,13 +84,12 @@
   width: 100%;
   font-size: 32px;
   margin: 0 auto;
-  right: 1px;
-  // padding: 10px 0;
+  padding: 0 15px;
 
   span {
     position: relative;
     top: -2.4px;
-    left: 15px;
+    left: 20px;
     display: inline;
     // vertical-align: top;
     text-overflow: clip;
@@ -110,6 +105,7 @@
 
 
 .bottom-left-panel {
+  width: 100%;
   position: absolute;
-  bottom: 80px;
+  bottom: 18.5%;
 }

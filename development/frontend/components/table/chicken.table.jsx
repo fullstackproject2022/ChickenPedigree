@@ -5,6 +5,7 @@ import Table from './table.jsx';
 const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
     const [chickenData, setChickenData] = useState([])
     const columns = [ // not including children here
+        { label: "", key: "expanded", sortable: false },
         { label: "Batch Year", key: "batchYear", sortable: true },
         { label: "Breed ID", key: "breed", sortable: true },
         { label: "Chicken ID", key: "_id", sortable: true },
@@ -17,7 +18,7 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
 
     useEffect(() => {
         read.fetchCollection("chicken") // returns it in object format
-            .then(async result => await setChickenData(
+            .then(async result => setChickenData(
                 selectedFilter === "" && searchDetail === ""
                     ? result
                     : result.filter((chicken) => {

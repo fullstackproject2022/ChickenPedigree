@@ -97,15 +97,19 @@ th.down {
 
 .table tbody tr:first-child td {
     border-top: none;
-}
-
-.table tbody tr:nth-child(n) td {
-    background: #30343c;
     border-bottom: 1px solid #2c313a;
 }
 
-.table tbody tr:nth-child(2n) td {
+.table tbody tr:nth-child(n) {
+    background: #30343c;
+}
+
+.table tbody tr:nth-child(2n) {
     background: #2c313a;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.25);
 }
 
 .entire-page {

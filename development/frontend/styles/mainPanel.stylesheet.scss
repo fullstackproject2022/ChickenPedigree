@@ -1,17 +1,29 @@
+
+
+body {
+    margin: 0 auto;
+}
+
+#content {
+    transition: margin-left .35s ease-out;
+    margin-left:65px;
+}
+
 .parent-Main {
     width: 100%;
+    
 
     .main-panel {
+        box-sizing: border-box;
+        border-top: 2px solid rgb(255, 121, 198);
         position: relative;
         display: flex;
+        
         width: 100%;
         float: right;
-        margin-left: 80px;
-        margin-right: 10;
-        // margin-bottom: 87.5px;
-        height: calc(100vh - 180px) !important; // make table not extend bellow page
-        margin-top: 10px;
-        overflow-y: auto;
+        margin-top: 2.3em;
+        height: calc(100vh - 220px) !important; // make table not extend bellow page
+        overflow: auto;
     }
 
 

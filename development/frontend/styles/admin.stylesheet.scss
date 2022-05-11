@@ -7,9 +7,9 @@
         border: 2px solid rgb(113, 126, 149);
         border-radius: 6px;
         height: 39px;
-        margin: 10px 0px;
+        margin: 10px;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
-        min-width: 100%;
+        width: 100%;
         background-color: rgb(64, 71, 88);
         color: #eee;
 
@@ -30,19 +30,12 @@
     }
 
     position: relative;
-    width: 90%;
-    margin-left: 10px;
-    //margin-right: 10px;
-    margin-top: 90px;
+    width: 100%;
+    margin: 90px 10px 0 10px;
     height: 100vh - 15vh;
     overflow-y: auto;
 
     .AdminHeader {
-        button {
-            min-width: 49%;
-            margin: auto;
-        }
-
         display: flex;
         flex-direction: row-reverse;
     }

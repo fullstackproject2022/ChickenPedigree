@@ -4,6 +4,7 @@ import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai"; // need
 import { MdAccountCircle } from "react-icons/md"
 import { BsFillEggFill } from "react-icons/bs"
 import { GiChicken } from "react-icons/gi";
+import { GrTest } from "react-icons/gr";
 import { MdHistory } from "react-icons/md";
 
 import '../../styles/leftPanel.stylesheet.scss'
@@ -13,10 +14,16 @@ const LeftPanel = ({ setActivePanel }) => {
     const [inactive, setInactive] = useState(false);
 
     const toggleButton = () => {
-        setInactive(!inactive)
+        setInactive(!inactive);
+        if (inactive) {
+            document.getElementById("content").style.marginLeft = "65px";
+        }else {
+            document.getElementById("content").style.marginLeft = "250px";
+        }
     };
 
     const clickedtab = (panel) => {
+        document.getElementById("content").style.marginLeft = "65px";
         let items = document.getElementsByClassName("left-panel-item");
         for (let i = 0; i < items.length; i++) {
             items[i].className = items[i].className.replace(" active", "");
@@ -54,6 +61,11 @@ const LeftPanel = ({ setActivePanel }) => {
             <div className="left-panel-item history" onClick={() => { clickedtab('history') }}>
                 <div className="left-panel-div">
                     <MdHistory /><span>History</span>
+                </div>
+            </div>
+            <div className="left-panel-item test" onClick={() => { clickedtab('test') }}>
+                <div className="left-panel-div">
+                    <GrTest /><span>Testing</span>
                 </div>
             </div>
 
