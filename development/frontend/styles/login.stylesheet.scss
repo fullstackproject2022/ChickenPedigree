@@ -72,11 +72,17 @@ body {
       }
 }
 
-span {
+span #switch {
     cursor: pointer;
     margin: 20px 0 0 0;
     text-decoration: underline;
     font-size: 20px;
+    &:hover {
+        color: rgb(189, 147, 249);
+    }
+    &:active {
+        color: rgb(97, 75, 128);
+    }
 }
 
 

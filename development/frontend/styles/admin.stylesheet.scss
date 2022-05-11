@@ -134,8 +134,8 @@
     .BarPlot {
         height: 650px;
         width: 60%;
-        margin: auto;
-        resize: both;
+        margin: auto auto 40px auto;
+        resize: none;
         overflow: auto;
     }
 
