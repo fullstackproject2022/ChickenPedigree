@@ -5,6 +5,7 @@ import UpdatePanel from './updatePanel.jsx'
 import CreatePanel from './createPanel.jsx'
 import Button from './adminTable/button.jsx'
 import '../../styles/admin.stylesheet.scss'
+import UserStats from './userStats.jsx';
 
 const AdminPanel = () => {
     const [panel, setPagePanel] = useState("AdminTable");
@@ -19,6 +20,10 @@ const AdminPanel = () => {
         setPagePanel("AdminTable");
     }
 
+    const switchPanel3 = () => {
+        setPagePanel("UserStats");
+    }
+
     const pageSelector = () => {
         switch (panel) {
             case "AdminTable":
@@ -27,6 +32,8 @@ const AdminPanel = () => {
                 return <UpdatePanel setPagePanel={setPagePanel} id={editID} />
             case "CreatePanel":
                 return <CreatePanel setPagePanel={setPagePanel} />
+            case "UserStats":
+                return <UserStats setPagePanel={setPagePanel} />
         }
     }
 
@@ -36,7 +43,8 @@ const AdminPanel = () => {
             <div className='AdminWrapper'>
                 <div className='AdminHeader'>
                     <Button text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
-                    <Button text={"Create a new User"} onClick={switchPanel1} className={"AdminBtn"} />
+                    <Button text={"Create User"} onClick={switchPanel1} className={"AdminBtn"} />
+                    <Button text={"User Stats"} onClick={switchPanel3} className={"AdminBtn"} />
                 </div>
                 <div className='AdminPanel'>
                     {pageSelector()}

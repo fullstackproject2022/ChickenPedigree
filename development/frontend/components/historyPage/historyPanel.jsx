@@ -83,7 +83,7 @@ const HistoryPanel = () => {
                     <HistoryTable />
                 </div>
             </div>
-            {/*<div className='HistogramPlot'></div>*/}
+
         </>
     )
 }
