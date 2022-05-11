@@ -59,7 +59,7 @@ function App() {
           <LeftPanel setActivePanel={setActivePanel} />
           {pageSelector()}
         </section>
-        <BottomPanel setActivePanel={setActivePanel} />
+        <BottomPanel activePanel={activePanel} setActivePanel={setActivePanel} />
       </div>
     </StrictMode>
   )

@@ -10,12 +10,26 @@ import '../../styles/leftPanel.stylesheet.scss'
 
 const LeftPanel = ({ setActivePanel }) => {
 
-    const [inactive, setInactive] = useState(false)
+    const [inactive, setInactive] = useState(false);
 
     const toggleButton = () => {
         setInactive(!inactive)
-    }
+    };
 
+    const clickedtab = (panel) => {
+        let items = document.getElementsByClassName("left-panel-item");
+        for (let i = 0; i < items.length; i++) {
+            items[i].className = items[i].className.replace(" active", "");
+        }
+
+
+        let setActive = document.getElementsByClassName(`left-panel-item ${panel}`);
+        // console.log(setActive[0].className);
+        setActive[0].className += " active";
+
+        setInactive(false);
+        return (setActivePanel(panel));
+    };
 
     return (
         <div className={`left-panel ${inactive ? "inactive" : ""}`}>
@@ -26,24 +40,18 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
             </div>
 
-            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('chickens')) }}>
+            <div className="left-panel-item chickens active" onClick={() => { clickedtab('chickens') }}>
                 <div className="left-panel-div">
                     <GiChicken /><span>Chickens</span>
                 </div>
             </div>
 
-            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('pairing')) }}>
+            <div className="left-panel-item pairing" onClick={() => { clickedtab('pairing') }}>
                 <div className="left-panel-div">
                     <BsFillEggFill /><span>Pair</span>
                 </div>
             </div>
-            <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('history')) }}>
-                <div className="left-panel-div">
-                    <MdHistory /><span>History</span>
-                </div>
-            </div>
-
-            <div className="left-panel-item" onClick={() => {setInactive(false); return (setActivePanel('history')) }}>
+            <div className="left-panel-item history" onClick={() => { clickedtab('history') }}>
                 <div className="left-panel-div">
                     <MdHistory /><span>History</span>
                 </div>
@@ -52,7 +60,7 @@ const LeftPanel = ({ setActivePanel }) => {
             <div className="bottom-left-panel">
 
                 <div className="divider"></div>
-                <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('accounts')) }}>
+                <div className="left-panel-item accounts" onClick={() => { clickedtab('accounts') }}>
                     <div className="left-panel-div">
                         <MdAccountCircle /><span>Account</span>
                     </div>
