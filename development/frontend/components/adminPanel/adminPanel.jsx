@@ -1,9 +1,9 @@
 // Builds the whole admin panel.
 import React, { useState } from 'react';
-import AdminTable from './adminTable/admin_table.jsx';
 import UpdatePanel from './updatePanel.jsx'
 import CreatePanel from './createPanel.jsx'
-import Button from './adminTable/button.jsx'
+import Button from '../../components/standAloneComponents/admin.button.jsx'
+import AdminTable from '../../components/table/admin.table.jsx'
 import '../../styles/admin.stylesheet.scss'
 
 const AdminPanel = () => {

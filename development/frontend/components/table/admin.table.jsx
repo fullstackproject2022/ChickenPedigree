@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import read from '../../../../backend/api/crud/read';
-import Table from './table.jsx';
+import read from '../../../backend/api/crud/read';
+import Table from './adminTable.jsx';
 
 
 const AdminTable = ({ setPagePanel, setEditID }) => {
