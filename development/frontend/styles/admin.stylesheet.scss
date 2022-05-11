@@ -1,6 +1,10 @@
 .AdminWrapper {
     $col-default: #eee;
 
+    table {
+        margin-top: 20px;
+    }
+
     button {
         font-size: 18px;
         cursor: pointer;
@@ -121,6 +125,19 @@
         }
     }
 
+    .BarPlotWrapper {
+        background-color: #30343c;
+        width: 100%;
+        text-align: center;
+    }
+
+    .BarPlot {
+        height: 650px;
+        width: 60%;
+        margin: auto;
+        resize: both;
+        overflow: auto;
+    }
 
     .tbody * {
         text-align: center;
@@ -132,7 +149,17 @@
         display: inline;
     }
 
+    @media only screen and (max-width: 1480px) {
+        .BarPlot {
+            width: 80%;
+        }
+
+    }
+
     @media only screen and (max-width: 1080px) {
+        .BarPlot {
+            width: 99%;
+        }
 
         .userUpdate,
         .userShow {

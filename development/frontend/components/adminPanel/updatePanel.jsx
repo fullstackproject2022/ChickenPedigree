@@ -1,10 +1,9 @@
 // Builds permissions panel.
 import React, { useState, useEffect } from 'react';
-import Button from "../standAloneComponents/button.jsx";
 import read from '../../../backend/api/crud/read';
 import update from '../../../backend/api/crud/update';
 import '../../styles/admin.stylesheet.scss'
-import validateForm from './validateForm';
+import validateForm from '../../../backend/bin/validateForm';
 
 
 const UpdatePanel = ({ id, setPagePanel }) => {

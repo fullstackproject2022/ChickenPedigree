@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
-import Button from "./button.jsx";
-import deletion from '../../../../backend/api/crud/delete';
+import Button from "../standAloneComponents/admin.button.jsx";
+import deletion from '../../../backend/api/crud/delete';
 
 
 const TableBody = ({ columns, tableData, setPagePanel, setEditID }) => {
