@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import create from '../../../backend/api/crud/create';
 import '../../styles/admin.stylesheet.scss'
-import validateForm from './validateForm';
+import validateForm from '../../../backend/bin/validateForm';
 
 const CreatePanel = ({ setPagePanel }) => {
     const [username, setUsername] = useState();
