@@ -5,7 +5,9 @@ import read from '../../../backend/api/crud/read';
 import FileImport from '../importExport/FileImport.jsx';
 
 
-const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurrentTable, setImportTable }) => {
+// reset button needs to reset main table can do by reset calls for empty Go button which should return full table again
+
+const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurrentTable, setImportTable, chickenDataIDs }) => {
     const [chosenFilter, setChosenFilter] = useState("_id");
     const [chosenDetail, setChosenDetail] = useState();
     const [inputValue, setInputValue] = useState("");
@@ -53,7 +55,7 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
     return (
         <div className='aboveTable-wrapper'>
             <div className='radioBtns'>
-                <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable}/>
+                <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable} chickenDataIDs={chickenDataIDs}/>
             </div>
             <div className='hspan'>
                 

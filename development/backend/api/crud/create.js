@@ -30,6 +30,34 @@ const createUser = async (user) => {
 }
 
 
+const createChicken = async (chicken) => {
+    const createDetails = {
+        _id: chicken._id,
+        batchYear: chicken.batchYear,
+        breed: chicken.breed,
+        status: chicken.status,
+        sex: chicken.sex,
+        fParent: chicken.fParent,
+        mParent: chicken.mParent,
+        children: chicken.children,
+        comment: chicken.comment
+    };
+    fetch(`/api/chickentest/`, {
+        method: `POST`,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(createDetails)
+    })
+        .then(res => res.json())
+        .then(response => {
+            if (response.message) {
+                console.log(response.message)
+            }
+        });
+}
+
+
 async function loginUser(credentials) {
     return fetch('/api/login', {
         method: 'POST',
@@ -62,4 +90,4 @@ const createMailtoken = async (email, token) => {
         });
 }
 
-export default { createUser, loginUser, createMailtoken }
+export default { createUser, loginUser, createMailtoken, createChicken }

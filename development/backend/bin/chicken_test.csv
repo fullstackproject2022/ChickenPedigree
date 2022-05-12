@@ -1,0 +1,3 @@
+batchYear,breed,_id,sex,status,fParent,mParent,children,comment
+4000,RJF,9015,M,U,0,0,[{"_id":3000, "sex":'M'},{"_id":2000, "sex":'U'}],
+4001,RFJ,9004,M,U

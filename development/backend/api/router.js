@@ -7,6 +7,7 @@ const User = require(`${dbPath}/user.schema.js`);
 const Animal = require(`${dbPath}/animal.schema.js`);
 const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
+const chickentest = require(`${dbPath}/chickentest.schema.js`)
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -121,31 +122,6 @@ ROUTER.put("/users/:id", async (req, res) => {
     }
 });
 
-// updateChicken
-ROUTER.put("/chickentest/:_id", async (req, res) => {
-    try{
-        const chicken = await Chicken.findOne({_id: req.params._id})
-        if(!chicken) {
-            throw new Error("Chicken does not exist");
-        }
-
-        chicken._id = req.body._id,
-            chicken.batchYear = req.body.batchYear,
-            chicken.breed = req.body.breed,
-            chicken.status = req.body.status,
-            chicken.sex = req.body.sex,
-            chicken.fParent = req.body.fParent,
-            chicken.mParent = req.body.mParent,
-            chicken.children = req.body.children,
-            chicken.comment = req.body.comment
-
-            await chicken.save();
-
-        res.send(chicken)
-    } catch (err) {
-        res.status(404).json({ message: err.message });
-    }
-})
 
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
@@ -173,6 +149,45 @@ ROUTER.post('/users/', async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+
+// Get single chicken
+ROUTER.get("/chickentest/:id", async (req, res) => {
+
+    const chicken = await chickentest.findOne({ _id: req.params.id });
+    if (!chicken) {res.status(404).json({ message: err.message })}
+    
+    res.send(chicken);
+
+
+});
+
+// Add chickens to data base
+ROUTER.post("/chickentest/", async (req, res) =>{
+    try{
+        const chicken = new chickentest({
+            _id: req.body._id,
+            batchYear: req.body.batchYear,
+            breed: req.body.breed,
+            status: req.body.status,
+            sex: req.body.sex,
+            mParent: req.body.mParent,
+            fParent: req.body.fParent,
+            children: req.body.children,
+            comment: req.body.comment
+
+        });
+
+        const foundChicken = await chickentest.findOne({ _id: req.body._id });
+        if (foundChicken) throw new Error("This ID already exists: "+req.body._id);
+        // console.log("Chicken Added")
+        const newChicken = await chicken.save();
+        res.status(201).json({ newChicken });
+    } catch (err) {
+        res.status(400).json({ message: err.message});
+    }
+})
+
 
 // check if user with email exists
 ROUTER.get("/find/:email", async (req, res) => {

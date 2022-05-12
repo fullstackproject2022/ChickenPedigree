@@ -1,5 +1,5 @@
 batchYear,breed,_id,sex,status,fParent,mParent,children,comment
-2019,RJF,1101,M,U,2000,3000,
+2019,RJF,1101,M,U
 2019,RJF,1102,M,U
 2019,RJF,1104,F,U
 2020,RJF,1105,U,A

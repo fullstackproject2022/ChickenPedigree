@@ -1,7 +1,7 @@
 // CRUD read
 
 const fetchCollection = async (collection) => {
-    var data = []
+    let data = []
     await fetch(`/api/${collection}`)
         .then(response => response.json())
         .then(res => data.push(res))
@@ -10,8 +10,17 @@ const fetchCollection = async (collection) => {
 }
 
 const fetchOne = async (collection, id) => {
-    var data = []
+    let data = []
     await fetch(`/api/${collection}/${id}`)
+        .then(response => response.json())
+        .then(res => data.push(res))
+        .catch(error => console.log(error.message))
+    return data[0]
+}
+
+const chickenExists = async (id) =>{
+    let data = []
+    await fetch(`/api/chickentest/${id}`)
         .then(response => response.json())
         .then(res => data.push(res))
         .catch(error => console.log(error.message))
@@ -20,7 +29,7 @@ const fetchOne = async (collection, id) => {
 
 // check if user exists with email
 const userExists = async (email) => {
-    var data = []
+    let data = []
 
     await fetch(`/api/find/${email}`)
         .then(response => response.json())
@@ -29,4 +38,4 @@ const userExists = async (email) => {
     return data[0]
 }
 
-export default { fetchCollection, fetchOne, userExists }
+export default { fetchCollection, fetchOne, userExists, chickenExists }
