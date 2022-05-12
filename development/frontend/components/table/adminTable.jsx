@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import TableBody from './body.table.jsx';
+import TableBody from './adminBody.table.jsx';
 import TableHead from './head.table.jsx';
 
-const Table = ({ data, columns }) => {
+const Table = ({ data, columns, setPagePanel, setEditID }) => {
     const [dbTableData, setTableData] = useState(data); // setTableData is the updater function
 
     const doSort = (field, order) => {
@@ -29,11 +29,8 @@ const Table = ({ data, columns }) => {
     return (
         <>
             <table className="table">
-                <caption>
-                    Only the 5 most recent registrations are shown
-                </caption>
                 <TableHead columns={columns} doSort={doSort} />
-                <TableBody columns={columns} tableData={dbTableData} />
+                <TableBody columns={columns} tableData={dbTableData} setPagePanel={setPagePanel} setEditID={setEditID} />
             </table>
         </>
     );

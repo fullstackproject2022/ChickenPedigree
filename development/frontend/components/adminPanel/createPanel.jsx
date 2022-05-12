@@ -1,11 +1,10 @@
 // Builds permissions panel.
-import React, { useState, useEffect } from 'react';
-import read from '../../../backend/api/crud/read';
-import { createUser } from '../../../backend/api/crud/create';
-import './../../styles/updatePanel.stylesheet.scss';
-import validateForm from './validateForm';
+import React, { useState } from 'react';
+import create from '../../../backend/api/crud/create';
+import '../../styles/admin.stylesheet.scss'
+import validateForm from '../../../backend/bin/validateForm';
 
-const CreatePanel = () => {
+const CreatePanel = ({ setPagePanel }) => {
     const [username, setUsername] = useState();
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
@@ -24,6 +23,7 @@ const CreatePanel = () => {
             username: username,
             firstname: firstName,
             lastname: lastName,
+            fullname: firstName + " " + lastName,
             password: password,
             role: role,
             admin: admin,
@@ -34,14 +34,14 @@ const CreatePanel = () => {
         };
         let err = validateForm.validate(createDetails);
         if (err == 0) {
-            read.createUser(createDetails);
+            create.createUser(createDetails);
         }
-
+        return (setPagePanel("AdminTable"));
     }
     return (
         <>
-            <div className='createUser'>
-                <h2>Create a new user here</h2>
+            <div className='UpdateWrapper'>
+                <h3>Create a new user here</h3>
                 <form className="userUpdateForm" onSubmit={handleSubmit}>
                     <div><label>Username</label>
                         <input className="floater"
@@ -79,11 +79,15 @@ const CreatePanel = () => {
                         </select>
                     </div>
                     <label>Admin</label>
-                    <div className="floater">{/*fixx*/}
-                        <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
-                        <label>True</label>
-                        <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />
-                        <label>False</label>
+                    <div className="floater" id='radio'>
+                        <div>
+                            <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
+                            <label>True</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />
+                            <label>False</label>
+                        </div>
                     </div>
                     <div><label>Phone</label>
                         <input className="floater"
@@ -113,7 +117,9 @@ const CreatePanel = () => {
                             onChange={e => setEmail2(e.target.value)}
                         />
                     </div>
-                    <button type="submit">Submit</button>
+                    <div className='CreateSubmit'>
+                        <button type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         </>

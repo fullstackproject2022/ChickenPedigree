@@ -1,0 +1,83 @@
+$female-chicken-color: rgb(189, 147, 249);
+$male-chicken-color: rgb(147, 198, 249);
+
+.selection-panel {
+    display: flex;
+    margin: 0;
+    background-color: rgb(37, 41, 44);
+    // height: 3%;
+
+    div {
+        display: block;
+        flex-grow: 1;
+        margin: 0 50px;
+    }
+
+    .wrapper {
+        min-width: 250px;
+        max-width: 350px;
+        width: 100%;
+
+        div {
+            margin: 0;
+            padding: 2% 4%;
+
+            * {
+                display: block;
+            }
+        }
+    }
+
+    .female-chickens {
+        color: $female-chicken-color;
+    }
+
+    .male-chickens {
+        color: powderblue;
+    }
+
+    .selected-female,
+    .selected-male {
+        border: 1px solid #21252b;
+        box-shadow: 0 0 0 2px #6a6a6a;
+
+        &:hover {
+            // background-color: rgb(175, 175, 110);
+            color: #eee;
+        }
+    }
+
+    .selected-female {
+        background-color: $female-chicken-color;
+    }
+
+    .selected-male {
+        background-color: $male-chicken-color;
+    }
+
+    .filter-subjects,
+    .target-subjects,
+    .header-div {
+        min-width: 150px;
+        max-width: 450px;
+        background-color: rgb(94, 106, 130);
+    }
+
+    .header-div {
+        max-height: 40px;
+        background-color: rgb(64, 71, 88);
+        box-shadow: 1px 1px 5px rgb(37, 41, 44);
+        color: #eee;
+        min-height: 50px;
+        border: none;
+        border-radius: 0;
+        border-top-left-radius: $top-radius;
+        border-top-right-radius: $top-radius;
+
+        * {
+            font-size: 26px;
+            padding-top: 5px;
+        }
+    }
+
+}

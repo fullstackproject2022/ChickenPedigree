@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import read from '../../../../backend/api/crud/read';
-import Table from './table.jsx';
+import read from '../../../backend/api/crud/read';
+import Table from './adminTable.jsx';
 
 
-const AdminTable = () => {
+const AdminTable = ({ setPagePanel, setEditID }) => {
     const [user_data, setUserData] = useState([])
     useEffect(() => {
         getData()
@@ -19,11 +19,11 @@ const AdminTable = () => {
             { label: "Username", key: "username", sortable: true },
             { label: "Fullname", key: "fullname", sortable: true },
             { label: "Role", key: "role", sortable: true },
-            { label: ".", key: "delete", sortable: false },
-            { label: ".", key: "update", sortable: false }
+            { label: "", key: "delete", sortable: false },
+            { label: "", key: "update", sortable: false }
         ];
 
-        return < Table data={user_data} columns={tableColumns} />
+        return < Table data={user_data} columns={tableColumns} setPagePanel={setPagePanel} setEditID={setEditID} />
     }
 }
 

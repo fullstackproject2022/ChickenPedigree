@@ -8,6 +8,9 @@ const Animal = require(`${dbPath}/animal.schema.js`);
 const Mailtoken = require(`${dbPath}/mailtoken.schema.js`);
 const Owner = require(`${dbPath}/owner.schema.js`);
 const chickentest = require(`${dbPath}/chickentest.schema.js`)
+const History = require(`${dbPath}/history.schema.js`)
+
+const { db } = require(`${dbPath}/user.schema.js`)
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -23,6 +26,20 @@ ROUTER.get('/chicken', async (_, res) => {
         )
     }
     res.send(data)
+});
+
+// get one chicken
+ROUTER.get("/chicken/:_id", async (req, res) => {
+    try {
+        const chicken = await Chicken.findOne({ _id: req.params._id });
+        if (!chicken) {
+            throw new Error("Chicken does not exist");
+        }
+        res.send(chicken);
+
+    } catch (err) {
+        res.status(404);
+    }
 });
 
 // get all users
@@ -71,7 +88,7 @@ ROUTER.post('/login', async (req, res) => {
 // delete a user
 ROUTER.delete("/delete/:id", async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id });
+        const user = await User.find({ _id: req.params.id });
         if (!user) {
             throw new Error("User does not exist");
         }
@@ -83,22 +100,24 @@ ROUTER.delete("/delete/:id", async (req, res) => {
 });
 
 // get one user
-ROUTER.get("/users/:id", async (req, res) => {
+ROUTER.get("/users/:_id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params._id });
         if (!user) {
             throw new Error("User does not exist");
         }
+        //console.log("this is the id: " + user)
         res.send(user);
+
     } catch (err) {
-        res.status(404).json({ message: err.message });
+        res.status(404);
     }
 });
 
 // update a user
-ROUTER.put("/users/:id", async (req, res) => {
+ROUTER.put("/users/:_id", async (req, res) => {
     try {
-        const user = await User.findOne({ id: req.params.id });
+        const user = await User.findOne({ _id: req.params._id });
         if (!user) {
             throw new Error("User does not exist");
         }
@@ -126,22 +145,25 @@ ROUTER.put("/users/:id", async (req, res) => {
 // Create new User
 ROUTER.post('/users/', async (req, res) => {
     try {
+        // Hash Password
+        const salt = await bcrypt.genSalt(10);
+        const hashPssword = await bcrypt.hash(req.body.password, salt);
         const user = new User({
             username: req.body.username,
             firstname: req.body.firstname,
             lastname: req.body.lastname,
             fullname: req.body.fullname,
-            password: req.body.password,
+            password: hashPssword,
             role: req.body.role,
             admin: req.body.admin,
-            phone: req.body.phone,
-            phone2: req.body.phone2,
+            phone: req.body.phone + "",
+            phone2: req.body.phone2 + "",
             email: req.body.email,
             email2: req.body.email2,
 
         });
 
-        const foundUser = await User.findOne({ id: req.body.id });
+        const foundUser = await User.findOne({ _id: req.body.id });
         if (foundUser) throw new Error("User already exists");
         const newUser = await user.save();
         res.status(201).json({ newUser });
@@ -229,7 +251,7 @@ ROUTER.get("/mailtoken/:id", async (req, res) => {
 });
 
 
-// update a user
+// update a users password
 ROUTER.put("/user/:id", async (req, res) => {
     try {
         // Hash Password
@@ -247,5 +269,44 @@ ROUTER.put("/user/:id", async (req, res) => {
         res.status(404).json({ message: err.message });
     }
 });
+
+// Create new pairing History
+ROUTER.post('/history/', async (req, res) => {
+    try {
+        // Auto increment id
+        let newID = undefined;
+        try {
+            newID = (await db.collection('counters').findOne()).seq + 1
+        }
+        catch (error) {
+            if (!newID) newID == 1
+        }
+
+        const history = new History({
+            historyID: newID,
+            userID: req.body.userID,
+            fChickenID: req.body.fChickenID,
+            mChickenID: req.body.mChickenID
+        });
+        console.log(history);
+        const newHistory = await history.save();
+        res.status(201).json({ newHistory });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// get all pairing History
+ROUTER.get('/history', async (_, res) => {
+    let data = await History.find()
+    if (!data) {
+        res.status(400).json(
+            { message: `Error: Pairing history data not found!` }
+        )
+    }
+    res.send(data)
+});
+
+
 
 module.exports = ROUTER;
