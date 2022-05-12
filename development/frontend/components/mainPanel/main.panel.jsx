@@ -10,17 +10,17 @@ const MainPanel = () => {
     const [selectedDetails, setselectedDetails] = useState("")
     const [noResults, setNoResults] = useState(false)
     const [importedChicken, setImportedChicken] = useState([])
-    const [chickenDataIDs, setChickenDataID] = useState([])
+    const [chickenDataIDs, setChickenDataIDs] = useState([])
     const [currentTable, setCurrentTable] = useState("chicken")
     const [importTable, setImportTable] = useState(<Table/>)
     // const [tableData, setTableData] = useState([])
     // const [tableColumn, setTableColumn] = useState([])
 
     const tableSelector = () => {
-        console.log(chickenDataIDs)
+        // console.log(chickenDataIDs)
         switch (currentTable) {
             case "chicken":  return <ChickenTable selectedFilter={selectedFilter} searchDetail={selectedDetails}
-             setNoResults={setNoResults} setChickenDataID={setChickenDataID}/>
+             setNoResults={setNoResults} setChickenDataIDs={setChickenDataIDs}/>
             case "import":  return importTable
         }
         

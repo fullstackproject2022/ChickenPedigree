@@ -36,7 +36,7 @@ const chickenTestSchema = mongoose.Schema({
         default: 0
     },
     children: {
-        type: [Number],
+        type: [Object],
         default: []
     },
     comment: {

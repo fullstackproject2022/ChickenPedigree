@@ -54,7 +54,7 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
 
     return (
         <div className='aboveTable-wrapper'>
-            <div className='radioBtns'>
+            <div className='importBtns'>
                 <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable} chickenDataIDs={chickenDataIDs}/>
             </div>
             <div className='hspan'>

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import Table from './table.jsx';
 
-const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, setChickenDataID}) => {
+const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, setChickenDataIDs}) => {
     const [chickenData, setChickenData] = useState([])
+    let chickenIDs = []
     const columns = [ // not including children here
         { label: "Batch Year", key: "batchYear", sortable: true },
         { label: "Breed ID", key: "breed", sortable: true },
@@ -26,19 +27,19 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, se
 
                         if (isString(searchDetail)) {
                             if (chicken[selectedFilter].includes(searchDetail)) { 
-                                setChickenDataID(oldArray => [...oldArray, chicken.id])
+                                setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
                         else if (isNumber(searchDetail)) {
                             if (chicken[selectedFilter] == searchDetail) { 
-                                setChickenDataID(oldArray => [...oldArray, chicken.id])
+                                setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
+                        
                     })))
-
-
+                    
     }, [searchDetail, selectedFilter])
 
     // chickenData.forEach(chicken => {
