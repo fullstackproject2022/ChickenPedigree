@@ -11,6 +11,8 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
     const [chosenFilter, setChosenFilter] = useState("_id");
     const [chosenDetail, setChosenDetail] = useState();
     const [inputValue, setInputValue] = useState("");
+    const [loadTableState, setLoadTableState] = useState(false)
+    const [uploadState, setUploadState] = useState(false)
     const [errMsg, setErrMsg] = useState("")
     const hasNumber = /^[\d]+$/
 
@@ -36,9 +38,9 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
             setSelectedDetails(chosenDetail)
         }
         
-        if (noResults){
-            setErrMsg("No results")
-        }
+        // if (noResults){
+        //     setErrMsg("No results")
+        // }
         // else if (!noResults){
         //     setErrMsg("")
         // }
@@ -48,6 +50,9 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
         setInputValue("")
         setSelectedDetails("")
         setSelectedFilter("")
+        setCurrentTable("chicken")
+        setLoadTableState(false)
+        setUploadState(false)
     }
 
 
@@ -55,7 +60,9 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
     return (
         <div className='aboveTable-wrapper'>
             <div className='importBtns'>
-                <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable} chickenDataIDs={chickenDataIDs}/>
+                <FileImport setCurrentTable={setCurrentTable} setImportTable={setImportTable}
+                 chickenDataIDs={chickenDataIDs} setLoadTableState={setLoadTableState} 
+                 loadTableState={loadTableState} setUploadState={setUploadState} uploadState={uploadState}/>
             </div>
             <div className='hspan'>
                 

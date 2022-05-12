@@ -12,11 +12,12 @@ import '../../styles/fileImport.stylesheet.scss'
 // once csv file is imported clear file upload and grey out upload button
 
 
-const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs}) => {
+const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs,
+   setLoadTableState, loadTableState, uploadState, setUploadState }) => {
   const [importFile, setimportFile] = useState() // have a onload method that does the upload work
   const [importedChickens, setImportedChickens] = useState([])
-  const [loadTableState, setLoadTableState] = useState(false)
-  const [uploadState, setUploadState] = useState(false)
+  // const [loadTableState, setLoadTableState] = useState(false)
+  // const [uploadState, setUploadState] = useState(false)
 
   const columns = [ // not including children here
     { label: "Batch Year", key: "batchYear", sortable: true },

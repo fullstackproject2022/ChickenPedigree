@@ -27,18 +27,19 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, se
 
                         if (isString(searchDetail)) {
                             if (chicken[selectedFilter].includes(searchDetail)) { 
-                                setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
+                                // setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
                         else if (isNumber(searchDetail)) {
                             if (chicken[selectedFilter] == searchDetail) { 
-                                setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
+                                // setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
                         
                     })))
+
                     
     }, [searchDetail, selectedFilter])
 
