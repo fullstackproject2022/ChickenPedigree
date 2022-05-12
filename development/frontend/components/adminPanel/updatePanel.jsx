@@ -4,9 +4,13 @@ import read from '../../../backend/api/crud/read';
 import update from '../../../backend/api/crud/update';
 import '../../styles/admin.stylesheet.scss'
 import validateForm from '../../../backend/bin/validateForm';
+import RoleAdmin from './RoleAdmin.jsx';
 
 
-const UpdatePanel = ({ id, setPagePanel }) => {
+const UpdatePanel = ({ id, setPagePanel, adminPermission }) => {
+    const [adminRights, setAdminRights] = useState(adminPermission)
+
+
     const [user_data, setUserData] = useState([])
     const [username, setUsername] = useState();
     const [firstName, setFirstName] = useState();
@@ -53,6 +57,15 @@ const UpdatePanel = ({ id, setPagePanel }) => {
         return (setPagePanel("AdminTable"));
     }
 
+    const adminSelector = () => {
+        switch (adminRights) {
+            case true:
+                return <RoleAdmin setAdmin={setAdmin} setRole={setRole} />
+            case false:
+                return;
+        }
+    }
+
 
     return (
         <>
@@ -95,24 +108,7 @@ const UpdatePanel = ({ id, setPagePanel }) => {
                                 onChange={e => setLastName(e.target.value)}
                             />
                         </div>
-                        <div><label>Role</label>
-                            <select id="role" name="roles" onChange={e => setRole(e.target.value)}>
-                                <option value="-">-</option>
-                                <option value="Researcher">Researcher</option>
-                                <option value="Postdoc">Postdoc</option>
-                                <option value="PhD Student">PhD Student</option>
-                                <option value="Assistant">Assistant</option>
-                                <option value="MSc Student">MSc Student</option>
-                                <option value="BSc Student">BSc Student</option>
-                            </select>
-                        </div>
-                        <label>Admin</label>
-                        <div className="floater" id='radio'>
-                            <input type="radio" name="admin" value="true" onChange={e => setAdmin(e.target.value)} />
-                            <label>True</label>
-                            <input type="radio" name="admin" value="false" onChange={e => setAdmin(e.target.value)} />
-                            <label>False</label>
-                        </div>
+                        {adminSelector()}
                         <div><label>Phone</label>
                             <input className="floater"
                                 type="text"

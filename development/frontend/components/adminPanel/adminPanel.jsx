@@ -29,7 +29,7 @@ const AdminPanel = () => {
             case "AdminTable":
                 return <AdminTable setPagePanel={setPagePanel} setEditID={setEditID} />
             case "UpdatePanel":
-                return <UpdatePanel setPagePanel={setPagePanel} id={editID} />
+                return <UpdatePanel setPagePanel={setPagePanel} id={editID} adminPermission={true} />
             case "CreatePanel":
                 return <CreatePanel setPagePanel={setPagePanel} />
             case "UserStats":
