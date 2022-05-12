@@ -1,38 +1,29 @@
-$female-chicken-color: rgb(189, 147, 249);
-$male-chicken-color: rgb(147, 198, 249);
-$col-default: #eee;
+// Style for history page
 
 .HistoryWrapper {
+    $col-default: #eee;
+    $col-background: #30343c;
+
     text-align: center;
     width: 97%;
     margin-top: 87px;
     margin-left: 10px;
     overflow: auto;
 
-    .HistoryForm {
-        padding: 10px;
-        background-color: #30343c;
-        padding: 15px;
-
-        label,
-        h3 {
-            color: #eee;
-        }
-    }
-
-    .HistoryForm * {
-        display: inline;
-        padding-right: 2%;
-    }
-
     input {
         width: 150px;
         height: 20px;
+
     }
 
-    //HistoryTable {}
     input::placeholder {
         font-size: 1.5vh;
+    }
+
+
+    label,
+    h3 {
+        color: $col-default;
     }
 
     button {
@@ -58,14 +49,26 @@ $col-default: #eee;
         }
     }
 
+    .HistoryForm {
+        padding: 10px;
+        background-color: $col-background;
+        padding: 15px;
+
+        * {
+            display: inline;
+            padding-right: 2%;
+        }
+    }
+
     @media only screen and (max-width: 820px) {
         .HistoryForm {
             text-align: left;
+
+            * {
+                display: block;
+                padding-right: 2%;
+            }
         }
 
-        .HistoryForm * {
-            display: block;
-            padding-right: 2%;
-        }
     }
 }

@@ -55,6 +55,7 @@ const PairingWindow = () => {
     }
 
     const makePair = () => {
+        console.log(pairs)
         if (!fSelected && !mSelected) {
             return setErrMsg('Error, missing both female and male chicken')
         }
