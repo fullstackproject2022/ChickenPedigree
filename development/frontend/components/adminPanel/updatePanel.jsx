@@ -7,7 +7,7 @@ import validateForm from '../../../backend/bin/validateForm';
 import RoleAdmin from './RoleAdmin.jsx';
 
 
-const UpdatePanel = ({ id, setPagePanel, adminPermission }) => {
+const UpdatePanel = ({ id, setPagePanel, setPage, adminPermission }) => {
     const [adminRights, setAdminRights] = useState(adminPermission)
 
 
@@ -53,8 +53,12 @@ const UpdatePanel = ({ id, setPagePanel, adminPermission }) => {
         if (err == 0) {
             update.updateUser(updateDetails, id)
         }
+        if (setPagePanel) {
+            return setPagePanel("AdminTable")
+        } else if (setPage) {
+            return setPage("UserPanel")
+        }
 
-        return (setPagePanel("AdminTable"));
     }
 
     const adminSelector = () => {

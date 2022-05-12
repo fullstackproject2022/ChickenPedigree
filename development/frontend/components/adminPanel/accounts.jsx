@@ -44,7 +44,7 @@ const Accounts = () => {
                 return <AdminPanel setPagePanel={setPage} setEditID={currentUserID} />
             case "UserPanel":
                 if (currentUserID === "") { } else {
-                    return <UpdatePanel setPagePanel={setPage} id={currentUserID} adminPermission={adminUser} />
+                    return <UpdatePanel setPage={setPage} id={currentUserID} adminPermission={adminUser} />
                 }
         }
     }
