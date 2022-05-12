@@ -22,13 +22,12 @@ const UpdatePanel = ({ id, setPagePanel }) => {
         getData()
     }, [])
     const getData = async () => {
-        await read.fetchOne("users", id)//<---------------------here
+        await read.fetchOne("users", id)
             .then(result => setUserData(result))
     }
 
-    const handleSubmit = async e => { // CHange to actual user update
+    const handleSubmit = async e => {
         e.preventDefault();
-        //console.log("update");
         const updateDetails = {
             username: username != undefined ? username : user_data.username,
             firstname: firstName != undefined ? firstName : user_data.firstname,
