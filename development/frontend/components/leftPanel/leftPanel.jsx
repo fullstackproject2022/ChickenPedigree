@@ -34,7 +34,7 @@ const LeftPanel = ({ setActivePanel }) => {
         setActive[0].className += " active";
 
         setInactive(false);
-        return (setActivePanel(panel));
+        return(setActivePanel(panel));
     };
 
     return (

@@ -8,14 +8,14 @@ const MainPanel = () => {
     const [selectedFilter, setSelectedFilter] = useState("")
     const [selectedDetails, setSelectedDetails] = useState("")
 
-    return <>
+    return (
         <div className="parent-Main">
             <AboveTable setSelectedFilter={setSelectedFilter} setSelectedDetails={setSelectedDetails} />
             <div className="main-panel">
                 <ChickenTable selectedFilter={selectedFilter} searchDetail={selectedDetails} />
             </div>
         </div>
-    </>
+    );
 }
 
 export default MainPanel

@@ -16,6 +16,8 @@ import RightPanel from "./components/rightPanel/rightPanel.jsx";
 
 import './styles/index.stylesheet.scss';
 
+let prevPanel = "";
+
 function App() {
 
   const { token, setToken } = useToken();
@@ -39,7 +41,12 @@ function App() {
   const [activePanel, setActivePanel] = useState('chickens');
 
   const pageSelector = () => {
+    if (activePanel != "about") {
+      prevPanel = activePanel;
+    };
     // console.log(activePanel);
+    // console.log(prevPanel);
+
     switch (activePanel) {
       case "chickens":
         return <MainPanel />
@@ -65,7 +72,7 @@ function App() {
         <section className="body-wrapper" id="content">
           {pageSelector()}
         </section>
-        <BottomPanel activePanel={activePanel} setActivePanel={setActivePanel} />
+        <BottomPanel prevPanel={prevPanel} activePanel={activePanel} setActivePanel={setActivePanel} />
       </div>
     </StrictMode>
   )

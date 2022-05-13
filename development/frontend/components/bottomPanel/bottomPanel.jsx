@@ -1,17 +1,13 @@
 import React from 'react'
 import '../../styles/bottomPanel.stylesheet.scss'
 
-const BottomPanel = ({activePanel, setActivePanel}) =>  {
+const BottomPanel = ({ prevPanel, activePanel, setActivePanel }) => {
 
   return (
-    <>
+    <div className='footer'>
 
-        <div className='footer'>
-          
-          <div onClick={() => {return (activePanel == "about" ? setActivePanel("chickens") : setActivePanel("about"))}} >About PeckIt</div>
-        </div>
-      
-    </>
+      <div onClick={() => {(activePanel == "about" ? setActivePanel(prevPanel) : setActivePanel("about"));}} >About PeckIt</div>
+    </div>
   )
 }
 
