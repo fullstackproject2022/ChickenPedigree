@@ -65,6 +65,7 @@ const CreatePanel = ({ setPagePanel }) => {
                         <input className="floater"
                             type="password"
                             onChange={e => setPassword(e.target.value)}
+                            autoComplete="off"
                         />
                     </div>
                     <div><label>Role</label>
