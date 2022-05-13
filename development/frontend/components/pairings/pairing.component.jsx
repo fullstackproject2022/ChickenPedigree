@@ -3,8 +3,8 @@ import read from "../../../backend/api/crud/read";
 import '../../styles/pairing.stylesheet.scss'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import pairingIcon from '../../styles/assets/icon-egg.png'
-import FSelectionPanel from './FSelectionPanel.component.jsx'
-import MSelectionPanel from './MSelectionPanel.component.jsx'
+import FSelectionPanel from './sourceSelectionPanel.component.jsx'
+import MSelectionPanel from './targetSelectionPanel.component.jsx'
 import PedigreeYears from "./years.component.jsx";
 
 
