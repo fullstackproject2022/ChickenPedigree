@@ -1,12 +1,10 @@
-
-
 body {
     margin: 0 auto;
 }
 
 #content {
-    transition: margin-left .35s ease-out;
-    margin-left:65px;
+    transition: margin-left .35s ease-out, margin-right .5s ;
+    margin-left: 65px;
 }
 
 .parent-Main {

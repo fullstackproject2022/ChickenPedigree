@@ -11,9 +11,10 @@ import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode';
 import AboutPage from "./components/aboutPage/aboutPage.jsx";
 import BottomPanel from "./components/bottomPanel/bottomPanel.jsx";
-import './styles/index.stylesheet.scss';
-
 import TestPage from "./components/testPage/testPage.jsx";
+import RightPanel from "./components/rightPanel/rightPanel.jsx";
+
+import './styles/index.stylesheet.scss';
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
       <div className="container">
         <TopPanel />
         <LeftPanel setActivePanel={setActivePanel} />
+        <RightPanel />
         <section className="body-wrapper" id="content">
           {pageSelector()}
         </section>

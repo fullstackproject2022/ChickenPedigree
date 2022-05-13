@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai"; // need to make sure not all icons are being imported 
 import { MdAccountCircle } from "react-icons/md"

@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
 
 const test = () => {
 
-    return (
-      <div>
-        <h1>Testing</h1>
-      </div>
-    );
-}
+  return (
+    <div>
+      <h1>
+        Hello world!
+      </h1>
+    </div>
+  );
+};
 
 export default test;

@@ -5,7 +5,6 @@ import Table from './table.jsx';
 const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
     const [chickenData, setChickenData] = useState([])
     const columns = [ // not including children here
-        { label: "", key: "expanded", sortable: false },
         { label: "Batch Year", key: "batchYear", sortable: true },
         { label: "Breed ID", key: "breed", sortable: true },
         { label: "Chicken ID", key: "_id", sortable: true },
