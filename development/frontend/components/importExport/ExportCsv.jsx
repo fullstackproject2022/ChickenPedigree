@@ -1,13 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {CSVLink} from 'react-csv'
+import "../../styles/ExportCsv.stylesheet.scss"
 
-const ExportCsv = (pairs) => {
+const ExportCsv = (pairs) => { // the reason convert was needed was because I forgot to put pairs in {}
 
   const [arrayOfPairs, setArrayOfPairs] = useState([])
-  const [convertState, setConvertState] = useState(true)
-
-
-
 
   const headerss = [
     { label: 'Female ID', key:'femaleChicken'},
@@ -20,9 +17,11 @@ const ExportCsv = (pairs) => {
     data: arrayOfPairs
   }
 
-
-  const convertpairs = () => {
-    pairs.pairs.forEach(pair => {
+// get called when make pair is called to update array of pairs to not need convert button (inside useEffect)
+  const convertpairs = async () => {
+    if (pairs){
+      console.log("getting called")
+      await pairs.pairs.forEach(pair => {
       const convPair = {
         'femaleChicken': pair.female,
         'maleChicken': pair.male
@@ -30,16 +29,13 @@ const ExportCsv = (pairs) => {
       // arrayOfPairs.push(convPair)
       setArrayOfPairs(olsArray => [...olsArray, convPair])
     })
-    setConvertState(false)
-    console.log(arrayOfPairs)
+    }
   }
-  
-
 
   return (
     <div>
-      <button disabled={!convertState} onClick={convertpairs}> convert</button>
-      <CSVLink {...csvReport}>Export</CSVLink>
+      {/* <button className='exportBtn' disabled={!convertState} onClick={convertpairs}>{<CSVLink {...csvReport}>Export</CSVLink>}</button> */}
+      <CSVLink className='exportBtn' onClick={convertpairs} {...csvReport}>Export</CSVLink>
     </div>
   )
 }

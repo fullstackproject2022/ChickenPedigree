@@ -8,7 +8,8 @@ $top-radius: 15px;
     position: relative;
     margin-top: 87px;
     width: 100%;
-    padding: 0 35px;
+    // padding: 0 35px;
+    height: calc(100vh - 340px) !important;
 
     button {
         cursor: pointer;
@@ -33,8 +34,25 @@ $top-radius: 15px;
         }
     }
 
+    .save-pairs {
+        margin-top: 210px;
+        margin-bottom: 60px;
+        width: 130px;
+        border: 2px solid rgb(113, 126, 149);
+        background-color: #343b48;
+        color: #eee;
+        border-radius: 6px;
+        font-size: 18px;
+    
+        &:hover {
+            border: 2px solid #3d4656;
+        }
+    }
+
     .year {
         display: flex;
+        border-radius: 10px;
+        // border-top-right-radius: 10px;
         justify-content: center;
         height: 65px;
         width: 100%;

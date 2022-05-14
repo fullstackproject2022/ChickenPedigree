@@ -3,12 +3,16 @@
 .HistoryWrapper {
     $col-default: #eee;
     $col-background: #30343c;
+    $border-radius: 10px;
 
     text-align: center;
     width: 97%;
     margin-top: 87px;
-    margin-left: 10px;
+    // margin-left: 10px;
     overflow: auto;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    height: calc(100vh - 127px) !important;
 
     input {
         width: 150px;
@@ -26,28 +30,28 @@
         color: $col-default;
     }
 
-    button {
-        font-size: 18px;
-        cursor: pointer;
-        border: 2px solid rgb(113, 126, 149);
-        border-radius: 6px;
-        height: 30px;
-        margin: 10px 0px;
-        box-shadow: 1px 1px 5px rgb(37, 41, 44);
-        background-color: rgb(64, 71, 88);
-        color: $col-default;
+    // button {
+    //     font-size: 18px;
+    //     cursor: pointer;
+    //     border: 2px solid rgb(113, 126, 149);
+    //     border-radius: 6px;
+    //     height: 30px;
+    //     margin: 10px 0px;
+    //     box-shadow: 1px 1px 5px rgb(37, 41, 44);
+    //     background-color: rgb(64, 71, 88);
+    //     color: $col-default;
 
-        &:hover {
-            background-color: rgb(40, 44, 52);
-        }
+    //     &:hover {
+    //         background-color: rgb(40, 44, 52);
+    //     }
 
-        &:active {
-            $bgColor: rgb(189, 147, 249);
-            background-color: $bgColor;
-            box-shadow: 0 0 3px $bgColor;
-            color: $col-default;
-        }
-    }
+    //     &:active {
+    //         $bgColor: rgb(189, 147, 249);
+    //         background-color: $bgColor;
+    //         box-shadow: 0 0 3px $bgColor;
+    //         color: $col-default;
+    //     }
+    // }
 
     .HistoryForm {
         padding: 10px;
@@ -72,3 +76,8 @@
 
     }
 }
+
+.save-pairs{
+    top: 200px;
+}
+

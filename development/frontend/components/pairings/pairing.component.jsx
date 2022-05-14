@@ -7,6 +7,7 @@ import FSelectionPanel from './FSelectionPanel.component.jsx'
 import MSelectionPanel from './MSelectionPanel.component.jsx'
 import PedigreeYears from "./years.component.jsx";
 import ExportCsv from "../importExport/ExportCsv.jsx";
+import SavePairs from "../historyPage/savePairs.jsx";
 
 
 const PairingWindow = () => {
@@ -56,7 +57,6 @@ const PairingWindow = () => {
     }
 
     const makePair = () => {
-        console.log(pairs)
         if (!fSelected && !mSelected) {
             return setErrMsg('Error, missing both female and male chicken')
         }
@@ -126,6 +126,7 @@ const PairingWindow = () => {
                     </div>
 
                     <div>
+                        <SavePairs pairs={pairs} />
                         <ExportCsv pairs={pairs} />
                     </div>
                 </section>

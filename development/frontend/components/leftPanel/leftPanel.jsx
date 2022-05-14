@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai"; // need to make sure not all icons are being imported 
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md"
 import { BsFillEggFill } from "react-icons/bs"
 import { GiChicken } from "react-icons/gi";
@@ -13,6 +13,7 @@ const LeftPanel = ({ setActivePanel }) => {
     const [inactive, setInactive] = useState(false)
 
     const toggleButton = () => {
+        // Will open and close the left panel
         setInactive(!inactive)
     }
 

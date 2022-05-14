@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import '../../styles/aboveTable.stylesheet.scss'
 import Button from '../standAloneComponents/button.jsx'
-import read from '../../../backend/api/crud/read';
 import FileImport from '../importExport/FileImport.jsx';
 
 
@@ -9,20 +8,16 @@ import FileImport from '../importExport/FileImport.jsx';
 
 const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurrentTable, setImportTable, chickenDataIDs }) => {
     const [chosenFilter, setChosenFilter] = useState("_id");
-    const [chosenDetail, setChosenDetail] = useState();
+    const [chosenDetail, setChosenDetail] = useState("");
     const [inputValue, setInputValue] = useState("");
     const [loadTableState, setLoadTableState] = useState(false)
     const [uploadState, setUploadState] = useState(false)
+    const [placeHolder, setPlaceHolder] = useState("Search")
     const [errMsg, setErrMsg] = useState("")
     const hasNumber = /^[\d]+$/
 
     function checkInput(input) {
-        if (hasNumber.test(input)) {
-            setChosenDetail(Number(input))
-        }
-        else {
-            setChosenDetail(input)
-        }
+        hasNumber.test(input) ? setChosenDetail(Number(input)) : setChosenDetail(input)
     }
 
     const userInput = (event) => {
@@ -32,18 +27,9 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
 
 
     const goBtn = () => {
-        
-        if(chosenDetail != ""){
-            setSelectedFilter(chosenFilter)
-            setSelectedDetails(chosenDetail)
-        }
-        
-        // if (noResults){
-        //     setErrMsg("No results")
-        // }
-        // else if (!noResults){
-        //     setErrMsg("")
-        // }
+
+        chosenDetail == "" ? setPlaceHolder("No Entry") : (setPlaceHolder("Search"), 
+        setSelectedFilter(chosenFilter), setSelectedDetails(chosenDetail))
     }
 
     const resetBtn = () => {
@@ -54,7 +40,6 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
         setLoadTableState(false)
         setUploadState(false)
     }
-
 
 
     return (
@@ -81,7 +66,7 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
                     </select>
                 </div>
                 <div className='search-box'>
-                    <input type="text" onChange={userInput} value={inputValue} className='search' placeholder='Search' />
+                    <input type="text" onChange={userInput} value={inputValue} className='search' placeholder={placeHolder}/>
                 </div>
                 <div className='buttons'>
                     <Button text="Go" onClick={goBtn} className='go-button' />

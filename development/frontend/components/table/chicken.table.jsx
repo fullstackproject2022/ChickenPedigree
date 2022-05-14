@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import Table from './table.jsx';
 
-const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, setChickenDataIDs}) => {
+const ChickenTable = ({ selectedFilter = "", searchDetail = ""}) => {
     const [chickenData, setChickenData] = useState([])
-    let chickenIDs = []
     const columns = [ // not including children here
         { label: "Batch Year", key: "batchYear", sortable: true },
         { label: "Breed ID", key: "breed", sortable: true },
@@ -27,13 +26,11 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, se
 
                         if (isString(searchDetail)) {
                             if (chicken[selectedFilter].includes(searchDetail)) { 
-                                // setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
                         else if (isNumber(searchDetail)) {
                             if (chicken[selectedFilter] == searchDetail) { 
-                                // setChickenDataIDs(oldArray => [...oldArray, chicken[id]])
                                 return chicken
                             }
                         }
@@ -43,20 +40,10 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "", setNoResults, se
                     
     }, [searchDetail, selectedFilter])
 
-    // chickenData.forEach(chicken => {
-    //     setChickenDataID(oldArray => [...oldArray, chicken.id])
-    // })
 
     if (chickenData.length > 0) {
-        //setNoResults(false)
-        // chickenData.forEach(chicken => {
-        //     setChickenDataID(oldArray => [...oldArray, chicken.id])
-        // })
         return < Table data={chickenData} columns={columns} />
     }
-    // else{
-    //     setNoResults(true)
-    // }
-
 }
+
 export default ChickenTable;

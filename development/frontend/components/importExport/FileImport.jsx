@@ -1,23 +1,14 @@
 const CSVToJSON = require("csvtojson")
 import React,{ useState } from 'react'
 import Table from '../table/table.jsx'
-import update from '../../../backend/api/crud/update.js'
 import create from '../../../backend/api/crud/create.js'
-import validateForm from '../adminPanel/validateForm.js'
-import read from '../../../backend/api/crud/read.js'
 import '../../styles/fileImport.stylesheet.scss'
-
-// the imported chickens should be checked if they are already in database, if not then post, if yes update
-// have all the ids be added to an array in chicken table and use that to check if chicken is already existing
-// once csv file is imported clear file upload and grey out upload button
 
 
 const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs,
-   setLoadTableState, loadTableState, uploadState, setUploadState }) => {
-  const [importFile, setimportFile] = useState() // have a onload method that does the upload work
+    setLoadTableState, loadTableState, uploadState, setUploadState }) => {
+  const [importFile, setimportFile] = useState() 
   const [importedChickens, setImportedChickens] = useState([])
-  // const [loadTableState, setLoadTableState] = useState(false)
-  // const [uploadState, setUploadState] = useState(false)
 
   const columns = [ // not including children here
     { label: "Batch Year", key: "batchYear", sortable: true },
@@ -45,6 +36,7 @@ const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs,
   }
 
   const loadTable = () => {
+    // Loads a Table filled with Data from imported CSV
 
     const file = importFile
 
@@ -56,7 +48,7 @@ const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs,
     reader.onload = async function(e) {
       const csvData = e.target.result
 
-      await CSVToJSON().fromString(csvData).then(source => { // have an async function that waits for this
+      await CSVToJSON().fromString(csvData).then(source => {
         console.log("getting called inside CSVtoJSON")
         
         source.forEach((e) => {
@@ -64,29 +56,18 @@ const FileImport = ({setImportTable, setCurrentTable, chickenDataIDs,
           e._id = parseInt(e._id, 10)
           e.fParent = parseInt(e.fParent, 10)
           e.mParent = parseInt(e.mParent, 10)
-          // e.children = [{"_id":3000, "sex":'M'},{"_id":2000, "sex":'U'}]  //Find a way to turn string of
+          // e.children = [{"_id":3000, "sex":'M'},{"_id":2000, "sex":'U'}]  //Find a way to turn string into array
          
         })
         console.log("getting called too early")
         setImportedChickens(source)
         setImportTable(<Table data={source} columns={columns}/>)
         setCurrentTable("import")
-      // e.target.result=null
       })
     }
     setLoadTableState(false)
     setUploadState(true)
 
-    
-
-
-    
-
-    //console.log("trying to build table")
-
-    
-
-    
   }
 
 
