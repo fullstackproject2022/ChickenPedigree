@@ -70,9 +70,24 @@ const PairingWindow = () => {
     }
 
     const pairClicked = () => {
-
+        // console.log("Baddum")
     }
 
+    // const setScores = () => {
+    //     // const source = Array.from(document.getElementsByClassName("source-score"))
+    //     const source = fRadio ? fSelected : mRadio && mSelected
+    //     const target = Array.from(document.getElementsByClassName("target-score"))
+
+
+    //     console.log(source)
+    //     console.log(target)
+
+    //     // targets.forEach(s => console.log(s))
+    //     // source.forEach(s => console.log(s))
+    //     // targets.forEach(t => getScore(source, t))
+
+
+    // }
 
     const removePair = (female, male) => {
         console.log("removing pair!")

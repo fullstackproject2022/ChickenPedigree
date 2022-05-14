@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 const SelectionPanel = (
     {
@@ -24,8 +24,8 @@ const SelectionPanel = (
             return
         }
 
-        const isFemale = element.target.className === 'female-chickens'
-        const isMale = element.target.className === 'male-chickens'
+        const isFemale = /female\-chickens/.test(element.target.className)
+        const isMale = /male\-chickens/.test(element.target.className)
 
         if (fSelected && isFemale) { fSelected.target.className = 'female-chickens' }
         else if (mSelected && isMale) { mSelected.target.className = 'male-chickens' }
@@ -47,15 +47,15 @@ const SelectionPanel = (
                 ? chickens.map((chicken) => {
                     return chicken.sex === 'M'
                         && <button key={chicken._id}
-                            className="male-chickens"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
+                            className="male-chickens target-score"
+                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span></span></button>
                 })
                 : mRadioSelected
                 && chickens.map((chicken) => {
                     return chicken.sex === 'F'
                         && <button key={chicken._id}
-                            className="female-chickens"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
+                            className="female-chickens target-score"
+                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span></span></button>
                 })
             }
         </div>
