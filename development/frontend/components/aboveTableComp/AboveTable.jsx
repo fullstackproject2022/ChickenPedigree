@@ -16,7 +16,7 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
     const [errMsg, setErrMsg] = useState("")
     const hasNumber = /^[\d]+$/
 
-    function checkInput(input) {
+    const checkInput = (input) => {
         hasNumber.test(input) ? setChosenDetail(Number(input)) : setChosenDetail(input)
     }
 
@@ -27,9 +27,8 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
 
 
     const goBtn = () => {
-
         chosenDetail == "" ? setPlaceHolder("No Entry") : (setPlaceHolder("Search"), 
-        setSelectedFilter(chosenFilter), setSelectedDetails(chosenDetail))
+            setSelectedFilter(chosenFilter), setSelectedDetails(chosenDetail))
     }
 
     const resetBtn = () => {
