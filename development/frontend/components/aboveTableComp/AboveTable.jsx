@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import '../../styles/aboveTable.stylesheet.scss'
 import Button from '../standAloneComponents/button.jsx'
 import FileImport from '../importExport/FileImport.jsx';
+// import e from 'express';
 
 
 // reset button needs to reset main table can do by reset calls for empty Go button which should return full table again
@@ -31,7 +32,13 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
             setSelectedFilter(chosenFilter), setSelectedDetails(chosenDetail))
     }
 
+    const handleKeyInput = (e) => {
+        console.log("keyPressed")
+        if (e.key === "Enter") goBtn()
+    }
+
     const resetBtn = () => {
+        setPlaceHolder("Search")
         setInputValue("")
         setSelectedDetails("")
         setSelectedFilter("")
@@ -65,7 +72,7 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
                     </select>
                 </div>
                 <div className='search-box'>
-                    <input type="text" onChange={userInput} value={inputValue} className='search' placeholder={placeHolder}/>
+                    <input type="text" onChange={userInput} value={inputValue} onKeyPress={handleKeyInput} className='search' placeholder={placeHolder}/>
                 </div>
                 <div className='buttons'>
                     <Button text="Go" onClick={goBtn} className='go-button' />
