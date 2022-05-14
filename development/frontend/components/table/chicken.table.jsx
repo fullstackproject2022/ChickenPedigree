@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import read from '../../../backend/api/crud/read';
 import Table from './table.jsx';
 
-const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
+const ChickenTable = ({ selectedFilter = "", searchDetail = ""}) => {
     const [chickenData, setChickenData] = useState([])
     const columns = [ // not including children here
         { label: "Batch Year", key: "batchYear", sortable: true },
@@ -16,7 +16,7 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
     ]
 
     useEffect(() => {
-        read.fetchCollection("chicken") // returns it in object format
+         read.fetchCollection("chicken") // returns it in object format
             .then(async result => await setChickenData(
                 selectedFilter === "" && searchDetail === ""
                     ? result
@@ -25,18 +25,25 @@ const ChickenTable = ({ selectedFilter = "", searchDetail = "" }) => {
                         const isString = (input) => (/^[a-zA-Z_]+$/).test(input)
 
                         if (isString(searchDetail)) {
-                            if (chicken[selectedFilter].includes(searchDetail)) { return chicken }
+                            if (chicken[selectedFilter].includes(searchDetail)) { 
+                                return chicken
+                            }
                         }
                         else if (isNumber(searchDetail)) {
-                            if (chicken[selectedFilter] == searchDetail) { return chicken }
+                            if (chicken[selectedFilter] == searchDetail) { 
+                                return chicken
+                            }
                         }
+                        
                     })))
+
+                    
     }, [searchDetail, selectedFilter])
 
 
     if (chickenData.length > 0) {
         return < Table data={chickenData} columns={columns} />
     }
-
 }
+
 export default ChickenTable;

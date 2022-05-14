@@ -33,21 +33,21 @@ function AboutPage() {
                     <li className='names'>
                         Sandra Kaljula:
                         <ul>
-                            <li className='contributor-role'>Admin Panel, Login, Database</li>
+                            <li className='contributor-role'>Admin Panel, Login, Database, History Page</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Mark Harvey:
                         <ul>
-                            <li className='contributor-role'>Login, Left Panel</li>
+                            <li className='contributor-role'>Main Panel, Login, Left Panel</li>
                         </ul>
                     </li>
 
                     <li className='names'>
                         Ramin Darudi:
                         <ul>
-                            <li className='contributor-role'>Main Panel, Left Panel, Top & Bottom Panel</li>
+                            <li className='contributor-role'>Main Panel, Left Panel, Top & Bottom Panel, History Panel</li>
                         </ul>
                     </li>
                     

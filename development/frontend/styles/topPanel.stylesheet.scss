@@ -13,3 +13,20 @@ $img-size: 50px;
   width: $img-size;
   height: $img-size;
 }
+
+.log-out {
+  margin: 10px 5px;
+  float: right;
+  width: 100px;
+  height: 35px;
+  border: 2px solid rgb(113, 126, 149);
+  background-color: #343b48;
+  color: #eee;
+  border-radius: 6px;
+  font-size: 18px;
+
+  &:hover {
+      border: 2px solid rgb(186, 73, 137);
+      color: rgb(113, 126, 149);
+  }
+}

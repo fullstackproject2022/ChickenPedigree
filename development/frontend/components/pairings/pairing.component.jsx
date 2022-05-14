@@ -6,6 +6,8 @@ import pairingIcon from '../../styles/assets/icon-egg.png'
 import FSelectionPanel from './sourceSelectionPanel.component.jsx'
 import MSelectionPanel from './targetSelectionPanel.component.jsx'
 import PedigreeYears from "./years.component.jsx";
+import ExportCsv from "../importExport/ExportCsv.jsx";
+import SavePairs from "../historyPage/savePairs.jsx";
 
 
 const PairingWindow = () => {
@@ -136,6 +138,11 @@ const PairingWindow = () => {
                                 })
                             }
                         </div>
+                    </div>
+
+                    <div>
+                        <SavePairs pairs={pairs} />
+                        <ExportCsv pairs={pairs} />
                     </div>
                 </section>
             </div>

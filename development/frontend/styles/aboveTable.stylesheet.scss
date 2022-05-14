@@ -5,6 +5,7 @@
     margin-top: 90px;
     display: flex;
     height: 40px;
+    width: 100%;
 }
 
 .aboveTable-wrapper div {
@@ -17,6 +18,13 @@
 .hspan {
     flex-grow: 2;
     margin: 0 auto;
+    min-width: 5px;
+}
+
+.errMsg{
+    // border: 2px solid red;
+    font-size: 20px;
+    color: rgb(186, 73, 137);
 }
 
 .radio {
@@ -27,15 +35,6 @@
 
 }
 
-.radioBtns input[type="radio"] {
-    $radius: 23px;
-    width: $radius;
-    height: $radius;
-    accent-color: #5e6a82;
-    background: rgb(186, 73, 137);
-    margin-right: 25px;
-    margin-top: 7px;
-}
 
 // //** Filter comp **//
 .filter-wrapper {
@@ -81,7 +80,7 @@
     padding-left: 4px;
 }
 
-.buttons button {
+.buttons button{
     margin: 0 0 0 5px;
     width: 100px;
     border: 2px solid rgb(113, 126, 149);
@@ -95,6 +94,13 @@
     }
 }
 
+
 input[type="text"] {
     font-size: 20px;
+    outline: none;
+}
+
+
+input[type="text"]:focus {
+    border: 2px solid rgb(186, 73, 137);
 }
