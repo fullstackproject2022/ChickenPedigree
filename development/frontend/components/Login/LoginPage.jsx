@@ -42,11 +42,11 @@ export default function Login({ setToken }) {
       <div className='logo'>
         <img src={logo} alt="logo" className='logo-img' />
       </div>
-      <h1> Peck It </h1>
+      <h1 className='peckIt'> Peck It </h1>
 
       {pageSelector()}
 
-      <button id="switch" onClick={switchPanel} >Forget Your Password?</button>
+      <span id="switch" onClick={switchPanel} >Forget Your Password?</span>
     </div>
   )
 };
