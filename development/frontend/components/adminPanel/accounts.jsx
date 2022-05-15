@@ -11,10 +11,19 @@ const Accounts = () => {
     const [page, setPage] = useState("UserPanel");
     const [adminUser, setAdminUser] = useState("");
     const [currentUserID, setCurrentUserID] = useState("");
+    const [updateVis, setUpdateVis] = useState(true)
+    const [adminVis, setAdminVis] = useState(false)
 
     useEffect(() => {
         setTokens();
+        
     }, []);
+
+    useEffect(() => {
+        setUpdateVis(prevState => !prevState)
+        setAdminVis(prevState => !prevState)
+    }, [page])
+
 
     // Current user id and if its admin or not
     const setTokens = async () => {
@@ -24,6 +33,7 @@ const Accounts = () => {
             setCurrentUserID(decoded._id);
             const user = await read.fetchOne("users", decoded._id)
             setAdminUser(user.admin)
+            
         } catch (err) {
             console.log(err);
         };
@@ -38,11 +48,23 @@ const Accounts = () => {
         setPage("UserPanel");
     }
 
+    const showBtns = () => {
+        if (adminUser) {
+            return <>
+                    <Button disabled={adminVis} text={"Admin Panel"} onClick={switchPanel1} className={"AdminBtn"} />
+                    <Button disabled={updateVis} text={"Update Panel"} onClick={switchPanel2} className={"updateBtn"} />
+            </>
+        }
+    }
+
     const pageSelector = () => {
         switch (page) {
             case "AdminPanel":
+                // setAdminVis(true)
+                // setUpdateVis(false)
                 return <AdminPanel setPagePanel={setPage} setEditID={currentUserID} />
             case "UserPanel":
+
                 if (currentUserID === "") { } else {
                     return <UpdatePanel setPage={setPage} id={currentUserID} adminPermission={adminUser} />
                 }
@@ -53,8 +75,7 @@ const Accounts = () => {
         <>
             <div className='AccountsWrapper'>
                 <div className='AccountHeader'>
-                    <Button text={"Admin Panel"} onClick={switchPanel1} className={"AdminBtn"} />
-                    <Button text={"Update Panel"} onClick={switchPanel2} className={"AdminBtn"} />
+                    {showBtns()}
                 </div>
                 <div className='AdminPanel'>
                     {pageSelector()}

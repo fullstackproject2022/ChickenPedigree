@@ -34,7 +34,7 @@ function App() {
     console.log(err);
   };
 
-  const [activePanel, setActivePanel] = useState('pairing');
+  const [activePanel, setActivePanel] = useState('accounts');
 
   const pageSelector = () => {
     // console.log(activePanel);

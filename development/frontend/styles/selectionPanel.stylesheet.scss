@@ -5,8 +5,9 @@ $male-chicken-color: rgb(147, 198, 249);
     display: flex;
     margin: 0;
     background-color: rgb(37, 41, 44);
-    // height: 3%;
-
+    
+    height: 73%;
+    // overflow-y: auto;
     div {
         display: block;
         flex-grow: 1;
@@ -78,6 +79,13 @@ $male-chicken-color: rgb(147, 198, 249);
             font-size: 26px;
             padding-top: 5px;
         }
+    }
+
+    .filter-subjects,
+    .target-subjects{
+        height: 200px;
+        overflow-y: auto;
+        height: 55vh;
     }
 
 }

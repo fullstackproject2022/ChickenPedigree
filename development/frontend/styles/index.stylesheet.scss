@@ -128,12 +128,23 @@ th.down {
     left: 0;
 }
 
+.footer {
+    bottom: 0;
+    right: 0;
+}
+
 .body-wrapper {
+    border: 2px solid blue;
+    width: 100vw;
     display: flex;
     margin-left: -15px;
+    // margin-right: -5px;
     right: 0;
     
     // margin-bottom: 5px;
     height: 100vh;
-    overflow-y: auto;
+}
+
+.container {
+    width: 90vw;
 }

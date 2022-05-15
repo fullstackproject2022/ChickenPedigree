@@ -21,19 +21,19 @@
         margin: 10px 0px;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
         min-width: 100%;
-        background-color: rgb(64, 71, 88);
+        background-color: #343b48;
         color: #eee;
 
         &:hover {
-            background-color: rgb(40, 44, 52);
+            border: 2px solid #3d4656;
         }
 
-        &:active {
-            $bgColor: rgb(189, 147, 249);
-            background-color: $bgColor;
-            box-shadow: 0 0 3px $bgColor;
-            color: $col-default;
-        }
+        // &:active {
+        //     $bgColor: rgb(189, 147, 249);
+        //     background-color: $bgColor;
+        //     box-shadow: 0 0 3px $bgColor;
+        //     color: $col-default;
+        // }
     }
 
     // -----------------------------------------Inputs---------------------------------
@@ -99,11 +99,17 @@
         width: 43%;
         height: 40%;
         padding: 2%;
+        
 
         span {
             width: 60%;
             float: right;
             text-align: right;
+        }
+
+        label {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 50px;
         }
     }
 
@@ -229,4 +235,9 @@
 
 .AccountsWrapper {
     margin-top: 80px;
+}
+
+.AdminBtn:disabled, .updateBtn:disabled {
+    border: 2px solid #3d4656;
+    cursor: context-menu;
 }

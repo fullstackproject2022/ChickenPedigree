@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Button = ({ text, onClick, id, setPagePanel, className }) => {
+const Button = ({ text, onClick, id, setPagePanel, className, disabled }) => {
 
   const [btnState, setBtnState] = useState(false)
 
@@ -16,7 +16,7 @@ const Button = ({ text, onClick, id, setPagePanel, className }) => {
   }
 
   return (
-    <button className={className} onClick={() => { buttonPress() }}>{text}</button>
+    <button disabled={disabled} className={className} onClick={() => { buttonPress() }}>{text}</button>
   )
 }
 
@@ -25,7 +25,9 @@ Button.defaultProps = {
   text: "not Specified",
   id: null,
   setPagePanel: null,
-  className: "btn"
+  className: "btn",
+  disabled: false
+
 }
 
 Button.propTypes = {

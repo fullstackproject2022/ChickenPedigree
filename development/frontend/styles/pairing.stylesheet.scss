@@ -9,7 +9,11 @@ $top-radius: 15px;
     margin-top: 87px;
     width: 100%;
     // padding: 0 35px;
-    height: calc(100vh - 340px) !important;
+    height: calc(100vh - 130px) !important;
+    // height: 100vh;
+    // overflow-y: auto;
+
+
 
     button {
         cursor: pointer;
