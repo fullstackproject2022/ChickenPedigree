@@ -33,7 +33,6 @@ const AboveTable = ({ setSelectedFilter, setSelectedDetails, noResults, setCurre
     }
 
     const handleKeyInput = (e) => {
-        console.log("keyPressed")
         if (e.key === "Enter") goBtn()
     }
 
