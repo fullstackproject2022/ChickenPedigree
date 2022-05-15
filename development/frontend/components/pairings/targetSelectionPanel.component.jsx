@@ -27,17 +27,17 @@ const SelectionPanel = (
         const isFemale = /female\-chickens/.test(element.target.className)
         const isMale = /male\-chickens/.test(element.target.className)
 
-        if (fSelected && isFemale) { fSelected.target.className = 'female-chickens' }
-        else if (mSelected && isMale) { mSelected.target.className = 'male-chickens' }
+        if (fSelected && isFemale) { fSelected.target.className = 'female-chickens target-score' }
+        else if (mSelected && isMale) { mSelected.target.className = 'male-chickens target-score' }
 
 
         if (isFemale) {
             setFSelected(element)
-            element.target.className = 'selected-female'
+            element.target.className = 'selected-female target-score'
         }
         else if (isMale) {
             setMSelected(element)
-            element.target.className = 'selected-male'
+            element.target.className = 'selected-male target-score'
         }
     }
 
