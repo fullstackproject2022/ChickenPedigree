@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md"
 import { BsFillEggFill } from "react-icons/bs"
@@ -29,18 +29,18 @@ const LeftPanel = ({ setActivePanel }) => {
 
             <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('chickens')) }}>
                 <div className="left-panel-div">
-                    <GiChicken /><span>Chickens</span>
+                    <GiChicken /><span className='text'>Chickens</span>
                 </div>
             </div>
 
             <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('pairing')) }}>
                 <div className="left-panel-div">
-                    <BsFillEggFill /><span>Pair</span>
+                    <BsFillEggFill /><span className='text'>Pair</span>
                 </div>
             </div>
             <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('history')) }}>
                 <div className="left-panel-div">
-                    <MdHistory /><span>History</span>
+                    <MdHistory /><span className='text'>History</span>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
                 <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('accounts')) }}>
                     <div className="left-panel-div">
-                        <MdAccountCircle /><span>Account</span>
+                        <MdAccountCircle /><span className='text'>Account</span>
                     </div>
                     <div className='User-name'></div>
                 </div>
