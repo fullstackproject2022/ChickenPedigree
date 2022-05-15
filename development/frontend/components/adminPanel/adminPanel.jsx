@@ -1,5 +1,5 @@
 // Builds the whole admin panel.
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UpdatePanel from './updatePanel.jsx'
 import CreatePanel from './createPanel.jsx'
 import Button from '../../components/standAloneComponents/admin.button.jsx'
@@ -10,6 +10,28 @@ import UserStats from './userStats.jsx';
 const AdminPanel = () => {
     const [panel, setPagePanel] = useState("AdminTable");
     const [editID, setEditID] = useState("");
+    const [createPanelVis, setCreatePanelVis] = useState(false)
+    const [adminPanelVis, setAdminPanelVis] = useState(true)
+    const [statsPanelVis, setStatsPanelVis] = useState(false)
+
+    useEffect(() => {
+
+        if (panel === "CreatePanel"){
+            setCreatePanelVis(true);
+            setAdminPanelVis(false);
+            setStatsPanelVis(false);
+        }
+        else if (panel === "AdminTable") {
+            setCreatePanelVis(false);
+            setAdminPanelVis(true);
+            setStatsPanelVis(false);
+        }
+        else if (panel === "UserStats") {
+            setCreatePanelVis(false);
+            setAdminPanelVis(false); 
+            setStatsPanelVis(true);
+        }
+    }, [panel])
 
 
     const switchPanel1 = () => {
@@ -42,9 +64,9 @@ const AdminPanel = () => {
 
             <div className='AdminWrapper'>
                 <div className='AdminHeader'>
-                    <Button text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
-                    <Button text={"Create User"} onClick={switchPanel1} className={"AdminBtn"} />
-                    <Button text={"User Stats"} onClick={switchPanel3} className={"AdminBtn"} />
+                    <Button disabled={adminPanelVis} text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn2"} />
+                    <Button disabled={createPanelVis} text={"Create User"} onClick={switchPanel1} className={"AdminBtn"} />
+                    <Button disabled={statsPanelVis} text={"User Stats"} onClick={switchPanel3} className={"AdminBtn"} />
                 </div>
                 <div className='AdminPanel'>
                     {pageSelector()}
