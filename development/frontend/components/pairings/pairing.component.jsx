@@ -22,6 +22,7 @@ const PairingWindow = () => {
     const [pairs, setPairs] = useState([])
     const [panelText1, setPanelText1] = useState('')
     const [panelText2, setPanelText2] = useState('')
+    const [selectedButton, setSelectedButton] = useState(null)
 
     useEffect(() => {
         setPanelText1(fRadio ? 'Female' : 'Male')
@@ -67,16 +68,35 @@ const PairingWindow = () => {
             return setErrMsg('Error, missing male chicken')
         }
         setErrMsg('')
-        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText) }
+        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText.split('\n')[0]) }
+        setFilteredChickens(filteredChickens.filter(fc => ![obj.male, obj.female].includes(fc._id)))
         pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg('That female is already paired!')
+
+
     }
 
-    const pairClicked = () => {
-        // console.log("Baddum")
+    const pairClicked = (element) => {
+        const matched = element.target.innerText.split('\n')
+        let fChicken = fRadio ? matched[0] : matched[1]
+        let mChicken = mRadio ? matched[0] : matched[1]
+        console.log(matched)
+        console.log(`Female ${fChicken}`)
+        console.log(`male ${mChicken}`)
+        setSelectedButton(element)
     }
 
-    const removePair = (female, male) => {
-        console.log("removing pair!")
+    const removePair = async () => {
+        console.log("HONEY I'M IN!")
+        const element = selectedButton
+        const matched = element.target.innerText.split('\n')
+        let fChicken = []
+        let mChicken = []
+        await read.fetchOne('chicken', Number(matched[0])).then(res => fRadio ? fChicken.push(res) : mChicken.push(res))
+        await read.fetchOne('chicken', Number(matched[1])).then(res => mRadio ? fChicken.push(res) : mChicken.push(res))
+        fChicken = fChicken[0]
+        mChicken = mChicken[0]
+        setFilteredChickens([fChicken, mChicken, ...filteredChickens])
+
     }
 
     if (years.length > 0) {
@@ -113,10 +133,10 @@ const PairingWindow = () => {
                             {
                                 pairs.map((pairing) => {
                                     return fRadio
-                                        ? <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        ? <button className="paired-button" onClick={(e) => pairClicked(e)} key={String(pairing.female) + String(pairing.male)}>
                                             <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
                                         </button>
-                                        : <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        : <button className="paired-button" onClick={(e) => pairClicked(e)} key={String(pairing.female) + String(pairing.male)}>
                                             <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
                                         </button>
                                 })

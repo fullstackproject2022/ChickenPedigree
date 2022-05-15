@@ -1,6 +1,5 @@
 import React, { useEffect } from "react"
-import read from "../../../backend/api/crud/read"
-import getScore from "../../../backend/bin/pairingScore"
+import { getScore, sourceData } from "../../../backend/bin/pairingScore"
 
 
 const SelectionPanel = (
@@ -19,91 +18,37 @@ const SelectionPanel = (
         setScores()
     }, [fSelected])
 
-
-
-    // const getObject = async (id) => {
-    //     let obj = []
-    //     await read.fetchOne('chicken', id)
-    //         .then(response => obj.push(response))
-    //     return obj[0]
-    // }
-
-
-    // const setScores = async () => {
-    //     // const source = Array.from(document.getElementsByClassName("source-score"))
-    //     let source = fRadioSelected ? fSelected : mRadioSelected && mSelected
-    //     let sourceObj = []
-    //     let fParent = []
-    //     let mParent = []
-    //     let halfSiblings = []
-    //     let fullSiblings = []
-    //     await getObject(Number(source)).then(o => sourceObj.push(o))
-    //     sourceObj = sourceObj[0]
-    //     console.log(sourceObj)
-    //     sourceObj.fParent != 0 && await getObject(Number(sourceObj.fParent)).then(o => fParent.push(o)) // get parent object
-    //     sourceObj.mParent != 0 && await getObject(Number(sourceObj.mParent)).then(o => mParent.push(o)) // get parent object
-
-    //     fParent = fParent[0]
-    //     mParent = mParent[0]
-
-    //     const temp = []
-    //     fParent && temp.push(fParent.children)
-    //     mParent && temp.push(mParent.children)
-
-    //     if (fParent && mParent) {
-    //         fullSiblings = [... new Set(temp[0].filter(c => temp[1].includes(c)))]
-    //         halfSiblings = [... new Set(temp[0].concat(temp[1]))].filter(c => !fullSiblings.includes(c))
-    //     } else halfSiblings = temp[0]
-
-    //     console.log("full", fullSiblings)
-    //     console.log("half", halfSiblings)
-
-    //     const target = Array.from(document.getElementsByClassName("target-score"))
-    //     if (source) {
-    //         console.log(source, target)
-    //         target.forEach(async t => {
-    //             let result = '';
-    //             await getScore(
-    //                 sourceObj = sourceObj,
-    //                 fParent = fParent,
-    //                 mParent = mParent,
-    //                 halfSiblings = halfSiblings,
-    //                 fullSiblings = fullSiblings,
-    //                 target = Number(t.innerText)
-    //             ).then(res => result = res)
-    //             const span = t.children[0]
-    //             span.innerText = result
-    //             let color = ''
-    //             switch (result) {
-    //                 case '< 25%': color = 'green'; break;
-    //                 case '≥ 25%': color = 'orange'; break;
-    //                 case '≥ 50%', ' 100%': color = 'red'; break;
-    //             }
-    //             span.style.color = color;
-    //         })
-
-    //     }
-    // }
     const setScores = () => {
         // const source = Array.from(document.getElementsByClassName("source-score"))
         let source = fRadioSelected ? fSelected : mRadioSelected && mSelected
         const target = Array.from(document.getElementsByClassName("target-score"))
         if (source) {
-            // console.log(source, target)
-            target.forEach(async t => {
-                let result = '';
-                await getScore(Number(source.target.innerText), Number(t.innerText)).then(res => result = res)
-                const span = t.children[0]
-                span.innerText = result
-                let color = ''
-                switch (result) {
-                    case '< 25%': color = 'green'; break;
-                    case '≥ 25%': color = 'orange'; break;
-                    case '≥ 50%', ' 100%': color = 'red'; break;
-                }
-                span.style.color = color;
+            let src = [source]
+            src.forEach(async s => {
+                let srcProperties = []
+                await sourceData(s)
+                    .then(res => srcProperties.push(...res))
+                    .catch(err => console.log(err.message))
+                target.forEach(async t => {
+                    let result = '';
+                    await getScore(srcProperties[0],
+                        srcProperties[1],
+                        srcProperties[2],
+                        srcProperties[3],
+                        srcProperties[4],
+                        Number(t.innerText))
+                        .then(res => result = res)
+                    const span = t.children[0]
+                    span.innerText = result
+                    let color = ''
+                    switch (result) {
+                        case '< 25%': color = 'green'; break;
+                        case '≥ 25%': color = 'orange'; break;
+                        case '≥ 50%': case ' 100%': color = 'red'; break;
+                    }
+                    span.style.color = color;
+                })
             })
-
         }
     }
 
@@ -139,6 +84,7 @@ const SelectionPanel = (
 
     return <>
         <div className={className}>
+            {console.log(chickens)}
             {fRadioSelected
                 ? chickens.map((chicken) => {
                     return chicken.sex === 'F'
