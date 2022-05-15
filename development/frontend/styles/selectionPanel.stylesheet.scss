@@ -44,7 +44,6 @@ $male-chicken-color: rgb(147, 198, 249);
         box-shadow: 0 0 0 2px #6a6a6a;
 
         &:hover {
-            // background-color: rgb(175, 175, 110);
             color: #eee;
         }
     }
@@ -88,5 +87,14 @@ $male-chicken-color: rgb(147, 198, 249);
         overflow-y: auto;
         height: 55vh;
     }
+
+    .target-score span {
+        float: right;
+        font-weight: 150;
+        font-size: 12px;
+        margin-left: -555px;
+    }
+
+
 
 }
