@@ -48,14 +48,14 @@ const SelectionPanel = (
                     return chicken.sex === 'M'
                         && <button key={chicken._id}
                             className="male-chickens target-score"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span></span></button>
+                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span className="t-span"></span></button>
                 })
                 : mRadioSelected
                 && chickens.map((chicken) => {
                     return chicken.sex === 'F'
                         && <button key={chicken._id}
                             className="female-chickens target-score"
-                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span></span></button>
+                            onClick={(element) => toggleButtonClicked(element)}> {chicken._id} <span className="t-span"></span></button>
                 })
             }
         </div>
