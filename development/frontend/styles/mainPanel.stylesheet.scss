@@ -1,14 +1,13 @@
 .parent-Main {
-    max-width: 99.5vw;
+    width: 100%;
 
     .main-panel {
-        border: 2px red solid;
         position: relative;
         display: flex;
         width: 100%;
         float: right;
         margin-left: 80px;
-        // margin-right: 0px;
+        margin-right: 10;
         // margin-bottom: 87.5px;
         height: calc(100vh - 180px) !important; // make table not extend bellow page
         margin-top: 10px;
