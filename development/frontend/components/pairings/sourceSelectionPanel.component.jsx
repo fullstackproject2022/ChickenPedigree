@@ -84,6 +84,7 @@ const SelectionPanel = (
 
     return <>
         <div className={className}>
+            {console.log(chickens)}
             {fRadioSelected
                 ? chickens.map((chicken) => {
                     return chicken.sex === 'F'
