@@ -19,7 +19,7 @@ $top-radius: 15px;
         margin: 10px 0;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
         font-weight: bold;
-        min-width: 100%;
+        width: 100%;
         background-color: rgb(64, 71, 88);
 
         &:hover {
@@ -37,7 +37,7 @@ $top-radius: 15px;
     .save-pairs {
         margin-top: 210px;
         margin-bottom: 60px;
-        width: 130px;
+        max-width: 130px;
         border: 2px solid rgb(113, 126, 149);
         background-color: #343b48;
         color: #eee;

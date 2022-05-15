@@ -30,7 +30,7 @@ const SavePairs =({pairs}) => {
 
   return (
     <div>
-      <button onClick={uploadPairs} className="save-pairs">Upload Pairs</button>
+      <button onClick={uploadPairs} className="save-pairs">Save Pairs</button>
     </div>
   )
 }
