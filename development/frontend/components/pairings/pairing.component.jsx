@@ -67,7 +67,8 @@ const PairingWindow = () => {
             return setErrMsg('Error, missing male chicken')
         }
         setErrMsg('')
-        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText) }
+        console.log(mSelected.target.innerText.split('\n'))
+        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText.split('\n')[0]) }
         pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg('That female is already paired!')
     }
 
