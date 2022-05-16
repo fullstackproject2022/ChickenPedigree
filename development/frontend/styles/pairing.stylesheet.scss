@@ -8,12 +8,7 @@ $top-radius: 15px;
     position: relative;
     margin-top: 87px;
     width: 100%;
-    // padding: 0 35px;
     height: calc(100vh - 130px) !important;
-    // height: 100vh;
-    // overflow-y: auto;
-
-
 
     button {
         cursor: pointer;
@@ -124,6 +119,7 @@ $top-radius: 15px;
         border-top-right-radius: $top-radius;
         min-width: 350px;
         max-width: 350px;
+        height: 100%;
 
         .wrapper {
             border-top-left-radius: $top-radius;
@@ -131,34 +127,37 @@ $top-radius: 15px;
             margin: 0;
         }
 
-        button * {
-            pointer-events: none;
+        button {
+            display: flex;
+            align-items: center;
+            color: $col-default;
+            max-width: 93%;
+            margin: 10px auto;
+
+            .female-span {
+                color: $female-chicken-color;
+            }
+
+            .male-span {
+                color: $male-chicken-color;
+            }
+
+            img {
+                height: 30px;
+                width: 30px;
+            }
+
+            span {
+                padding: 0 10px;
+            }
+
+            * {
+                pointer-events: none;
+            }
         }
 
     }
 
-    .matched-pairs button {
-        display: flex;
-        align-items: center;
-        color: $col-default;
-
-        .female-span {
-            color: $female-chicken-color;
-        }
-
-        .male-span {
-            color: $male-chicken-color;
-        }
-
-        img {
-            height: 30px;
-            width: 30px;
-        }
-
-        span {
-            padding: 0 10px;
-        }
-    }
 
     input[type="radio"] {
         $radius: 23px;

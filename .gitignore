@@ -1,5 +1,4 @@
 node_modules
 .vscode
-production
 development/package-lock.json
 package-lock.json
