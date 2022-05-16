@@ -56,7 +56,7 @@ export default function ForgotPwPanel({ setPagePanel }) {
                 <input type="email" name="to_email" onChange={e => setEmail(e.target.value)} />
             </div>
             <div className="submit" >
-                <button type="submit" value="Forgot password" >Forgot password</button>
+                <button type="submit" value="Forgot password" >Send Email to Reset Password</button>
             </div>
         </form>
     )

@@ -3,7 +3,7 @@ body {
 }
 
 #content {
-    transition: margin-left .35s ease-out, margin-right .5s ;
+    transition: margin-left .35s ease-out, margin-right .5s ease-out;
     margin-left: 65px;
 }
 
@@ -20,7 +20,7 @@ body {
         width: 100%;
         float: right;
         margin-top: 2.3em;
-        height: calc(100vh - 220px) !important; // make table not extend bellow page
+        height: calc(100vh - 200px) !important; // make table not extend bellow page
         overflow: auto;
     }
 

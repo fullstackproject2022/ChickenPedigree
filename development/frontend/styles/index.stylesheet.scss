@@ -154,7 +154,7 @@ th.down {
 }
 
 .body-wrapper {
-    width: 100vw;
+    width: 97.5%;
     display: flex;
     margin-left: -15px;
 }
@@ -171,8 +171,4 @@ button {
     &:hover {
         border: 2px solid #3d4656;
     }
-}
-
-.container {
-    width: 90vw;
 }

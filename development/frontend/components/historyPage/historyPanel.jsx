@@ -7,7 +7,7 @@ const HistoryPanel = () => {
 
     return (
         <div className='HistoryWrapper'>
-            <div className='HistoryForm'>
+            {/* <div className='HistoryForm'>
                 <h3>Create a pairing history here</h3> <br />
                 <form className="historyForm" onSubmit={handleSubmit}>
                     <div><label>Female chicken id</label>
@@ -26,7 +26,7 @@ const HistoryPanel = () => {
                     </div>
                     <button type="submit">Submit</button>
                 </form>
-            </div>
+            </div> */}
             <div className='HistoryTable'>
                 <HistoryTable />
             </div>

@@ -10,7 +10,7 @@ $top-radius: 15px;
     width: 100%;
     padding: 0;
     overflow: auto;
-    height: calc(100vh - 130px) !important;
+    height: calc(100vh - 125px) !important;
 
     button {
         cursor: pointer;
@@ -52,7 +52,7 @@ $top-radius: 15px;
 
     .year {
         display: flex;
-        border-radius: 10px;
+        border-radius: 0 0 10px 10px;
         // border-top-right-radius: 10px;
         justify-content: center;
         height: 75px;
