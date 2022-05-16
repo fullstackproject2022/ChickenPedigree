@@ -23,6 +23,7 @@ const PairingWindow = () => {
     const [panelText1, setPanelText1] = useState('')
     const [panelText2, setPanelText2] = useState('')
     const [selectedButton, setSelectedButton] = useState(null)
+    // const [matchedPairs, setMatchedPairs] = useState([]) // !---- TODO -- IS IN PAIRS
 
     useEffect(() => {
         setPanelText1(fRadio ? 'Female' : 'Male')
@@ -76,27 +77,30 @@ const PairingWindow = () => {
     }
 
     const pairClicked = (element) => {
-        const matched = element.target.innerText.split('\n')
-        let fChicken = fRadio ? matched[0] : matched[1]
-        let mChicken = mRadio ? matched[0] : matched[1]
-        console.log(matched)
-        console.log(`Female ${fChicken}`)
-        console.log(`male ${mChicken}`)
-        setSelectedButton(element)
+        console.log(element)
+        if (selectedButton === element || selectedButton) { selectedButton.className = 'paired-button'; setSelectedButton(null) }
+        else {
+            element.className = 'paired-button selected'
+            setSelectedButton(element)
+        }
     }
 
     const removePair = async () => {
-        console.log("HONEY I'M IN!")
-        const element = selectedButton
-        const matched = element.target.innerText.split('\n')
-        let fChicken = []
-        let mChicken = []
-        await read.fetchOne('chicken', Number(matched[0])).then(res => fRadio ? fChicken.push(res) : mChicken.push(res))
-        await read.fetchOne('chicken', Number(matched[1])).then(res => mRadio ? fChicken.push(res) : mChicken.push(res))
-        fChicken = fChicken[0]
-        mChicken = mChicken[0]
-        setFilteredChickens([fChicken, mChicken, ...filteredChickens])
-
+        if (selectedButton) {
+            const element = selectedButton
+            const matched = element.target.innerText.split('\n')
+            let fChicken = []
+            let mChicken = []
+            const female = Number(element.target.firstChild.innerText)
+            const male = Number(element.target.lastChild.innerText)
+            await read.fetchOne('chicken', Number(matched[0])).then(res => fRadio ? fChicken.push(res) : mChicken.push(res))
+            await read.fetchOne('chicken', Number(matched[1])).then(res => mRadio ? fChicken.push(res) : mChicken.push(res))
+            fChicken = fChicken[0]
+            mChicken = mChicken[0]
+            setFilteredChickens([fChicken, mChicken, ...filteredChickens])
+            setPairs(pairs.filter(p => p.female != female && p.male != male))
+            setSelectedButton(null)
+        }
     }
 
     if (years.length > 0) {
