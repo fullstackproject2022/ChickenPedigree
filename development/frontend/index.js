@@ -68,7 +68,7 @@ function App() {
       <div className="container">
         <TopPanel />
         <LeftPanel setActivePanel={setActivePanel} />
-        <RightPanel />
+        <RightPanel selected={0} />
         <section className="body-wrapper" id="content">
           {pageSelector()}
         </section>

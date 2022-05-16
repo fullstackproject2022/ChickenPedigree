@@ -4,9 +4,8 @@ import RightPanel from "../rightPanel/rightPanel.jsx";
 const TableBody = ({ columns, tableData }) => {
 
     const selectItem = (selected) => {
-        <RightPanel selected={selected} />
-        // document.getElementById("rightPanel").style.width = "250px";
-        document.getElementById("content").style.marginRight = "250px";
+        console.log(selected);
+        return (<RightPanel selected={selected} />);
     }
 
     return (
