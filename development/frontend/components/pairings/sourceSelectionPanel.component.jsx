@@ -84,7 +84,6 @@ const SelectionPanel = (
 
     return <>
         <div className={className}>
-            {console.log(chickens)}
             {fRadioSelected
                 ? chickens.map((chicken) => {
                     return chicken.sex === 'F'
@@ -101,7 +100,6 @@ const SelectionPanel = (
                             onClick={(element) => toggleButtonClicked(element)}> {chicken._id} </button>
                 })
             }
-
         </div>
     </>
 }
