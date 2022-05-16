@@ -40,7 +40,7 @@ const CreatePanel = ({ setPagePanel }) => {
     }
     return (
         <>
-            <div className='UpdateWrapper'>
+            <div className='CreateWrapper'>
                 <h3>Create a new user here</h3>
                 <form className="userUpdateForm" onSubmit={handleSubmit}>
                     <div><label>Username</label>
@@ -65,6 +65,7 @@ const CreatePanel = ({ setPagePanel }) => {
                         <input className="floater"
                             type="password"
                             onChange={e => setPassword(e.target.value)}
+                            autoComplete="off"
                         />
                     </div>
                     <div><label>Role</label>

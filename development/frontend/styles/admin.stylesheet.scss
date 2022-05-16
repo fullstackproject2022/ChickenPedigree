@@ -1,9 +1,16 @@
-.AdminWrapper {
-    $col-default: #eee;
+// Style for all the admin pages
 
-    table {
-        margin-top: 20px;
-    }
+.AdminWrapper,
+.AccountsWrapper {
+    $col-default: #eee;
+    $col-background: #30343c;
+
+    color: $col-default;
+    position: relative;
+    width: 99%;
+    margin-left: 10px;
+    margin-top: 10px;
+    overflow-y: auto;
 
     button {
         font-size: 18px;
@@ -44,6 +51,7 @@
         flex-direction: row-reverse;
     }
 
+    // -----------------------------------------Inputs---------------------------------
     .floater,
     select {
         float: right;
@@ -60,13 +68,45 @@
         font-size: 1.5vh;
     }
 
+    // -----------------------------------------Admin Table---------------------------------
+    table {
+        margin-top: 10px;
+
+        .tbody * {
+            text-align: center;
+            height: 30px;
+        }
+    }
+
+    // -----------------------------------------Headers---------------------------------
+    .AdminHeader,
+    .AccountHeader {
+        margin: auto;
+        display: flex;
+        flex-direction: row-reverse;
+
+        button {
+            min-width: 32%;
+            margin: auto;
+        }
+    }
+
+    .AccountHeader {
+        margin-left: 10px;
+
+        button {
+            min-width: 48%;
+        }
+    }
+
+    // -----------------------------------------Update Panel---------------------------------
+
     .userContainer {
         margin: auto;
         margin-top: 20px;
         width: 90%;
         padding: 2%;
-        background-color: #30343c;
-        color: #eee;
+        background-color: $col-background;
     }
 
     .userShow {
@@ -74,14 +114,20 @@
         width: 43%;
         height: 40%;
         padding: 2%;
+        
 
         span {
             width: 60%;
             float: right;
             text-align: right;
         }
+
+        label {
+            margin-bottom: 50px;
+        }
     }
 
+    // update Panel
     .userUpdate {
         float: right;
         width: 43%;
@@ -95,22 +141,18 @@
         }
     }
 
-    .createUser {
-        width: 45%;
-        height: 40%;
-        padding: 2%;
-        padding-bottom: 4%;
-        margin: auto;
+    // also in createPanel
+    .userUpdateForm div * {
+        display: inline;
     }
 
-
-    .UpdateWrapper {
+    // -----------------------------------------Create Panel---------------------------------
+    .CreateWrapper {
         width: 50%;
         margin: auto;
-
-        padding: 2%;
-        background-color: #30343c;
         margin-top: 20px;
+        padding: 2%;
+        background-color: $col-background;
 
         overflow: auto;
 
@@ -118,36 +160,23 @@
             max-width: 309px;
             float: right;
         }
-
-        label,
-        h3 {
-            color: #eee;
-        }
     }
 
+    // -----------------------------------------User Stats---------------------------------
     .BarPlotWrapper {
-        background-color: #30343c;
+        background-color: $col-background;
         width: 100%;
         text-align: center;
     }
 
     .BarPlot {
-        height: 650px;
+        height: 600px;
         width: 60%;
         margin: auto auto 40px auto;
         resize: auto;
         overflow: auto;
     }
 
-    .tbody * {
-        text-align: center;
-        height: 30px;
-    }
-
-
-    .userUpdateForm div * {
-        display: inline;
-    }
 
     @media only screen and (max-width: 1480px) {
         .BarPlot {
@@ -156,7 +185,7 @@
 
     }
 
-    @media only screen and (max-width: 1080px) {
+    @media only screen and (max-width: 1180px) {
         .BarPlot {
             width: 99%;
         }
@@ -174,22 +203,15 @@
             }
         }
 
-        .UpdateWrapper {
+        .CreateWrapper {
+            margin-top: 10px;
             width: 95%;
         }
     }
 
     @media only screen and (max-width: 590px) {
 
-        .UpdateWrapper {
-            overflow: none;
-
-            .CreateSubmit {
-                max-width: 309px;
-                float: none;
-            }
-        }
-
+        .CreateWrapper,
         .userUpdate {
             overflow: none;
 
@@ -199,12 +221,15 @@
             }
         }
 
-        .userUpdateForm div * {
-            display: block;
-        }
+        .userUpdateForm {
 
-        .userUpdateForm #radio {
-            display: inline;
+            div * {
+                display: block;
+            }
+
+            #radio {
+                display: inline;
+            }
         }
 
         .floater,
@@ -220,4 +245,13 @@
             height: 20px;
         }
     }
+}
+
+.AccountsWrapper {
+    margin-top: 80px;
+}
+
+.AdminBtn:disabled, .updateBtn:disabled {
+    border: 2px solid #3d4656;
+    cursor: context-menu;
 }

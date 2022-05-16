@@ -1,0 +1,68 @@
+{
+  "name": "peckit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-prebuild": "npm install --dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
+    "server": "node ./development/backend/app.js --open",
+    "build": "webpack --mode production",
+    "concurrent": "concurrently \"npm run server\" \"npm run start\"",
+    "dev": "nodemon ./development/backend/app.js"
+  },
+  "keywords": [
+    "PeckIt",
+    "React",
+    "AJAX",
+    "Webpack"
+  ],
+  "engines": {
+    "node": "16.13.*",
+    "npm": "8.5.*"
+  },
+  "author": "Sam Hurenkamp, Sandra Kaljula, Mark Harvey, Ramin Darudi",
+  "license": "ISC",
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "nodemon": "^2.0.15",
+    "react-error-overlay": "^6.0.11",
+    "sass": "^1.50.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.6.2",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.1.0",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^6.2.10",
+    "mongoose-sequence": "^5.3.1",
+    "plotly.js-dist": "^2.12.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-csv": "^2.2.2",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.3.1"
+  }
+}

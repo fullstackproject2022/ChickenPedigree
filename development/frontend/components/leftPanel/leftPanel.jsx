@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai"; // need to make sure not all icons are being imported 
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdAccountCircle } from "react-icons/md"
 import { BsFillEggFill } from "react-icons/bs"
 import { GiChicken } from "react-icons/gi";
@@ -48,18 +48,18 @@ const LeftPanel = ({ setActivePanel }) => {
 
             <div className="left-panel-item chickens active" onClick={() => { clickedtab('chickens') }}>
                 <div className="left-panel-div">
-                    <GiChicken /><span>Chickens</span>
+                    <GiChicken /><span className='text'>Chickens</span>
                 </div>
             </div>
 
             <div className="left-panel-item pairing" onClick={() => { clickedtab('pairing') }}>
                 <div className="left-panel-div">
-                    <BsFillEggFill /><span>Pair</span>
+                    <BsFillEggFill /><span className='text'>Pair</span>
                 </div>
             </div>
             <div className="left-panel-item history" onClick={() => { clickedtab('history') }}>
                 <div className="left-panel-div">
-                    <MdHistory /><span>History</span>
+                    <MdHistory /><span className='text'>History</span>
                 </div>
             </div>
             <div className="left-panel-item test" onClick={() => { clickedtab('test') }}>
@@ -73,7 +73,7 @@ const LeftPanel = ({ setActivePanel }) => {
                 <div className="divider"></div>
                 <div className="left-panel-item accounts" onClick={() => { clickedtab('accounts') }}>
                     <div className="left-panel-div">
-                        <MdAccountCircle /><span>Account</span>
+                        <MdAccountCircle /><span className='text'>Account</span>
                     </div>
                     <div className='User-name'></div>
                 </div>

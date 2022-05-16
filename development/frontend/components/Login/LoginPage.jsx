@@ -13,7 +13,7 @@ export default function Login({ setToken }) {
 
 
   const [panel, setPagePanel] = useState("LoginPanel");
-  
+
 
   const switchPanel = () => {
     if (panel === "LoginPanel") {
@@ -42,7 +42,7 @@ export default function Login({ setToken }) {
       <div className='logo'>
         <img src={logo} alt="logo" className='logo-img' />
       </div>
-      <h1> Peck It </h1>
+      <h1 className='peckIt'> Peck It </h1>
 
       {pageSelector()}
 

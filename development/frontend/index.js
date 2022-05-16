@@ -6,7 +6,7 @@ import TopPanel from "./components/topPanel/TopPanel.jsx";
 import MainPanel from "./components/mainPanel/main.panel.jsx";
 import Pairing from "./components/pairings/pairing.component.jsx";
 import History from "./components/historyPage/historyPanel.jsx";
-import AdminPanel from "./components/adminPanel/adminPanel.jsx";
+import Accounts from "./components/adminPanel/accounts.jsx";
 import useToken from '../backend/api/useToken';
 import jwtDecode from 'jwt-decode';
 import AboutPage from "./components/aboutPage/aboutPage.jsx";
@@ -19,6 +19,8 @@ import './styles/index.stylesheet.scss';
 let prevPanel = "";
 
 function App() {
+
+  
 
   const { token, setToken } = useToken();
 
@@ -57,7 +59,7 @@ function App() {
       case "test":
         return <TestPage />
       case "accounts":
-        return <AdminPanel />
+        return <Accounts />
       case "about":
         return <AboutPage />
     }

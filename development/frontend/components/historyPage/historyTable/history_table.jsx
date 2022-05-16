@@ -14,6 +14,14 @@ const HistoryTable = () => {
             .then(result => setUserData(result))
     }
 
+    // const rebuildData = async () => {
+    //     history_data.forEach(data => {
+    //         await read.fet
+    //         data.userName
+    //     })
+
+    // }
+
     if (history_data.length > 0) {
         const tableColumns = [ // not including children here
             { label: "User id", key: "userID", sortable: true },

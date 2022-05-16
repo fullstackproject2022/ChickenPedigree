@@ -1,0 +1,18 @@
+
+.exportBtn{
+    text-decoration: none;
+    color: #eee;
+    // margin: 0 0 0 5px;
+    min-width: 100px;
+    border: 2px solid rgb(113, 126, 149);
+    background-color: #343b48;
+    
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1px 31px 3px 31px;
+
+    &:hover {
+        border: 2px solid #3d4656;
+    }
+}

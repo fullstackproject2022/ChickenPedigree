@@ -5,22 +5,24 @@ $male-chicken-color: rgb(147, 198, 249);
     display: flex;
     margin: 0;
     background-color: rgb(37, 41, 44);
-    // height: 3%;
+    height: 75vh; // overflow-y: auto;
 
     div {
         display: block;
         flex-grow: 1;
-        margin: 0 50px;
+        margin: 0 50px 78px 50px;
     }
 
     .wrapper {
         min-width: 250px;
         max-width: 350px;
         width: 100%;
+        height: auto;
 
         div {
             margin: 0;
             padding: 2% 4%;
+            height: 100%;
 
             * {
                 display: block;
@@ -42,7 +44,6 @@ $male-chicken-color: rgb(147, 198, 249);
         box-shadow: 0 0 0 2px #6a6a6a;
 
         &:hover {
-            // background-color: rgb(175, 175, 110);
             color: #eee;
         }
     }
@@ -80,4 +81,22 @@ $male-chicken-color: rgb(147, 198, 249);
         }
     }
 
+    .filter-subjects,
+    .target-subjects {
+        overflow-y: auto;
+        height: 62vh;
+    }
+
+    .target-score span {
+        float: right;
+        font-weight: 150;
+        font-size: 12px;
+        margin-left: -555px;
+    }
+
+
+}
+
+.selected {
+    background-color: yellowgreen;
 }

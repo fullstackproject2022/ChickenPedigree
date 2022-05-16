@@ -10,6 +10,7 @@ $top-radius: 15px;
     width: 100%;
     padding: 0;
     overflow: auto;
+    height: calc(100vh - 130px) !important;
 
     button {
         cursor: pointer;
@@ -19,7 +20,7 @@ $top-radius: 15px;
         margin: 10px 0;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
         font-weight: bold;
-        min-width: 100%;
+        width: 100%;
         background-color: rgb(64, 71, 88);
 
         &:hover {
@@ -34,8 +35,25 @@ $top-radius: 15px;
         }
     }
 
+    .save-pairs {
+        margin-top: 210px;
+        margin-bottom: 60px;
+        max-width: 130px;
+        border: 2px solid rgb(113, 126, 149);
+        background-color: #343b48;
+        color: #eee;
+        border-radius: 6px;
+        font-size: 18px;
+
+        &:hover {
+            border: 2px solid #3d4656;
+        }
+    }
+
     .year {
         display: flex;
+        border-radius: 10px;
+        // border-top-right-radius: 10px;
         justify-content: center;
         height: 75px;
         width: 100%;
@@ -103,6 +121,7 @@ $top-radius: 15px;
         border-top-right-radius: $top-radius;
         min-width: 350px;
         max-width: 350px;
+        height: 100%;
 
         .wrapper {
             border-top-left-radius: $top-radius;
@@ -110,30 +129,37 @@ $top-radius: 15px;
             margin: 0;
         }
 
+        button {
+            display: flex;
+            align-items: center;
+            color: $col-default;
+            max-width: 93%;
+            margin: 10px auto;
+
+            .female-span {
+                color: $female-chicken-color;
+            }
+
+            .male-span {
+                color: $male-chicken-color;
+            }
+
+            img {
+                height: 30px;
+                width: 30px;
+            }
+
+            span {
+                padding: 0 10px;
+            }
+
+            * {
+                pointer-events: none;
+            }
+        }
+
     }
 
-    .matched-pairs button {
-        display: flex;
-        align-items: center;
-        color: $col-default;
-
-        .female-span {
-            color: $female-chicken-color;
-        }
-
-        .male-span {
-            color: $male-chicken-color;
-        }
-
-        img {
-            height: 30px;
-            width: 30px;
-        }
-
-        span {
-            padding: 0 10px;
-        }
-    }
 
     input[type="radio"] {
         $radius: 23px;
@@ -162,7 +188,7 @@ $top-radius: 15px;
         justify-content: center;
 
         :focus {
-            background-color: #060606;
+            background-color: yellow;
         }
     }
 

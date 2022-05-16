@@ -3,9 +3,11 @@ import read from "../../../backend/api/crud/read";
 import '../../styles/pairing.stylesheet.scss'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import pairingIcon from '../../styles/assets/icon-egg.png'
-import FSelectionPanel from './FSelectionPanel.component.jsx'
-import MSelectionPanel from './MSelectionPanel.component.jsx'
+import FSelectionPanel from './sourceSelectionPanel.component.jsx'
+import MSelectionPanel from './targetSelectionPanel.component.jsx'
 import PedigreeYears from "./years.component.jsx";
+import ExportCsv from "../importExport/ExportCsv.jsx";
+import SavePairs from "../historyPage/savePairs.jsx";
 
 
 const PairingWindow = () => {
@@ -20,6 +22,8 @@ const PairingWindow = () => {
     const [pairs, setPairs] = useState([])
     const [panelText1, setPanelText1] = useState('')
     const [panelText2, setPanelText2] = useState('')
+    const [selectedButton, setSelectedButton] = useState(null)
+    // const [matchedPairs, setMatchedPairs] = useState([]) // !---- TODO -- IS IN PAIRS
 
     useEffect(() => {
         setPanelText1(fRadio ? 'Female' : 'Male')
@@ -37,7 +41,6 @@ const PairingWindow = () => {
                 setChickens(result)
             })
     }, [])
-
 
     const createSelectionPanel = (filterBy, headerID) => {
         return filterBy === "F"
@@ -65,17 +68,39 @@ const PairingWindow = () => {
             return setErrMsg('Error, missing male chicken')
         }
         setErrMsg('')
-        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText) }
+        const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText.split('\n')[0]) }
+        setFilteredChickens(filteredChickens.filter(fc => ![obj.male, obj.female].includes(fc._id)))
         pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg('That female is already paired!')
     }
 
-    const pairClicked = () => {
-
+    const pairClicked = (element) => {
+        if (selectedButton) {
+            selectedButton.className = 'paired-button'
+        }
+        else {
+            if (selectedButton.target.firstChild.innerText != selectedButton.target.firstChild.innerText) {
+                element.className = 'paired-button selected'
+                setSelectedButton(element)
+            }
+        }
     }
 
-
-    const removePair = (female, male) => {
-        console.log("removing pair!")
+    const removePair = async () => {
+        if (selectedButton) {
+            const element = selectedButton
+            const matched = element.target.innerText.split('\n')
+            let fChicken = []
+            let mChicken = []
+            const female = Number(element.target.firstChild.innerText)
+            const male = Number(element.target.lastChild.innerText)
+            await read.fetchOne('chicken', Number(matched[0])).then(res => fRadio ? fChicken.push(res) : mChicken.push(res))
+            await read.fetchOne('chicken', Number(matched[1])).then(res => mRadio ? fChicken.push(res) : mChicken.push(res))
+            fChicken = fChicken[0]
+            mChicken = mChicken[0]
+            setFilteredChickens([fChicken, mChicken, ...filteredChickens])
+            setPairs(pairs.filter(p => p.female != female && p.male != male))
+            setSelectedButton(null)
+        }
     }
 
     if (years.length > 0) {
@@ -112,15 +137,20 @@ const PairingWindow = () => {
                             {
                                 pairs.map((pairing) => {
                                     return fRadio
-                                        ? <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        ? <button className="paired-button" onClick={(e) => pairClicked(e)} key={String(pairing.female) + String(pairing.male)}>
                                             <span className="female-span">{pairing.female}</span> <img src={pairingIcon} /><span className="male-span">{pairing.male}</span>
                                         </button>
-                                        : <button className="paired-button" onClick={pairClicked} key={String(pairing.female) + String(pairing.male)}>
+                                        : <button className="paired-button" onClick={(e) => pairClicked(e)} key={String(pairing.female) + String(pairing.male)}>
                                             <span className="male-span">{pairing.male}</span> <img src={pairingIcon} /> <span className="female-span">{pairing.female}</span>
                                         </button>
                                 })
                             }
                         </div>
+                    </div>
+
+                    <div>
+                        <SavePairs pairs={pairs} />
+                        <ExportCsv pairs={pairs} />
                     </div>
                 </section>
             </div>

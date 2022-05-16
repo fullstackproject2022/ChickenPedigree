@@ -22,6 +22,22 @@ body {
         sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgb(33, 37, 43);
+    border-radius: 2px;
+    overflow: overlay
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 4px;
+}
+
 /* 
   =================
   Table
@@ -94,6 +110,11 @@ th.down {
     color: #eee;
 }
 
+// .table tbody tr:hover td {
+//     background: #e0e3e8;
+//     cursor: pointer;
+// }
+
 
 .table tbody tr:first-child td {
     border-top: none;
@@ -127,7 +148,13 @@ th.down {
     left: 0;
 }
 
+.footer {
+    bottom: 0;
+    right: 0;
+}
+
 .body-wrapper {
+    width: 100vw;
     display: flex;
     margin-left: -15px;
 }
@@ -144,4 +171,8 @@ button {
     &:hover {
         border: 2px solid #3d4656;
     }
+}
+
+.container {
+    width: 90vw;
 }

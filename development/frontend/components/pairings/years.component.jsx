@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react"
 
 
 const PedigreeYears = ({ years, chickens, setFilteredChickens }) => {
-
     const [filtered, setFiltered] = useState([])
     const [checkAll, setCheckAll] = useState(true)
     const allCheckBox = useRef()
