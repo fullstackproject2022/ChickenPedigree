@@ -17,6 +17,9 @@
     "AJAX",
     "Webpack"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "author": "Sam Hurenkamp, Sandra Kaljula, Mark Harvey, Ramin Darudi",
   "license": "ISC",
   "devDependencies": {
