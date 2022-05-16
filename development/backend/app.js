@@ -6,9 +6,8 @@ const path = require('path')
 const PORT = process.env.PORT || 3000
 const API = require('./api/router.js')
 
-
 app.use(express.json()) // middleware
-app.use('/', express.static(path.resolve(__dirname, '..', 'production/')))
+app.use('/', express.static(path.resolve(__dirname, '..', '..', 'production/')))
 app.use("/api", API)  // api routes
 
 DATABASE.connect()

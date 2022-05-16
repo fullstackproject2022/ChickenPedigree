@@ -67,7 +67,6 @@ ROUTER.get('/owner', async (_, res) => {
 // login validator
 ROUTER.post('/login', async (req, res) => {
     console.log('Logging in...');
-
     const user = await User.findOne({ username: req.body.username });
 
     if (!user) {
@@ -175,18 +174,14 @@ ROUTER.post('/users/', async (req, res) => {
 
 // Get single chicken
 ROUTER.get("/chickentest/:id", async (req, res) => {
-
     const chicken = await chickentest.findOne({ _id: req.params.id });
-    if (!chicken) {res.status(404).json({ message: err.message })}
-    
+    if (!chicken) { res.status(404).json({ message: err.message }) }
     res.send(chicken);
-
-
 });
 
 // Add chickens to data base
-ROUTER.post("/chickentest/", async (req, res) =>{
-    try{
+ROUTER.post("/chickentest/", async (req, res) => {
+    try {
         const chicken = new chickentest({
             _id: req.body._id,
             batchYear: req.body.batchYear,
@@ -201,12 +196,12 @@ ROUTER.post("/chickentest/", async (req, res) =>{
         });
 
         const foundChicken = await chickentest.findOne({ _id: req.body._id });
-        if (foundChicken) throw new Error("This ID already exists: "+req.body._id);
+        if (foundChicken) throw new Error("This ID already exists: " + req.body._id);
         // console.log("Chicken Added")
         const newChicken = await chicken.save();
         res.status(201).json({ newChicken });
     } catch (err) {
-        res.status(400).json({ message: err.message});
+        res.status(400).json({ message: err.message });
     }
 })
 
