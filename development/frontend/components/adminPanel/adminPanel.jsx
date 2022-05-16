@@ -10,18 +10,31 @@ import UserStats from './userStats.jsx';
 const AdminPanel = () => {
     const [panel, setPagePanel] = useState("AdminTable");
     const [editID, setEditID] = useState("");
+    const [adminvis, setAdminVis] = useState(true)
+    const [createvis, setCreateVis] = useState(false)
+    const [userStatvis, setUserStatVis] = useState(false)
 
 
     const switchPanel1 = () => {
         setPagePanel("CreatePanel");
+        setCreateVis(true)
+        setUserStatVis(false)
+        setAdminVis(false)
+
     }
 
     const switchPanel2 = () => {
         setPagePanel("AdminTable");
+        setCreateVis(false)
+        setUserStatVis(false)
+        setAdminVis(true)
     }
 
     const switchPanel3 = () => {
         setPagePanel("UserStats");
+        setCreateVis(false)
+        setUserStatVis(true)
+        setAdminVis(false)
     }
 
     const pageSelector = () => {
@@ -42,9 +55,9 @@ const AdminPanel = () => {
 
             <div className='AdminWrapper'>
                 <div className='AdminHeader'>
-                    <Button text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
-                    <Button text={"Create User"} onClick={switchPanel1} className={"AdminBtn"} />
-                    <Button text={"User Stats"} onClick={switchPanel3} className={"AdminBtn"} />
+                    <Button disabled={adminvis} text={"Admin Panel"} onClick={switchPanel2} className={"AdminBtn"} />
+                    <Button disabled={createvis} text={"Create User"} onClick={switchPanel1} className={"AdminBtn"} />
+                    <Button disabled={userStatvis} text={"User Stats"} onClick={switchPanel3} className={"AdminBtn"} />
                 </div>
                 <div className='AdminPanel'>
                     {pageSelector()}
