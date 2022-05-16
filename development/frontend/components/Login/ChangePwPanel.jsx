@@ -10,7 +10,7 @@ import '../../styles/login.stylesheet.scss';
 //chickenpedigree@gmail.com
 //chickenchicken
 
-const ChangePwPanel = ( { setPagePanel } ) => {
+const ChangePwPanel = ({ setPagePanel }) => {
 
     const form2 = useRef();
     const changePassword = async (e) => {
@@ -33,7 +33,7 @@ const ChangePwPanel = ( { setPagePanel } ) => {
         await update.updatePassword(user, user._id);
 
         //Chnage create user in admin panel to this method as well!
-        return(setPagePanel("ForgotPwPanel"));
+        return (setPagePanel("ForgotPwPanel"));
     }
 
     return (

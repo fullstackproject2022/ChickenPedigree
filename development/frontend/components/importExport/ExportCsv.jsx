@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {CSVLink} from 'react-csv'
+import React, { useState } from 'react'
+import { CSVLink } from 'react-csv'
 import "../../styles/ExportCsv.stylesheet.scss"
 
 const ExportCsv = (pairs) => { // the reason convert was needed was because I forgot to put pairs in {}
@@ -7,8 +7,8 @@ const ExportCsv = (pairs) => { // the reason convert was needed was because I fo
   const [arrayOfPairs, setArrayOfPairs] = useState([])
 
   const headerss = [
-    { label: 'Female ID', key:'femaleChicken'},
-    { label: 'Male ID', key:'maleChicken'}
+    { label: 'Female ID', key: 'femaleChicken' },
+    { label: 'Male ID', key: 'maleChicken' }
   ]
 
   const csvReport = {
@@ -17,18 +17,18 @@ const ExportCsv = (pairs) => { // the reason convert was needed was because I fo
     data: arrayOfPairs
   }
 
-// get called when make pair is called to update array of pairs to not need convert button (inside useEffect)
+  // get called when make pair is called to update array of pairs to not need convert button (inside useEffect)
   const convertpairs = async () => {
-    if (pairs){
+    if (pairs) {
       console.log("getting called")
       await pairs.pairs.forEach(pair => {
-      const convPair = {
-        'femaleChicken': pair.female,
-        'maleChicken': pair.male
-      }
-      // arrayOfPairs.push(convPair)
-      setArrayOfPairs(olsArray => [...olsArray, convPair])
-    })
+        const convPair = {
+          'femaleChicken': pair.female,
+          'maleChicken': pair.male
+        }
+        // arrayOfPairs.push(convPair)
+        setArrayOfPairs(olsArray => [...olsArray, convPair])
+      })
     }
   }
 

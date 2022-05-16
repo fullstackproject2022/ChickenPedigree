@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const TableBody = ({ columns, tableData }) => {
-    
+
     return (
         <tbody>
             {tableData.map((data, id) => {

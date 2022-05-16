@@ -13,7 +13,7 @@ export default function Login({ setToken }) {
 
 
   const [panel, setPagePanel] = useState("LoginPanel");
-  
+
 
   const switchPanel = () => {
     if (panel === "LoginPanel") {

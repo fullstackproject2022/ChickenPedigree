@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open",
-    "server": "node ./backend/app.js --open",
+    "server": "node ./development/backend/app.js --open",
     "build": "webpack --mode production",
     "concurrent": "concurrently \"npm run server\" \"npm run start\"",
-    "dev": "nodemon ./backend/app.js"
+    "dev": "nodemon ./development/backend/app.js"
   },
   "keywords": [
     "PeckIt",

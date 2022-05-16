@@ -9,7 +9,7 @@ import '../../styles/login.stylesheet.scss';
 // emailjs logins
 //chickenpedigree@gmail.com
 //chickenchicken
-export default function ForgotPwPanel ( { setPagePanel } ) {
+export default function ForgotPwPanel({ setPagePanel }) {
     const [email, setEmail] = useState();
     const sendEmail = async (e) => {
         e.preventDefault();
@@ -41,11 +41,11 @@ export default function ForgotPwPanel ( { setPagePanel } ) {
             });
         alert("A login token has successfully been sent to your email.");
 
-        return(setPagePanel("ChangePwPanel"));
+        return (setPagePanel("ChangePwPanel"));
     }
 
 
-    return (   
+    return (
         <form onSubmit={sendEmail}>
             <div>
                 <h1> Send a recovery token to your email </h1>

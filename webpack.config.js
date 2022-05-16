@@ -1,13 +1,13 @@
 // const bundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path')
-const output = path.join(__dirname, '..', 'production')
+const output = path.join(__dirname, 'production')
 
 module.exports = {
     // core behaviours
     entry: {
         // entry point (obj[code splitting]/filepath) to application 
-        bundle: path.join(__dirname, 'frontend', 'index.js')
+        bundle: path.join(__dirname, 'development', 'frontend', 'index.js')
     },
     output: {
         // Code output (file to which js is compiled to)
@@ -52,7 +52,7 @@ module.exports = {
                         loader: "file-loader"
                     }
                 ]
-                
+
             },
             {
                 test: /\.svg$/,
@@ -62,7 +62,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: path.join(__dirname, 'frontend', 'template.html'),
+            template: path.join(__dirname, 'development', 'frontend', 'template.html'),
             filename: "index.html"
         })
         // new bundleAnalyzer()
