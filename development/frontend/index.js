@@ -20,8 +20,6 @@ let prevPanel = "";
 
 function App() {
 
-  
-
   const { token, setToken } = useToken();
 
   if (!token) {
