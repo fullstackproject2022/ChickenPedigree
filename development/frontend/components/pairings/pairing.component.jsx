@@ -78,7 +78,7 @@ const PairingWindow = () => {
             selectedButton.className = 'paired-button'
         }
         else {
-            if (selectedButton.target.firstChild.innerText != selectedButton.target.firstChild.innerText) {
+            if (!selectedButton || selectedButton.target.firstChild.innerText != selectedButton.target.firstChild.innerText) {
                 element.className = 'paired-button selected'
                 setSelectedButton(element)
             }
