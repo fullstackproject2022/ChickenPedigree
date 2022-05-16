@@ -18,7 +18,8 @@
     "Webpack"
   ],
   "engines": {
-    "node": "16.13.*"
+    "node": "16.13.*",
+    "npm": "8.5.*"
   },
   "author": "Sam Hurenkamp, Sandra Kaljula, Mark Harvey, Ramin Darudi",
   "license": "ISC",
