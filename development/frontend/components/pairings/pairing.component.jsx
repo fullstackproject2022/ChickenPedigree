@@ -42,7 +42,6 @@ const PairingWindow = () => {
             })
     }, [])
 
-
     const createSelectionPanel = (filterBy, headerID) => {
         return filterBy === "F"
             ? <div className="wrapper"><div className="header-div" id={headerID}> <span id="filter-header">{panelText1}</span> </div>
@@ -72,8 +71,6 @@ const PairingWindow = () => {
         const obj = { female: Number(fSelected.target.innerText), male: Number(mSelected.target.innerText.split('\n')[0]) }
         setFilteredChickens(filteredChickens.filter(fc => ![obj.male, obj.female].includes(fc._id)))
         pairs == [] || pairs.filter(pair => pair.female != obj.female).length === pairs.length ? setPairs([...pairs, obj]) : setErrMsg('That female is already paired!')
-
-
     }
 
     const pairClicked = (element) => {

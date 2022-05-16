@@ -15,12 +15,12 @@ const SelectionPanel = (
     const toggleButtonClicked = (element) => {
         if (fSelected && (element.target.innerText == fSelected.target.innerText)) {
             setFSelected(null)
-            element.target.className = 'female-chickens'
+            element.target.className = 'female-chickens target-score'
             return
         }
         else if (mSelected && (element.target.innerText == mSelected.target.innerText)) {
             setMSelected(null)
-            element.target.className = 'male-chickens'
+            element.target.className = 'male-chickens target-score'
             return
         }
 
