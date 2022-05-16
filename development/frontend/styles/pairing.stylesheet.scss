@@ -131,6 +131,10 @@ $top-radius: 15px;
             margin: 0;
         }
 
+        button * {
+            pointer-events: none;
+        }
+
     }
 
     .matched-pairs button {

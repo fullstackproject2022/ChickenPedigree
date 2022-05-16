@@ -77,7 +77,12 @@ const PairingWindow = () => {
     }
 
     const pairClicked = (element) => {
-        setSelectedButton(element)
+        console.log(element)
+        if (selectedButton === element || selectedButton) { selectedButton.className = 'paired-button'; setSelectedButton(null) }
+        else {
+            element.className = 'paired-button selected'
+            setSelectedButton(element)
+        }
     }
 
     const removePair = async () => {
@@ -86,16 +91,15 @@ const PairingWindow = () => {
             const matched = element.target.innerText.split('\n')
             let fChicken = []
             let mChicken = []
-            console.log("hello")
+            const female = Number(element.target.firstChild.innerText)
+            const male = Number(element.target.lastChild.innerText)
             await read.fetchOne('chicken', Number(matched[0])).then(res => fRadio ? fChicken.push(res) : mChicken.push(res))
             await read.fetchOne('chicken', Number(matched[1])).then(res => mRadio ? fChicken.push(res) : mChicken.push(res))
             fChicken = fChicken[0]
             mChicken = mChicken[0]
-            console.log(fChicken)
-            console.log(mChicken)
-            console.log(pairs.forEach(p => console.log(p)))
             setFilteredChickens([fChicken, mChicken, ...filteredChickens])
-            setPairs(pairs.filter(p => p.female != fChicken._id && p.male != mChicken._id))
+            setPairs(pairs.filter(p => p.female != female && p.male != male))
+            setSelectedButton(null)
         }
     }
 
