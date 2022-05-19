@@ -46,7 +46,6 @@ const LeftPanel = ({ setActivePanel }) => {
 
             <div className="bottom-left-panel">
 
-                <div className="divider"></div>
                 <div className="left-panel-item" onClick={() => { setInactive(false); return (setActivePanel('accounts')) }}>
                     <div className="left-panel-div">
                         <MdAccountCircle /><span className='text'>Account</span>

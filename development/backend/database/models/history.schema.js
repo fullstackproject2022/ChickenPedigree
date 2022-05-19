@@ -12,6 +12,11 @@ const historySchema = mongoose.Schema({
         unique: false,
         required: true
     },
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },
     fChickenID: {
         type: Number,
         unique: false,

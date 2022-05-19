@@ -92,6 +92,7 @@ const createMailtoken = async (email, token) => {
 
 
 const createPairingHistory = async (historyDetails) => {
+    console.log(historyDetails)
     fetch(`/api/history/`, {
         method: 'POST',
         headers: {

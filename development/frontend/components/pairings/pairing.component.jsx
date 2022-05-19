@@ -7,7 +7,7 @@ import FSelectionPanel from './sourceSelectionPanel.component.jsx'
 import MSelectionPanel from './targetSelectionPanel.component.jsx'
 import PedigreeYears from "./years.component.jsx";
 import ExportCsv from "../importExport/ExportCsv.jsx";
-import SavePairs from "../historyPage/savePairs.jsx";
+import SavePairs from "./savePairs.jsx";
 
 
 const PairingWindow = () => {
@@ -22,8 +22,7 @@ const PairingWindow = () => {
     const [pairs, setPairs] = useState([])
     const [panelText1, setPanelText1] = useState('')
     const [panelText2, setPanelText2] = useState('')
-    const [selectedButton, setSelectedButton] = useState(null)
-    // const [matchedPairs, setMatchedPairs] = useState([]) // !---- TODO -- IS IN PAIRS
+    const [selectedButton, setSelectedButton] = useState()
 
     useEffect(() => {
         setPanelText1(fRadio ? 'Female' : 'Male')
@@ -78,9 +77,9 @@ const PairingWindow = () => {
             selectedButton.className = 'paired-button'
         }
         else {
-            if (!selectedButton || selectedButton.target.firstChild.innerText != selectedButton.target.firstChild.innerText) {
-                element.className = 'paired-button selected'
+            if (!selectedButton || selectedButton.target.firstChild.innerText != element.target.firstChild.innerText) {
                 setSelectedButton(element)
+                selectedButton.className = 'paired-button selected'
             }
         }
     }
@@ -124,10 +123,10 @@ const PairingWindow = () => {
                     {createSelectionPanel("F", "first-header")}
                     {createSelectionPanel("M", "second-header")}
                     <div className="arrow-buttons">
-                        <button onClick={makePair}>
+                        <button onClick={makePair} id="top-btn">
                             <FaArrowRight />
                         </button>
-                        <button onClick={() => removePair()}>
+                        <button onClick={() => removePair()} id="bottom-btn">
                             <FaArrowLeft />
                         </button>
                     </div>
@@ -148,7 +147,7 @@ const PairingWindow = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div id="sidebar-menu">
                         <SavePairs pairs={pairs} />
                         <ExportCsv pairs={pairs} />
                     </div>

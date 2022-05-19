@@ -6,6 +6,12 @@ $male-chicken-color: rgb(147, 198, 249);
     margin: 0;
     background-color: rgb(37, 41, 44);
     height: 75vh; // overflow-y: auto;
+    overflow-x: hidden;
+    height: 65vh;
+
+    div {
+        height: (100%)
+    }
 
     div {
         display: block;

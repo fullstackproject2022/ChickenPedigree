@@ -96,7 +96,17 @@ $top-radius: 15px;
 
     .arrow-buttons {
         max-width: fit-content;
-        padding-top: 150px;
+        // padding-top: 150px;
+    }
+
+    #top-btn {
+        margin-top: 225px;
+    }
+
+    #sidebar-menu {
+        max-height: 200px;
+        margin-left: -45px;
+        max-width: 300px;
     }
 
     .arrow-buttons button {
@@ -178,8 +188,8 @@ $top-radius: 15px;
     .paired-button {
         justify-content: center;
 
-        :focus {
-            background-color: yellow;
+        *:focus {
+            background-color: yellow !important;
         }
     }
 

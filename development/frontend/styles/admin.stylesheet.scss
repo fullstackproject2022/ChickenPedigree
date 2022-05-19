@@ -4,13 +4,14 @@
 .AccountsWrapper {
     $col-default: #eee;
     $col-background: #30343c;
-
+    background-color: $col-background;
     color: $col-default;
     position: relative;
     width: 99%;
     margin-left: 10px;
-    margin-top: 10px;
     overflow-y: auto;
+    height: fit-content;
+    max-height: min(1550px, 88vh);
 
     button {
         font-size: 18px;
@@ -18,7 +19,6 @@
         border: 2px solid rgb(113, 126, 149);
         border-radius: 6px;
         height: 39px;
-        margin: 10px 0px;
         box-shadow: 1px 1px 5px rgb(37, 41, 44);
         min-width: 100%;
         background-color: #343b48;
@@ -27,13 +27,6 @@
         &:hover {
             border: 2px solid #3d4656;
         }
-
-        // &:active {
-        //     $bgColor: rgb(189, 147, 249);
-        //     background-color: $bgColor;
-        //     box-shadow: 0 0 3px $bgColor;
-        //     color: $col-default;
-        // }
     }
 
     // -----------------------------------------Inputs---------------------------------
@@ -99,7 +92,7 @@
         width: 43%;
         height: 40%;
         padding: 2%;
-        
+
 
         span {
             width: 60%;
@@ -233,10 +226,11 @@
 }
 
 .AccountsWrapper {
-    margin-top: 80px;
+    margin-top: 90px;
 }
 
-.AdminBtn:disabled, .updateBtn:disabled {
+.AdminBtn:disabled,
+.updateBtn:disabled {
     border: 2px solid #3d4656;
     cursor: context-menu;
 }

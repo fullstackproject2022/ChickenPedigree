@@ -268,7 +268,6 @@ ROUTER.put("/user/:id", async (req, res) => {
 // Create new pairing History
 ROUTER.post('/history/', async (req, res) => {
     try {
-        // Auto increment id
         let newID = undefined;
         try {
             newID = (await db.collection('counters').findOne()).seq + 1
@@ -276,10 +275,10 @@ ROUTER.post('/history/', async (req, res) => {
         catch (error) {
             if (!newID) newID == 1
         }
-
         const history = new History({
             historyID: newID,
             userID: req.body.userID,
+            username: req.body.username,
             fChickenID: req.body.fChickenID,
             mChickenID: req.body.mChickenID
         });
@@ -287,6 +286,8 @@ ROUTER.post('/history/', async (req, res) => {
         const newHistory = await history.save();
         res.status(201).json({ newHistory });
     } catch (err) {
+        console.log("err")
+        console.log(req.body)
         res.status(400).json({ message: err.message });
     }
 });
