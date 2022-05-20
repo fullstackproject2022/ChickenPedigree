@@ -9,6 +9,9 @@ Its simple, easy to use nature ensured an enjoyable user experience, which vastl
 PeckIt aims to reduce the time that students and researchers within the group will spend on these tasks, thereby freeing up additional time for more important research matters.
 Although PeckIt only caters to the Løvlie research team, its thought and implimentation open up the door towards future wider applications, such as in farming.
 
+## Heroku
+Our web app is now available at Heroku! Check out https://peckit.herokuapp.com/
+
 
 ## Installing
 * Download from github https://github.com/fullstackproject2022/ChickenPedigree.
